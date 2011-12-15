@@ -114,7 +114,7 @@ valil.chess.draw.rook = function(ctx, color) {
     ctx.fill();
 };
 valil.chess.draw.whitePieceColor = 'lightgrey';
-valil.chess.draw.blackPieceColor = 'red';
+valil.chess.draw.blackPieceColor = 'green';
 valil.chess.draw.whiteSquareColor = 'mintcream';
 valil.chess.draw.blackSquareColor = 'lightskyblue';
 valil.chess.draw.squareSize = 120;

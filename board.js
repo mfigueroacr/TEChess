@@ -46,7 +46,7 @@ valil.chess.board.prototype = {
                 this.mainCtx.scale(this.displayScale, this.displayScale);
                 this.mainCtx.translate(c.x, c.y);
                 valil.chess.board.drawSquare(this.mainCtx, x, y);
-                valil.chess.board.drawPiece(this.mainCtx, valil.chess.board.getPiece(x, y));
+               valil.chess.board.drawPiece(this.mainCtx, valil.chess.board.getPiece(x, y));
                 this.mainCtx.restore();
             }
         }
