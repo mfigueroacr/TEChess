@@ -1,0 +1,270 @@
+canvas#mainCanvas {
+    position:absolute;
+}
+
+div#boardDiv {
+    display:table-cell;
+    vertical-align:top;
+}
+
+canvas#dragCanvas {
+    position:absolute;
+    visibility:hidden;
+}
+
+div#barDiv {
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:2px;
+}
+
+div#aiMoveDetailsDiv {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2px;
+}
+
+textarea#moveHistoryList {
+    display:table-cell;
+    vertical-align:top;
+    margin-left:2px;
+    resize:none;
+}
+
+div#tableDiv{
+    display:table;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div#rowDiv{
+    display:table-row;
+}
+
+@media screen and (min-width:240px) and (min-height:240px) and (orientation:portrait) {
+    body {
+        margin: 0;
+    }
+
+    canvas#mainCanvas {
+        width: 240px;
+        height: 240px;
+    }
+
+    div#boardDiv {
+        width: 240px;
+        height: 240px;
+    }
+
+    canvas#dragCanvas {
+        width: 30px;
+        height: 30px;
+    }
+
+    div#barDiv {
+        width: 240px;
+    }
+
+    div#aiMoveDetailsDiv {
+        width: 235px;
+        font-size: 8px;
+    }
+
+    input.chessbutton {
+        font-size: 10px;
+    }
+
+    textarea#moveHistoryList {
+        display: none;
+    }
+}
+
+@media screen and (min-width:240px) and (min-height:240px) and (orientation:landscape) {
+    body {
+        margin: 0;
+    }
+
+    canvas#mainCanvas {
+        width: 240px;
+        height: 240px;
+    }
+
+    div#boardDiv {
+        width: 240px;
+        height: 240px;
+    }
+
+    canvas#dragCanvas {
+        width: 30px;
+        height: 30px;
+    }
+
+    div#barDiv {
+        width: 300px;
+    }
+
+    div#aiMoveDetailsDiv {
+        width: 300px;
+        font-size: 8px;
+    }
+
+    input.chessbutton {
+        font-size: 10px;
+    }
+
+    textarea#moveHistoryList {
+        height: 235px;
+        width: 60px;
+        font-size: 8px;
+    }
+}
+
+@media screen and (min-width:320px) and (min-height:320px) and (orientation:portrait) {
+    body {
+        margin: 0;
+    }
+
+    canvas#mainCanvas {
+        width: 320px;
+        height: 320px;
+    }
+
+    div#boardDiv {
+        width: 320px;
+        height: 320px;
+    }
+
+    canvas#dragCanvas {
+        width: 40px;
+        height: 40px;
+    }
+
+    div#barDiv {
+        width: 315px;
+    }
+
+    div#aiMoveDetailsDiv {
+        width: 315px;
+        font-size: 10px;
+    }
+
+    input.chessbutton {
+        font-size: 10px;
+    }
+
+    textarea#moveHistoryList {
+        display: none;
+    }
+}
+
+@media screen and (min-width:320px) and (min-height:320px) and (orientation:landscape) {
+    body {
+        margin: 0;
+    }
+
+    canvas#mainCanvas {
+        width: 320px;
+        height: 320px;
+    }
+
+    div#boardDiv {
+        width: 320px;
+        height: 320px;
+    }
+
+    canvas#dragCanvas {
+        width: 40px;
+        height: 40px;
+    }
+
+    div#barDiv {
+        width: 400px;
+    }
+
+    div#aiMoveDetailsDiv {
+        width: 400px;
+        font-size: 10px;
+    }
+
+    input.chessbutton {
+        font-size: 10px;
+    }
+
+    textarea#moveHistoryList {
+        height: 315px;
+        width: 80px;
+        font-size: 10px;
+    }
+}
+
+@media screen and (min-width:768px) and (min-height:768px) {
+    canvas#mainCanvas {
+        width: 480px;
+        height: 480px;
+    }
+
+    div#boardDiv {
+        width: 480px;
+        height: 480px;
+    }
+
+    canvas#dragCanvas {
+        width: 60px;
+        height: 60px;
+    }
+
+    div#barDiv {
+        width: 600px;
+    }
+
+    div#aiMoveDetailsDiv {
+        width: 600px;
+        font-size: 12px;
+    }
+
+    input.chessbutton {
+        font-size: 12px;
+    }
+
+    textarea#moveHistoryList {
+        height: 475px;
+        width: 120px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:1200px) and (min-height:1200px) {
+    canvas#mainCanvas {
+        width: 720px;
+        height: 720px;
+    }
+
+    div#boardDiv {
+        width: 720px;
+        height: 720px;
+    }
+
+    canvas#dragCanvas {
+        width: 90px;
+        height: 90px;
+    }
+
+    div#barDiv {
+        width: 810px;
+    }
+
+    div#aiMoveDetailsDiv {
+        width: 800px;
+        font-size: 16px;
+    }
+
+    input.chessbutton {
+        font-size: 16px;
+    }
+
+    textarea#moveHistoryList {
+        height: 710px;
+        width: 160px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HTML5 Chess</title>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <script type="text/javascript" src="ecmascript5.js"></script>
+    <script type="text/javascript" src="garbochess.js"></script>
+    <script type="text/javascript" src="canvascontext.js"></script>
+    <script type="text/javascript" src="draw.js"></script>
+    <script type="text/javascript" src="event.js"></script>
+    <script type="text/javascript" src="dragdrop.js"></script>
+    <script type="text/javascript" src="board.js"></script>
+    <link href="styles.css" rel="stylesheet"/>
+    <link href="layout.css" rel="stylesheet"/>
+</head>
+<body onload="init()">
+<div id="barDiv">
+    <input type="button" class="chessbutton" value="New game" onclick="newGame()"/>
+</div>
+
+<div id="tableDiv">
+    <div id="rowDiv">
+        <div id="boardDiv">
+            <!-- TODO: in Firefox, position:relative does not have an effect on elements with display:table* so an extra div is needed -->
+            <div style="position:relative;">
+                <canvas id="mainCanvas"></canvas>
+                <canvas id="dragCanvas"></canvas>
+            </div>
+        </div>
+        <textarea id="moveHistoryList" class="chesstext" readonly="readonly"></textarea>
+    </div>
+</div>
+<div id="aiMoveDetailsDiv" class="chesstext"></div>
+<script type="text/javascript">
+    var board;
+
+    function newGame() {
+        if (board) {
+            board.newGame();
+        }
+        document.getElementById('moveHistoryList').value = '';
+        document.getElementById("aiMoveDetailsDiv").textContent = '-';
+    }
+
+    function init() {
+        board = valil.chess.board.create(document.getElementById("mainCanvas"), document.getElementById("dragCanvas"));
+
+        board.moveEvent.subscribe(null,
+                                 function(args) {
+                                     if (args.aiDetails) {
+                                         document.getElementById("aiMoveDetailsDiv").textContent = args.aiDetails;
+                                     }
+                                 });
+
+        board.moveEvent.subscribe(null,
+                                 function(args) {
+                                     var moveHistoryList = document.getElementById("moveHistoryList");
+                                     moveHistoryList.value +=
+                                             g_toMove ? ((g_moveCount >> 1) + 1) + ". " + args.move : " " + args.move + "\n";
+                                     moveHistoryList.scrollTop = moveHistoryList.scrollHeight - moveHistoryList.clientHeight;
+                                 });
+
+        newGame();
+    }
+</script>
+</body>
+</html>
