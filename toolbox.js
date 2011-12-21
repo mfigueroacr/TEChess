@@ -1,15 +1,19 @@
+/**
+ * @author Figueroa
+ */
+
 valil = window.valil || {};
 valil.chess = valil.chess || {};
 
-valil.chess.board = {};
-valil.chess.board.create = function (mainCanvas, dragCanvas) {
+valil.chess.toolbox = {};
+valil.chess.toolbox.create = function (mainCanvas, dragCanvas) {
     g_timeout = 1000;
 
-    var preferredSize = valil.chess.board.getPreferredSize();
+    var preferredSize = valil.chess.toolbox.getPreferredSize();
     mainCanvas.width = mainCanvas.height = preferredSize;
     dragCanvas.width = dragCanvas.height = (preferredSize >> 3);
 
-    var board = Object.create(valil.chess.board.prototype, {
+    var toolbox = Object.create(valil.chess.toolbox.prototype, {
         mainCtx: {value: mainCanvas.getContext('2d')},
         dragCtx: {value: dragCanvas.getContext('2d')},
         moveEvent: {value: valil.utils.event.create()},
@@ -22,31 +26,31 @@ valil.chess.board.create = function (mainCanvas, dragCanvas) {
         displayScale: {value: preferredSize / (valil.chess.draw.squareSize << 3)}
     });
 
-    Object.defineProperties(board, {
-        boundAiMove: {value: board.aiMove.bind(board)},
+    Object.defineProperties(toolbox, {
+        boundAiMove: {value: toolbox.aiMove.bind(toolbox)},
         searchMove: {value: function() {
-            Search(board.boundAiMove, 99, null);
+            Search(toolbox.boundAiMove, 99, null);
         }}
     });
 
     var dragdrop = valil.utils.dragdrop.create(mainCanvas);
-    dragdrop.startDrag.subscribe(board, board.startDrag);
-    dragdrop.drag.subscribe(board, board.drag);
-    dragdrop.endDrag.subscribe(board, board.endDrag);
+    dragdrop.startDrag.subscribe(toolbox, toolbox.startDrag);
+    dragdrop.drag.subscribe(toolbox, toolbox.drag);
+    dragdrop.endDrag.subscribe(toolbox, toolbox.endDrag);
     dragdrop.startListening();
 
-    return board;
+    return toolbox;
 };
-valil.chess.board.prototype = {
+valil.chess.toolbox.prototype = {
     draw: function() {
-        for (var y = 0; y < 8; y++) {
-            for (var x = 0; x < 8; x++) {
+        for (var y = 0; y < 2; y++) {
+            for (var x = 0; x < 6; x++) {
                 this.mainCtx.save();
                 var c = this.getSquareCoords(x, y);
                 this.mainCtx.scale(this.displayScale, this.displayScale);
                 this.mainCtx.translate(c.x, c.y);
-                valil.chess.board.drawSquare(this.mainCtx, x, y);
-               valil.chess.board.drawPiece(this.mainCtx, valil.chess.board.getPiece(x, y));
+                valil.chess.toolbox.drawSquare(this.mainCtx, x, y);
+               valil.chess.toolbox.drawPiece(this.mainCtx, valil.chess.toolbox.getPiece(x, y));
                 this.mainCtx.restore();
             }
         }
@@ -57,13 +61,13 @@ valil.chess.board.prototype = {
         this.startSq = this.getSquare(dragdropargs);
         this.delta = this.getDelta(dragdropargs);
         var start = this.getSquareCoords(this.startSq.x, this.startSq.y);
-        var piece = valil.chess.board.getPiece(this.startSq.x, this.startSq.y);
+        var piece = valil.chess.toolbox.getPiece(this.startSq.x, this.startSq.y);
 
         if ((piece & 0x7) !== pieceEmpty) {
             this.mainCtx.save();
             this.mainCtx.scale(this.displayScale, this.displayScale);
             this.mainCtx.translate(start.x, start.y);
-            valil.chess.board.drawSquare(this.mainCtx, this.startSq.x, this.startSq.y);
+            valil.chess.toolbox.drawSquare(this.mainCtx, this.startSq.x, this.startSq.y);
             this.mainCtx.restore();
 
             this.dragCtx.canvas.style.visibility = 'visible';
@@ -72,7 +76,7 @@ valil.chess.board.prototype = {
 
             this.dragCtx.save();
             this.dragCtx.scale(this.displayScale, this.displayScale);
-            valil.chess.board.drawPiece(this.dragCtx, piece);
+            valil.chess.toolbox.drawPiece(this.dragCtx, piece);
             this.dragCtx.restore();
         } else {
             dragdropargs.cancelled = true;
@@ -86,35 +90,35 @@ valil.chess.board.prototype = {
         var endSq = this.getSquare(dragdropargs);
         var end = this.getSquareCoords(endSq.x, endSq.y);
 
-        var move = valil.chess.board.getMove(this.startSq, endSq);
+        var move = valil.chess.toolbox.getMove(this.startSq, endSq);
         if (move) {
             this.moveEvent.fire({move:GetMoveSAN(move)});
 
             MakeMove(move);
 
-            var moveStr = valil.chess.board.getMoveStructure(move);
+            var moveStr = valil.chess.toolbox.getMoveStructure(move);
             if (moveStr.hasFlags) {
                 // TODO: better handling of en passant captures, castlings and promotions
                 this.draw();
             } else {
-                var piece = valil.chess.board.getPiece(endSq.x, endSq.y);
+                var piece = valil.chess.toolbox.getPiece(endSq.x, endSq.y);
                 this.mainCtx.save();
                 this.mainCtx.scale(this.displayScale, this.displayScale);
                 this.mainCtx.translate(end.x, end.y);
-                valil.chess.board.drawSquare(this.mainCtx, endSq.x, endSq.y);
-                valil.chess.board.drawPiece(this.mainCtx, piece);
+                valil.chess.toolbox.drawSquare(this.mainCtx, endSq.x, endSq.y);
+                valil.chess.toolbox.drawPiece(this.mainCtx, piece);
                 this.mainCtx.restore();
             }
 
             setTimeout(this.searchMove, 50);
         } else {
             var start = this.getSquareCoords(this.startSq.x, this.startSq.y);
-            var piece = valil.chess.board.getPiece(this.startSq.x, this.startSq.y);
+            var piece = valil.chess.toolbox.getPiece(this.startSq.x, this.startSq.y);
 
             this.mainCtx.save();
             this.mainCtx.scale(this.displayScale, this.displayScale);
             this.mainCtx.translate(start.x, start.y);
-            valil.chess.board.drawPiece(this.mainCtx, piece);
+            valil.chess.toolbox.drawPiece(this.mainCtx, piece);
             this.mainCtx.restore();
         }
 
@@ -131,28 +135,28 @@ valil.chess.board.prototype = {
 
             MakeMove(move);
 
-            var moveStr = valil.chess.board.getMoveStructure(move);
+            var moveStr = valil.chess.toolbox.getMoveStructure(move);
             if (moveStr.hasFlags) {
                 // TODO: better handling of en passant captures, castlings and promotions
                 this.draw();
             } else {
-                var startSq = valil.chess.board.getSquare(moveStr.from);
+                var startSq = valil.chess.toolbox.getSquare(moveStr.from);
                 var start = this.getSquareCoords(startSq.x, startSq.y);
-                var endSq = valil.chess.board.getSquare(moveStr.to);
+                var endSq = valil.chess.toolbox.getSquare(moveStr.to);
                 var end = this.getSquareCoords(endSq.x, endSq.y);
-                var piece = valil.chess.board.getPiece(endSq.x, endSq.y);
+                var piece = valil.chess.toolbox.getPiece(endSq.x, endSq.y);
 
                 this.mainCtx.save();
                 this.mainCtx.scale(this.displayScale, this.displayScale);
                 this.mainCtx.translate(start.x, start.y);
-                valil.chess.board.drawSquare(this.mainCtx, startSq.x, startSq.y);
+                valil.chess.toolbox.drawSquare(this.mainCtx, startSq.x, startSq.y);
                 this.mainCtx.restore();
 
                 this.mainCtx.save();
                 this.mainCtx.scale(this.displayScale, this.displayScale);
                 this.mainCtx.translate(end.x, end.y);
-                valil.chess.board.drawSquare(this.mainCtx, endSq.x, endSq.y);
-                valil.chess.board.drawPiece(this.mainCtx, piece);
+                valil.chess.toolbox.drawSquare(this.mainCtx, endSq.x, endSq.y);
+                valil.chess.toolbox.drawPiece(this.mainCtx, piece);
                 this.mainCtx.restore();
             }
         }
@@ -174,7 +178,7 @@ valil.chess.board.prototype = {
         return parseInt(document.defaultView.getComputedStyle(this.mainCtx.canvas,null).width) / (valil.chess.draw.squareSize << 3);
     }
 };
-valil.chess.board.drawPiece = function(ctx, p) {
+valil.chess.toolbox.drawPiece = function(ctx, p) {
     ctx.save();
     var color = (p & 0x8) ? valil.chess.draw.whitePieceColor : valil.chess.draw.blackPieceColor;
     switch (p & 0x7) {
@@ -188,28 +192,37 @@ valil.chess.board.drawPiece = function(ctx, p) {
     }
     ctx.restore();
 };
-valil.chess.board.drawSquare = function(ctx, x, y) {
+valil.chess.toolbox.drawSquare = function(ctx, x, y) {
     ctx.save();
     ctx.fillStyle = (y ^ x) & 1 ? valil.chess.draw.blackSquareColor : valil.chess.draw.whiteSquareColor;
     ctx.fillRect(0, 0, valil.chess.draw.squareSize, valil.chess.draw.squareSize);
     ctx.restore();
 };
-valil.chess.board.getPiece = function(x, y) {
-  return 0;
-  document.write(g_board[((y + 2) * 0x10) + x + 4]);
-  //return g_board[((y + 2) * 0x10) + x + 4];
-};
-valil.chess.board.getSquare = function(sq) {
+valil.chess.toolbox.getPiece = function(x, y) {
+  var pieces;
+  if(y==0){
+  	pieces = new Array(20,18,19,21,22,17);
+  	return pieces[x];
+  }
+  else{
+  	pieces = new Array(9,12,10,11,13,14);
+  	return pieces[x];
+  }
+  																																																				
+ };
+  //document.write(g_toolbox[((y + 2) * 0x10) + x + 4]);
+  //return g_toolbox[((y + 2) * 0x10) + x + 4];
+valil.chess.toolbox.getSquare = function(sq) {
     return {x: (sq & 0xF) - 4, y: (sq >> 4) - 2};
 };
-valil.chess.board.getMoveStructure = function(move) {
+valil.chess.toolbox.getMoveStructure = function(move) {
     // TODO: handle en passant captures, castlings and promotions
     return {from: move & 0xFF, to: (move >> 8) & 0xFF, hasFlags: (move & 0xFF0000) !== 0};
 };
-valil.chess.board.getMove = function(startSq, endSq) {
+valil.chess.toolbox.getMove = function(startSq, endSq) {
     var moves = GenerateValidMoves();
     for (var i = 0, moveStr; i < moves.length; i++) {
-        moveStr = valil.chess.board.getMoveStructure(moves[i]);
+        moveStr = valil.chess.toolbox.getMoveStructure(moves[i]);
         if (moveStr.from === MakeSquare(startSq.y, startSq.x) &&
                 moveStr.to === MakeSquare(endSq.y, endSq.x)) {
             return moves[i];
@@ -218,7 +231,7 @@ valil.chess.board.getMove = function(startSq, endSq) {
 
     return null;
 };
-valil.chess.board.getPreferredSize = function() {
+valil.chess.toolbox.getPreferredSize = function() {
     var size = Math.min(screen.width, screen.height);
     if (size >= 1200)
         return 720;

@@ -10,6 +10,7 @@
     <script type="text/javascript" src="event.js"></script>
     <script type="text/javascript" src="dragdrop.js"></script>
     <script type="text/javascript" src="board.js"></script>
+    <script type="text/javascript" src="toolbox.js"></script>
     <link href="styles.css" rel="stylesheet"/>
     <link href="layout.css" rel="stylesheet"/>
 </head>
@@ -31,12 +32,18 @@
     </div>
 </div>
 <div id="aiMoveDetailsDiv" class="chesstext"></div>
+<div id="tools" style="position:relative">
+	<canvas id="canvas_toolbox"></canvas>
+	<canvas id="drag_toolbox"></canvas>
+</div>
 <script type="text/javascript">
     var board;
+    var toolbox;
 
     function newGame() {
         if (board) {
             board.newGame();
+            toolbox.newGame();
         }
         document.getElementById('moveHistoryList').value = '';
         document.getElementById("aiMoveDetailsDiv").textContent = '-';
@@ -59,6 +66,25 @@
                                              g_toMove ? ((g_moveCount >> 1) + 1) + ". " + args.move : " " + args.move + "\n";
                                      moveHistoryList.scrollTop = moveHistoryList.scrollHeight - moveHistoryList.clientHeight;
                                  });
+                                
+         toolbox= valil.chess.toolbox.create(document.getElementById("canvas_toolbox"), document.getElementById("drag_toolbox"));
+
+        toolbox.moveEvent.subscribe(null,
+                                 function(args) {
+                                     if (args.aiDetails) {
+                                         document.getElementById("aiMoveDetailsDiv").textContent = args.aiDetails;
+                                     }
+                                 });
+
+        toolbox.moveEvent.subscribe(null,
+                                 function(args) {
+                                     var moveHistoryList = document.getElementById("moveHistoryList");
+                                     moveHistoryList.value +=
+                                             g_toMove ? ((g_moveCount >> 1) + 1) + ". " + args.move : " " + args.move + "\n";
+                                     moveHistoryList.scrollTop = moveHistoryList.scrollHeight - moveHistoryList.clientHeight;
+                                 });
+                                 
+          
 
         newGame();
     }
