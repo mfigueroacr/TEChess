@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0048)http://designindevelopment.com/demos/chessboard/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>I Can Haz Chess?</title>
+<style type="text/css">
+a { color:#000; display:block; font-size:60px; height:80px; position:relative; text-decoration:none; text-shadow:0 1px #fff; width:80px; }
+#chess_board { border:5px solid #333; }
+#chess_board td { background:#fff; background:-moz-linear-gradient(top, #fff, #eee); background:-webkit-gradient(linear,0 0, 0 100%, from(#fff), to(#eee)); box-shadow:inset 0 0 0 1px #fff; -moz-box-shadow:inset 0 0 0 1px #fff; -webkit-box-shadow:inset 0 0 0 1px #fff;  height:80px; text-align:center; vertical-align:middle; width:80px; }
+#chess_board tr:nth-child(odd) td:nth-child(even),
+#chess_board tr:nth-child(even) td:nth-child(odd) { background:#ccc; background:-moz-linear-gradient(top, #ccc, #eee); background:-webkit-gradient(linear,0 0, 0 100%, from(#ccc), to(#eee)); box-shadow:inset 0 0 10px rgba(0,0,0,.4); -moz-box-shadow:inset 0 0 10px rgba(0,0,0,.4); -webkit-box-shadow:inset 0 0 10px rgba(0,0,0,.4); }
+#chess_board td.active { /*background:#f00 !important;*/ }
+</style>
+<script type="text/javascript" async="" src="./Javascript/ga.js"></script>
+<script type="text/javascript" src="./Javascript/jquery.min.js"></script>
+<script type="text/javascript" src="./Javascript/jquery-ui.min.js"></script>
+<script type="text/javascript">
+/* Set Count */
+
+$(document).ready(function() {
+	
+	/* Get board dimensions */
+	var board = $('#chess_board');
+	board = {
+		width : board.width(),
+		height : board.height()
+	}
+	
+	/* Make pieces draggable */
+	$('#chess_board a').live('mousedown', function() {
+		
+		var object = $(this);
+		var class_array = $(this).attr('class').split(' ');
+		
+		element(object,class_array);
+		
+		return false;
+		
+	}).draggable({
+		containment: [0,0,board.width,board.height],
+		grid: [80, 80],
+		zIndex: 1000
+	}).each(function(i, item){
+	
+		var piece = $(item).attr('class').split(' ');
+		var start_cell = $(item).parent().attr('id').split('');
+		
+		init_game(piece, start_cell);
+	
+	});
+});
+
+
+
+</script>
+</head>
+
+<body style="cursor: auto; ">
+
+<table id="chess_board" cellpadding="0" cellspacing="0">
+
+	<tbody><tr>
+		<td id="A8"><a href="http://designindevelopment.com/demos/chessboard/#" class="rook black ui-draggable">♜</a></td>
+		<td id="B8"><a href="http://designindevelopment.com/demos/chessboard/#" class="knight black ui-draggable">♞</a></td>
+		<td id="C8"><a href="http://designindevelopment.com/demos/chessboard/#" class="bishop black ui-draggable">♝</a></td>
+		<td id="D8"><a href="http://designindevelopment.com/demos/chessboard/#" class="king black ui-draggable">♛</a></td>
+		<td id="E8"><a href="http://designindevelopment.com/demos/chessboard/#" class="queen black ui-draggable">♚</a></td>
+		<td id="F8"><a href="http://designindevelopment.com/demos/chessboard/#" class="bishop black ui-draggable">♝</a></td>
+		<td id="G8"><a href="http://designindevelopment.com/demos/chessboard/#" class="knight black ui-draggable">♞</a></td>
+		<td id="H8"><a href="http://designindevelopment.com/demos/chessboard/#" class="rook black ui-draggable">♜</a></td>
+	</tr>
+	<tr>
+		<td id="A7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="B7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="C7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="D7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="E7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="F7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="G7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+		<td id="H7"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn black ui-draggable">♟</a></td>
+	</tr>
+	<tr>
+		<td id="A6"></td>
+		<td id="B6"></td>
+		<td id="C6"></td>
+		<td id="D6"></td>
+		<td id="E6"></td>
+		<td id="F6"></td>
+		<td id="G6"></td>
+		<td id="H6"></td>
+	</tr>
+	<tr>
+		<td id="A5"></td>
+		<td id="B5"></td>
+		<td id="C5"></td>
+		<td id="D5"></td>
+		<td id="E5"></td>
+		<td id="F5"></td>
+		<td id="G5"></td>
+		<td id="H5"></td>
+	</tr>
+	<tr>
+		<td id="A4"></td>
+		<td id="B4"></td>
+		<td id="C4"></td>
+		<td id="D4"></td>
+		<td id="E4"></td>
+		<td id="F4"></td>
+		<td id="G4"></td>
+		<td id="H4"></td>
+	</tr>
+	<tr>
+		<td id="A3"></td>
+		<td id="B3"></td>
+		<td id="C3"></td>
+		<td id="D3"></td>
+		<td id="E3"></td>
+		<td id="F3"></td>
+		<td id="G3"></td>
+		<td id="H3"></td>
+	</tr>
+	<tr>
+		<td id="A2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="B2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="C2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="D2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="E2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="F2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="G2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+		<td id="H2"><a href="http://designindevelopment.com/demos/chessboard/#" class="pawn white ui-draggable">♙</a></td>
+	</tr>
+	<tr>
+		<td id="A1"><a href="http://designindevelopment.com/demos/chessboard/#" class="rook white ui-draggable">♖</a></td>
+		<td id="B1"><a href="http://designindevelopment.com/demos/chessboard/#" class="knight white ui-draggable">♘</a></td>
+		<td id="C1"><a href="http://designindevelopment.com/demos/chessboard/#" class="bishop white ui-draggable">♗</a></td>
+		<td id="D1"><a href="http://designindevelopment.com/demos/chessboard/#" class="king white ui-draggable">♕</a></td>
+		<td id="E1"><a href="http://designindevelopment.com/demos/chessboard/#" class="queen white ui-draggable">♔</a></td>
+		<td id="F1"><a href="http://designindevelopment.com/demos/chessboard/#" class="bishop white ui-draggable">♗</a></td>
+		<td id="G1"><a href="http://designindevelopment.com/demos/chessboard/#" class="knight white ui-draggable" style="left: -80px; top: -160px; z-index: auto; ">♘</a></td>
+		<td id="H1"><a href="http://designindevelopment.com/demos/chessboard/#" class="rook white ui-draggable">♖</a></td>
+	</tr>
+
+</tbody></table>
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-1586316-16']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+
+</body></html>
