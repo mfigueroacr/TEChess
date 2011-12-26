@@ -4,7 +4,7 @@ $CONNECTED = false;
 $com = mysql_connect(SERVER, USER, PASSWORD);
     if (!$com)
     {
-    die (header('Location: errordb.php'));
+    die (header('Location: errordb.html'));
     $CONNECTED = false;
     }
 

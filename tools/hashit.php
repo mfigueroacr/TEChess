@@ -79,6 +79,4 @@ $check_it = true;
 }
 return $check_it . $sqlquery ;
 }
-
-
 ?>
