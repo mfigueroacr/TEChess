@@ -1,6 +1,6 @@
 <?php
 define('SALT_LENGTH', 15);
-function HashMe($phrase, &$salt = null)
+function HashMe($password, &$salt = null)
 {
 $key = '!@#$%^&*()_+=-{}][;";/?<>.,';
     if ($salt == '')
@@ -11,7 +11,7 @@ $key = '!@#$%^&*()_+=-{}][;";/?<>.,';
     {
         $salt = substr($salt, 0, SALT_LENGTH);
     }
-    return hash('sha512',$salt . $key .  $phrase);
+    return hash('sha512',$salt . $key .  $password);
 }
 
 
