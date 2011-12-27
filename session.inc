@@ -6,7 +6,7 @@
 function check_login($root) {
     if (!isset ($_SESSION['user']) || !$_SESSION['user']) {
     /* Si la cookie no esta definida se redirige a la pagina login */
-    header('Location: '. $root .'login.php');
+    header('Location: '. $root .'signin.php');
 }
 }
 
