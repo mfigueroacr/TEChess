@@ -69,7 +69,7 @@ function check_password ($username, $password){
 	$password = $password;
 	$sqlquery = "CALL get_salt('$username')";
 	$result = mysql_query ($sqlquery);
-	while($row = mysql_fetch_array( $result )) {
+	while($row = mysql_fetch_assoc( $result )) {
 		$salt = $row['salt'];
 		$hashed_password = "";
 		$hashed_password = HashMe($password, $salt);
