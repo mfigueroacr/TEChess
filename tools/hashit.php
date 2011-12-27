@@ -1,6 +1,6 @@
 <?php
 define('SALT_LENGTH', 15);
-function HashMe($password, &$salt = null)
+function HashMe($phrase, &$salt = null)
 {
 $key = '!@#$%^&*()_+=-{}][;";/?<>.,';
     if ($salt == '')
@@ -11,21 +11,21 @@ $key = '!@#$%^&*()_+=-{}][;";/?<>.,';
     {
         $salt = substr($salt, 0, SALT_LENGTH);
     }
-    return hash('sha512',$salt . $key .  $password);
+    return hash('sha512',$salt . $key .  $phrase);
 }
 
 
-function create_user($username, $password, $name, $last_name){
+function create_user( $name, $last_name, $username, $password){
 $exist = false;
 $username = $username;
 $password = $password;
 $salt = '';
 $hashed_password = HashMe($password, $salt);
-$sqlquery = "INSERT INTO  `users` (`id_user`, `nombre`, `apellidos`, `username`, `password`, `salt`, `date`) VALUES  (NULL, '$name', '$last_name' ,'$username' , '$hashed_password' ,'$salt', '2011-06-17');";
+$sqlquery = "CALL create_user('$name', '$last_name' ,'$username' , '$hashed_password' ,'$salt');";
 $result = mysql_query ($sqlquery);
-$num_rows = mysql_num_rows($result);
-    if ($num_rows == 1) {
+    if ($result == 1) {
         $exist = true;
+		print $result;
     }
 return $exist;
 }
@@ -64,19 +64,20 @@ return $success;
 }
 
 function check_password ($username, $password){
-$check_it = false;
-$username = $username;
-$password = $password;
-$sqlquery = "SELECT * FROM `users`  WHERE `username`=" . $username ." LIMIT 1";
-$result = mysql_query ($sqlquery);
-while($row = mysql_fetch_array( $result )) {
-$salt = $row['salt'];
-$hashed_password = HashMe($password, $salt);
-$password = $row['password'];
-}
-if ($password == $hashed_password){
-$check_it = true;
-}
-return $check_it . $sqlquery ;
+	$check_it = false;
+	$username = $username;
+	$password = $password;
+	$sqlquery = "CALL get_salt('$username')";
+	$result = mysql_query ($sqlquery);
+	while($row = mysql_fetch_array( $result )) {
+		$salt = $row['salt'];
+		$hashed_password = "";
+		$hashed_password = HashMe($password, $salt);
+		$password = $row['password'];
+	}
+	if ($password == $hashed_password){
+		$check_it = true;
+	}
+	return $check_it;
 }
 ?>
