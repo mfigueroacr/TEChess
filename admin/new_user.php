@@ -17,11 +17,12 @@
 	$result = false;
 	$result =  create_user($name, $lastname, $username, $password, 'profile');
 	  if($result == true) {
-	  	print "esito";
 	  }
 	  else {
-	  	print "fracaso";
 	  }
+  }
+  else{
+  	
   }
   
 ?>
