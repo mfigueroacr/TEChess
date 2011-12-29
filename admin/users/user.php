@@ -4,6 +4,7 @@
    include ("../session.inc");
    
 	function new_user(){
+		$user = new user($mysqli);
 	//Realizamos la consulta a la base de datos y controlamos que nos devuelva
     //algun resultado
     if (isset ($_POST['txt_name']) && isset ($_POST['txt_lastname']) && isset($_POST['txt_username']) && isset($_POST['txt_password']) ){
@@ -13,14 +14,16 @@
 	    $username = $_POST['txt_username'];
 	    $password = $_POST['txt_password'];
 		$result = false;
-		$result =  create_user($name, $lastname, $username, $password, 'jugador');
+		$result =  $user->create_user($name, $lastname, $username, $password, 'jugador');
 		  if($result == true) {
+		  	header('Location: /');
 		  }
 		  else {
+		  	header('Location: index.php');
 		  }
 	  }
 	  else{
-  	
+		  	header('Location: index.php');
   	  }
 	}
 ?>
