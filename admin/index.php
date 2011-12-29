@@ -1,7 +1,6 @@
-<<<<<<< HEAD:admin/index.php
 <?php
-include ("session.inc");
-check_login("administrador");
+include ("../session.inc");
+//check_login("administrador");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,20 +20,24 @@ check_login("administrador");
 	<body>
 		<div>
 			<header>
-				<h1>index</h1>
+				<h1>admin</h1>
 			</header>
 			<nav>
 				<p>
-					<a href="/">Home</a>
+					<a href="users">usuarios</a>
 				</p>
 				<p>
-					<a href="/contact">Contact</a>
+					<a href="categories">Categorias</a>
 				</p>
+								<p>
+					<a href="exercises">Ejercicios</a>
+				</p>
+
 			</nav>
 			<div></div>
 			<footer>
 				<p>
-					&copy; Copyright  by Kelvin
+					&copy; Copyright  by 
 				</p>
 			</footer>
 		</div>
