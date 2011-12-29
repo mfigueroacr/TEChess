@@ -1,63 +1,28 @@
-<!DOCTYPE html >
-<html>
-	
-<head>
-	
-	<meta charset="utf-8" />
 
-	<title>TeChess Nuevo Usuario</title>
+<?php
+ //login.php
+  //Nos conectamos a la base de datos
+  include("../tools/base.php");
+  include ("../tools/hashit.php");
+  include ("../session.inc");
 
-    <link href="css/html5reset.css" rel="stylesheet" />
-
-    <link href="css/style.css" rel="stylesheet" />
-
-<!--    
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
- <link href="css/css.css" rel="stylesheet" type="text/css" /> -->
-
-</head>
-<body>
-	
-	<header >
-
-        <hgroup >
-
-            <h1 align="center">TeChess ingresar un nuevo usuario</h1> 
-
-            <h2 align="center">Subheader in h2</h2>
-
-        </hgroup>
-
-    </header>
-    <center>
-    <section>
-    	<article >
-    	leonel murillo
-    	<br /><br />
-    	</article>
-    </section>
-
-
-    <section>
-	    	
-	
-		<input id="_nombre" type="text" value="" align="center"/>	
-		
-		<select name="select" align="center">
-			<option>Alpha</option>
-			<option>Beta</option>
-			<option>Delta</option>
-		</select>
-	
-	
-		<?php
-	    
-		?>
-		
-	</section>
-	 
-</center>    
-</body>
-</html>
-
+  //Realizamos la consulta a la base de datos y controlamos que nos devuelva
+  //algun resultado
+  if (isset ($_POST['txt_name']) && isset ($_POST['txt_lastname']) && isset($_POST['txt_username']) && isset($_POST['txt_password']) ){
+  //Creamos variables locales con el contenido de las devueltas por el form
+    $name = $_POST['txt_name'];
+	$lastname = $_POST['txt_lastname'];
+    $username = $_POST['txt_username'];
+    $password = $_POST['txt_password'];
+	$result = false;
+	$result =  create_user($name, $lastname, $username, $password, 'profile');
+	  if($result == true) {
+	  }
+	  else {
+	  }
+  }
+  else{
+  	
+  }
+  
+?>
