@@ -1,3 +1,7 @@
+<?php
+include ("session.inc");
+check_login("administrador");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
