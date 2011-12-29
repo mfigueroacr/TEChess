@@ -25,30 +25,37 @@
 
             <h1 align="center">TeChess ingresar un nuevo usuario</h1> 
 
-            <h2 align="center">Subheader in h2</h2>
-
         </hgroup>
 
     </header>
     <center>
     <section>
     	<article >
-    	leonel murillo
+    	Ingrese el nombre  
+    	<input type="text" id="txt_name" value="" />
     	<br /><br />
+    	Ingrese el apellido 
+    	<input type="text" id="txt_lastname" value="" />
+    	<br /><br />
+    	Ingrese el nombre de usuario 
+    	<input type="text" id="txt_username" value="" />
     	</article>
     </section>
 
-
-    <section>
-	    	
-	
-		<input id="_nombre" type="text" value="" align="center"/>	
+    <section>	  	
 		
+		<br /><br />		
+		Seleccione el tipo de usuario:		
+		<br /><br />
 		<select name="select" align="center">
 			<option>Alpha</option>
 			<option>Beta</option>
 			<option>Delta</option>
 		</select>
+		
+		<br /> <br />
+		
+		<input type="button" id="btn_accept"  value="Aceptar"/>
 	
 	
 		<?php
