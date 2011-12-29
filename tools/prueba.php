@@ -13,26 +13,42 @@ include ("base.php");
 <body>
 <?php
 
-$user = "admin";
-$password = "1234";
-/*
- $salt = '';
-print "creaci&oacute;n de usuario administrador ... ";
 
-$creacion = create_user ('admin','super', $user, $password);
+
+$user = "player";
+$password = "qwerty";
+
+print "creaci&oacute;n de usuario... ";
+
+$creacion = create_user ($user,'lastname', $user, $password,"jugador");
 if ($creacion == true) {
     print " creado\n";
-	echo "</br>";
+
 }
-*/
+else{
+	 print " fallo\n";
+}
+echo "</br>";
+
 print "revisando login ... ";
 $chk_pass = false;
 $chk_pass = check_password($user, $password);
 if ($chk_pass == true) {
     echo "probado";
     }
-else{
+if ($chk_pass == false) {
 echo "fallo";
+}
+echo "</br>";
+
+print "Eliminaci&oacute;n de usuario... ";
+$eliminacion = false;
+$eliminacion = delete_user($user);
+if ($eliminacion == true) {
+    print " eliminado\n";
+}
+if ($eliminacion == false){ 
+	print " fallo\n";
 }
 echo "</br>";
 ?>

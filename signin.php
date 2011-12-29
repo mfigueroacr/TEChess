@@ -26,8 +26,6 @@
 
 <input type="submit" name="Submit" value="Cancelar" onclick="location.href='login.php'"/></td>
 
-<button type="reset" id="reset_bt">Limpiar</button>
-
     </form></div>
 
 </body></html>
