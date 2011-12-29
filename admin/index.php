@@ -1,8 +1,3 @@
-<<<<<<< HEAD:admin/index.php
-<?php
-include ("session.inc");
-check_login("administrador");
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -26,6 +21,15 @@ check_login("administrador");
 			<nav>
 				<p>
 					<a href="/">Home</a>
+				</p>
+				<p>
+					<a href="./users/new.php">Ingresar un Nuevo Usuario</a>
+				</p>
+				<p>
+					<a href="./exercises/exercise.php">Ingresar un Ejercicio</a>
+				</p>
+				<p>
+					<a href="./categories/category.php">Ingresar una Nueva Categoría</a>
 				</p>
 				<p>
 					<a href="/contact">Contact</a>
