@@ -14,6 +14,11 @@ check_login("");
 	<a href="logout.php">Logout </a></span>
 	<h1>TeChess logueado satisfactoriamente!!!</h1>
 
+	<div class="administrador">
+	</div>
+	<div class="jugador">
+	</div>
+
 </body>
 
 </html>
