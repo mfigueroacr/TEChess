@@ -1,3 +1,6 @@
+<?php
+include("user.php");
+?>
 <!DOCTYPE html >
 <html>
 	
@@ -30,7 +33,7 @@
     </header>
     <center>
     <section>
-    	<form action="new_user.php" method="post">
+    	<form action="new_user()" method="post">
     	
     	<article >
     	Ingrese el nombre  
