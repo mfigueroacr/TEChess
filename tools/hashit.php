@@ -1,19 +1,31 @@
 <?php
-function create_user( $name, $last_name, $username, $password, $profile){
+#require ("settings.php");
+
+class user{
+	public $_link ;
+	
+	public function __construct (mysqli $link) {
+		#$this->$link = $link;
+		$this->_link = $link;
+	}
+public function create_user( $name, $last_name, $username, $password, $profile){
+
 $sqlquery = "CALL Create_User('$name', '$last_name' ,'$username' , '$password' ,'$profile');";
-$result = mysql_query ($sqlquery);
+if (!($result = $this->_link->query ($sqlquery)))
+ echo "CALL failed: (" . $mysqli_errno . ") " . $mysqli->error;
 return $result;
 }
 
-function delete_user($username){
+public function delete_user($username){	
+$username = $username;
 $sqlquery = "CALL Delete_User('$username');";
-$result = mysql_query ($sqlquery);
-print "deleting user....";
+if (!($result = $this->_link->query($sqlquery)))
+ echo "CALL failed: (" . $mysqli_errno . ") " . $this->_link->error;
 return $result;
 }
 
 
-function update_password($username, $password){
+public function update_password($username, $password){
 $success = false;
 $username = $username;
 $password = $password;
@@ -28,9 +40,56 @@ $num_rows = mysql_affected_rows($result);
 return $success;
 }
 
-function check_password ($username, $password){
+public function check_password ($username, $password){
+
+	$username = $username;
+	$password = $password;
 	$sqlquery = "CALL check_password('$username', '$password');";
-	$result = mysql_query ($sqlquery);
-	return mysql_result($result,0);
+if (!($result = $this->_link->query ($sqlquery)))
+ echo "CALL failed: (" . $mysqli_errno . ") " . $this->_link->error;
+	return $result;
+}
+
+
+public function test_create ($user, $password){
+print "creaci&oacute;n de usuario... ";
+$creacion = $this->create_user ($user,'lastname', $user, $password,"jugador");
+if ($creacion == true) {
+    print " creado\n";
+
+}
+else{
+	 print " fallo\n";
+}
+echo "</br>";
+}
+
+public function test_check($user, $password)
+{
+print "revisando login ... ";
+$chk_pass = false;
+$chk_pass = $this->check_password($user, $password);
+if ($chk_pass == true) {
+    echo "probado";
+    }
+if ($chk_pass == false) {
+echo "fallo";
+}
+echo "</br>";	
+}
+
+public function test_delete($user)
+{
+print "Eliminaci&oacute;n de usuario... ";
+$eliminacion = false;
+$eliminacion = $this->delete_user($user);
+if ($eliminacion == true) {
+    print " eliminado\n";
+}
+if ($eliminacion == false){ 
+	print " fallo\n";
+}
+echo "</br>";	
+}
 }
 ?>

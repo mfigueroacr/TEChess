@@ -12,15 +12,38 @@ include ("base.php");
 
 <body>
 <?php
-
-
-
 $user = "player";
 $password = "qwerty";
 
-print "creaci&oacute;n de usuario... ";
+$mysqli = new mysqli(SERVER, USER, PASSWORD, DB);	
 
-$creacion = create_user ($user,'lastname', $user, $password,"jugador");
+/* check connection */ 
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+	header('Location: errordb.html');
+    exit();
+}
+printf("Host information: %s\n", $mysqli->host_info);
+
+
+class nuevo{
+	public $_link;
+	
+	public function __construct (mysqli $link) {
+		#$this->_link = new mysqli();
+		$this->_link = $link;
+	}
+public function create_user( $name, $last_name, $username, $password, $profile){
+
+$sqlquery = "CALL Create_User('$name', '$last_name' ,'$username' , '$password' ,'$profile');";
+if (!($result = $this->_link->query ($sqlquery)))
+ echo "CALL failed: (" . $mysqli_errno . ") " . $mysqli->error;
+return $result;
+}
+
+public function test_create ($user, $password){
+print "creaci&oacute;n de usuario... ";
+$creacion = $this->create_user ($user,'lastname', $user, $password,"jugador");
 if ($creacion == true) {
     print " creado\n";
 
@@ -29,28 +52,16 @@ else{
 	 print " fallo\n";
 }
 echo "</br>";
+}
+}
 
-print "revisando login ... ";
-$chk_pass = false;
-$chk_pass = check_password($user, $password);
-if ($chk_pass == true) {
-    echo "probado";
-    }
-if ($chk_pass == false) {
-echo "fallo";
-}
-echo "</br>";
+//$obj1 = new nuevo($mysqli);
 
-print "Eliminaci&oacute;n de usuario... ";
-$eliminacion = false;
-$eliminacion = delete_user($user);
-if ($eliminacion == true) {
-    print " eliminado\n";
-}
-if ($eliminacion == false){ 
-	print " fallo\n";
-}
-echo "</br>";
+$obj1 = new user($mysqli);
+
+$obj1->test_create($user, $password);
+$obj1->test_check($user, $password);
+$obj1->test_delete($user);
 ?>
 
 </body>

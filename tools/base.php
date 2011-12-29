@@ -1,15 +1,12 @@
 <?php
 require ("settings.php");
-$CONNECTED = false;
-$com = mysql_connect(SERVER, USER, PASSWORD);
-    if (!$com)
-    {
-    die (header('Location: errordb.html'));
-    $CONNECTED = false;
-    }
+$mysqli = mysqli_connect(SERVER, USER, PASSWORD, DB);	
 
-    else {
-    mysql_select_db(DB, $com);
-    $CONNECTED = true;
-    }
+/* check connection */ 
+if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+	header('Location: errordb.html');
+    exit();
+}
+//printf("Host information: %s\n", $mysqli->host_info);
 ?>
