@@ -1,6 +1,6 @@
 <?php
-define("SERVER", "186.15.4.227");
+define("SERVER", "127.0.0.1");
 define("DB", "Techess");
 define("USER", "root");
-define("PASSWORD", "abc123");
+define("PASSWORD", "");
 ?>

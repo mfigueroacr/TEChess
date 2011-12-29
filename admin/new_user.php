@@ -1,70 +1,27 @@
-<!DOCTYPE html >
-<html>
-	
-<head>
-	
-	<meta charset="utf-8" />
 
-	<title>TeChess Nuevo Usuario</title>
+<?php
+ //login.php
+  //Nos conectamos a la base de datos
+  include("../tools/base.php");
+  include ("../tools/hashit.php");
+  include ("../session.inc");
 
-    <link href="css/html5reset.css" rel="stylesheet" />
-
-    <link href="css/style.css" rel="stylesheet" />
-
-<!--    
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
- <link href="css/css.css" rel="stylesheet" type="text/css" /> -->
-
-</head>
-<body>
-	
-	<header >
-
-        <hgroup >
-
-            <h1 align="center">TeChess ingresar un nuevo usuario</h1> 
-
-        </hgroup>
-
-    </header>
-    <center>
-    <section>
-    	<article >
-    	Ingrese el nombre  
-    	<input type="text" id="txt_name" value="" />
-    	<br /><br />
-    	Ingrese el apellido 
-    	<input type="text" id="txt_lastname" value="" />
-    	<br /><br />
-    	Ingrese el nombre de usuario 
-    	<input type="text" id="txt_username" value="" />
-    	</article>
-    </section>
-
-    <section>	  	
-		
-		<br /><br />		
-		Seleccione el tipo de usuario:		
-		<br /><br />
-		<select name="select" align="center">
-			<option>Alpha</option>
-			<option>Beta</option>
-			<option>Delta</option>
-		</select>
-		
-		<br /> <br />
-		
-		<input type="button" id="btn_accept"  value="Aceptar"/>
-	
-	
-		<?php
-	    
-		?>
-		
-	</section>
-	 
-</center>    
-</body>
-</html>
-
+  //Realizamos la consulta a la base de datos y controlamos que nos devuelva
+  //algun resultado
+  if (isset ($_POST['txt_name']) && isset ($_POST['txt_lastname']) && isset($_POST['txt_username']) && isset($_POST['txt_password']) ){
+  //Creamos variables locales con el contenido de las devueltas por el form
+    $name = $_POST['txt_name'];
+	$lastname = $_POST['txt_lastname'];
+    $username = $_POST['txt_username'];
+    $password = $_POST['txt_password'];
+	$result = false;
+	$result =  create_user($name, $lastname, $username, $password, 'profile');
+	  if($result == true) {
+	  	print "esito";
+	  }
+	  else {
+	  	print "fracaso";
+	  }
+  }
+  
+?>
