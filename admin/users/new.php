@@ -53,10 +53,9 @@
 		<br /><br />
 		
 		<select name="select" align="center">
-			<option>Alpha</option>
-			<option>Beta</option>
-			<option>Delta</option>
-		</select>
+			<option>Administrador</option>
+			<option>Jugador</option>
+			</select>
 		
 		<br /> <br />
 		
