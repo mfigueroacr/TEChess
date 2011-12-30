@@ -1,19 +1,10 @@
 <?php
+
    include("../../tools/base.php");
    include ("../../tools/hashit.php");
    include ("../../session.inc");
-         
-   if (isset ($_POST['btn_accept']) || isset ($_POST['btn_delete']) ){
-	   if ($_POST['btn_accept']){
-	   		new_user();
-	   }
-	   else if ($_POST['btn_delete']) {
-	   		echo "Usuario eliminado";
-	   }
-   }
-   
-   
-	function new_user(){
+
+	function new_user($mysqli){
 		$user = new user($mysqli);
 	//Realizamos la consulta a la base de datos y controlamos que nos devuelva
     //algun resultado
@@ -50,6 +41,8 @@
 			echo $password;
 		 }
 	}
+	
+if (isset ($_POST['new_user'])) new_user($mysqli);
 	
 	
 ?>
