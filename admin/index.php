@@ -30,7 +30,6 @@ include ("../session.inc");
 					<a href="./categories/category.php">            Ingresar una Nueva Categoría</a>
 				</p>
 				<p>
-					<a href="exercises">Ejercicios ></a>
                   	<a href="./exercises/exercise.php">            Ingresar un Ejercicio</a>
 				</p>
 
