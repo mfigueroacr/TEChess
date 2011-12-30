@@ -16,7 +16,7 @@
 		$result = false;
 		$result =  $user->create_user($name, $lastname, $username, $password, 'jugador');
 		  if($result == true) {
-		  	header('Location: /');
+		  	header('Location: ../index.php');
 		  }
 		  else {
 		  	header('Location: index.php');
