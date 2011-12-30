@@ -1,5 +1,5 @@
 <?php
-include("user.php");
+//include("../session.inc");
 ?>
 <!DOCTYPE html>
 <html lang="en">

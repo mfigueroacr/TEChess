@@ -5,7 +5,7 @@ class user{
 	public $_link ;
 	
 	public function __construct (mysqli $link) {
-		#$this->$link = $link;
+		#$this->$link = $link ;
 		$this->_link = $link;
 	}
 public function create_user( $name, $last_name, $username, $password, $profile){
@@ -77,6 +77,20 @@ if ($eliminacion == true) {
     print " eliminado\n";
 }
 if ($eliminacion == false){ 
+	print " fallo\n";
+}
+echo "</br>";	
+}
+
+
+public function init()
+{
+print "Inicializacion de base de datos... ";
+	$result = $this->c_mysqli_call($this->_link, "Init", "");
+if ($result == true) {
+    print " inicilizado\n";
+}
+if ($result == false){ 
 	print " fallo\n";
 }
 echo "</br>";	

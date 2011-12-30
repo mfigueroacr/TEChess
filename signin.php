@@ -10,7 +10,7 @@
 	
 	<h1>TeChess Training Suite</h1>
 <p>comentario temporal: El user es admin y el password es 1234</p>
-        <form id="login" action="login.php" method="POST">
+        <form id="login" action="<login.php>" method="POST">
         <fieldset id="login"> <legend> Ingreso </legend>
 <label>Nombre de Usuario:</label><input type="text" id="user" name="user" />
 <br />

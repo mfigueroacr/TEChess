@@ -1,4 +1,5 @@
-
+<?php   include ("../../session.inc");
+?>
 <!DOCTYPE html >
 <html>
 	
@@ -23,7 +24,7 @@
     <center>
     <section>
     	<form action="user.php" method="post">
-    	
+    	<input type="hidden" name="new_user">
     	<article >
     	Ingrese el nombre  
     	<input type="text" name="txt_name" value=" " />

@@ -28,7 +28,15 @@ echo "</br>";
 printf("Host information: %s\n", $mysqli->host_info);
 echo "</br>";
 
+
+
 $obj1 = new user($mysqli);
+
+printf("<h1> Configuration</h1>");
+echo "</br>";
+$obj1->init();
+printf("<h1> Test</h1>");
+echo "</br>";
 
 $obj1->test_create($user, $password);
 $obj1->test_check($user, $password);
