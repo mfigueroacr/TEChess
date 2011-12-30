@@ -1,7 +1,3 @@
-<?php
-include ("../session.inc");
-//check_login("administrador");
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -24,14 +20,13 @@ include ("../session.inc");
 			</header>
 			<nav>
 				<p>
-          			<a href="./users/index.php">Gestionar Usuarios</a>
+          			<a href="./new.php">Ingresar un Nuevo Usuario</a>
 				</p>
 				<p>
-					<a href="./categories/category.php">            Ingresar una Nueva Categoría</a>
+					<a href="./modify.php">Modificar un Usuario</a>
 				</p>
 				<p>
-					<a href="exercises">Ejercicios ></a>
-                  	<a href="./exercises/exercise.php">            Ingresar un Ejercicio</a>
+                  	<a href="./delete.php">Eliminar un Usuario</a>
 				</p>
 
 			</nav>
