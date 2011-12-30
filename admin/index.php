@@ -24,13 +24,16 @@ include ("../session.inc");
 			</header>
 			<nav>
 				<p>
-					<a href="users">usuarios</a>
+					<a href="users">usuarios ></a>
+          			<a href="./users/new.php">           Ingresar un Nuevo Usuario</a>
 				</p>
 				<p>
-					<a href="categories">Categorias</a>
+					<a href="categories">Categorias ></a>
+					<a href="./categories/category.php">            Ingresar una Nueva Categoría</a>
 				</p>
-								<p>
-					<a href="exercises">Ejercicios</a>
+				<p>
+					<a href="exercises">Ejercicios ></a>
+                  	<a href="./exercises/exercise.php">            Ingresar un Ejercicio</a>
 				</p>
 
 			</nav>
