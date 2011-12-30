@@ -8,7 +8,7 @@ function check_login($root) {
     /* Si la cookie no esta definida se redirige a la pagina login */
     header('Location: signin.php');
 	}
-	if (isset ($_SESSION['user'])){
+/*	if (isset ($_SESSION['user'])){
 		if ($root == ""){
 		}
 		else{
@@ -17,9 +17,10 @@ function check_login($root) {
 		    $result = mysql_query ($sqlquery);
 		    if (mysql_result($result,0)== false){
 		    	header('Location: /');
-		   	};
+		   	}
 		}
 	}
+	*/
 }
 
 ?>

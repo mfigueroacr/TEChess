@@ -23,39 +23,10 @@ if (mysqli_connect_errno()) {
 	header('Location: errordb.html');
     exit();
 }
-printf("Host information: %s\n", $mysqli->host_info);
-
-
-class nuevo{
-	public $_link;
-	
-	public function __construct (mysqli $link) {
-		#$this->_link = new mysqli();
-		$this->_link = $link;
-	}
-public function create_user( $name, $last_name, $username, $password, $profile){
-
-$sqlquery = "CALL Create_User('$name', '$last_name' ,'$username' , '$password' ,'$profile');";
-if (!($result = $this->_link->query ($sqlquery)))
- echo "CALL failed: (" . $mysqli_errno . ") " . $mysqli->error;
-return $result;
-}
-
-public function test_create ($user, $password){
-print "creaci&oacute;n de usuario... ";
-$creacion = $this->create_user ($user,'lastname', $user, $password,"jugador");
-if ($creacion == true) {
-    print " creado\n";
-
-}
-else{
-	 print " fallo\n";
-}
+printf("<h1> Test and Configuration</h1>");
 echo "</br>";
-}
-}
-
-//$obj1 = new nuevo($mysqli);
+printf("Host information: %s\n", $mysqli->host_info);
+echo "</br>";
 
 $obj1 = new user($mysqli);
 

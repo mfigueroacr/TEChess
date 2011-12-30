@@ -7,14 +7,15 @@
 
   //Realizamos la consulta a la base de datos y controlamos que nos devuelva
   //algun resultado
-  if (isset ($_POST['user']) && isset ($_POST['pass']) ){
+  if (isset ($_POST['user']) && isset ($_POST['pass']) && ($mysqli instanceof mysqli)){
+  $user = new user($mysqli);
   //Creamos variables locales con el contenido de las devueltas por el form
-    $user = $_POST['user'];
-    $pass = $_POST['pass'];
+    $username = $_POST['user'];
+    $password = $_POST['pass'];
 	$result = false;
-  $result = check_password($user,$pass);
+  $result = $user->check_password($username,$password);
   if($result == true) {
-    $_SESSION['user'] = $user; /*Declaramos una variable de sesión donde
+    $_SESSION['user'] = $username; /*Declaramos una variable de sesión donde
                                  guardaremos el nombre del usuario
                                  para control*/
     header("location: main.php");  /* Nos vamos a la sección "privada"

@@ -1,3 +1,7 @@
+<?php
+include ("../session.inc");
+//check_login("administrador");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -16,29 +20,27 @@
 	<body>
 		<div>
 			<header>
-				<h1>index</h1>
+				<h1>admin</h1>
 			</header>
 			<nav>
 				<p>
-					<a href="/">Home</a>
+					<a href="users">usuarios ></a>
+          			<a href="./users/new.php">           Ingresar un Nuevo Usuario</a>
 				</p>
 				<p>
-					<a href="./users/new.php">Ingresar un Nuevo Usuario</a>
+					<a href="categories">Categorias ></a>
+					<a href="./categories/category.php">            Ingresar una Nueva Categoría</a>
 				</p>
 				<p>
-					<a href="./exercises/exercise.php">Ingresar un Ejercicio</a>
+					<a href="exercises">Ejercicios ></a>
+                  	<a href="./exercises/exercise.php">            Ingresar un Ejercicio</a>
 				</p>
-				<p>
-					<a href="./categories/category.php">Ingresar una Nueva Categoría</a>
-				</p>
-				<p>
-					<a href="/contact">Contact</a>
-				</p>
+
 			</nav>
 			<div></div>
 			<footer>
 				<p>
-					&copy; Copyright  by Kelvin
+					&copy; Copyright  by 
 				</p>
 			</footer>
 		</div>
