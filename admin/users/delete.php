@@ -53,7 +53,7 @@
     	
     	</article>
 
-		<input type="submit" id="btn_delete" value="Eliminar" />
+		<input type="submit" name="btn_delete" value="Eliminar" />
 	
 		</form>
 	</section>

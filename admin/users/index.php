@@ -1,3 +1,6 @@
+<?php
+include("user.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -33,7 +36,7 @@
 			<div></div>
 			<footer>
 				<p>
-					&copy; Copyright  by 
+					&copy; Copyright  by TEChess
 				</p>
 			</footer>
 		</div>

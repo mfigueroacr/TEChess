@@ -1,3 +1,6 @@
+<?php
+include("user.php");
+?>
 <!DOCTYPE html >
 <html>
 	
