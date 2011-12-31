@@ -1,8 +1,9 @@
 <?php
 
-   include("../../tools/base.php");
+   include("../../tools/mysqli_call.php");
    include ("../../tools/user.php");
    include ("../../session.inc");
+check_login();
 
 	function new_user($mysqli){
 		$user = new user($mysqli);
@@ -47,5 +48,6 @@
 	
 if (isset ($_POST['new_user'])) new_user($mysqli);
 //if (isset ($_POST['new_user'])) leoprint();
+if (isset ($_POST['delete_user'])) delete_user($mysqli);
 	
 ?>
