@@ -1,8 +1,8 @@
 <?php
  //login.php
   //Nos conectamos a la base de datos
-  include("tools/base.php");
-  include ("tools/hashit.php");
+  include("tools/mysqli_call.php");
+  include ("tools/user.php");
   include ("session.inc");
 
   //Realizamos la consulta a la base de datos y controlamos que nos devuelva
@@ -21,10 +21,10 @@
     header("location: main.php");  /* Nos vamos a la sección "privada"
                                         de nuestra página*/
   } else {
-      header("location: signin.php");
+      header("location: index.php");
      }
     }
     else {
-        header("location: signin.php");
+        header("location: index.php");
     }
 ?>
