@@ -37,7 +37,7 @@ include ("../session.inc");
 			<div></div>
 			<footer>
 				<p>
-					&copy; Copyright  by 
+					&copy; Copyright  by TEChess
 				</p>
 			</footer>
 		</div>

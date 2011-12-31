@@ -14,8 +14,9 @@
 		$lastname = $_POST['txt_lastname'];
 	    $username = $_POST['txt_username'];
 	    $password = $_POST['txt_password'];
+		$seleccion = $_POST['select'];
 		$result = false;
-		$result =  $user->create_user($name, $lastname, $username, $password, 'jugador');
+		$result =  $user->create_user($name, $lastname, $username, $password, $seleccion);
 		  if($result == true) {
 		  	header('Location: ../index.php');
 		  }
@@ -34,15 +35,18 @@
 			$lastname = $_POST['txt_lastname'];
 		    $username = $_POST['txt_username'];
 		    $password = $_POST['txt_password'];
+			$seleccion = $_POST['select'];
 			echo "leoprint";
 			echo $name;
 			echo $lastname;
 			echo $username;
 			echo $password;
+			echo $seleccion;
 		 }
 	}
 	
 if (isset ($_POST['new_user'])) new_user($mysqli);
+//if (isset ($_POST['new_user'])) leoprint();
 	
 	
 ?>

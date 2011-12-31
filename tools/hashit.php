@@ -14,7 +14,11 @@ $result = $this->c_mysqli_call($this->_link, "Create_User", "'$name', '$last_nam
 return $result;
 }
 
+public function create_level($name, $descripcion){
 
+$result = $this->c_mysqli_call($this->_link, "Create_Level", "'$name', '$descripcion'");
+return $result;
+}
 
 public function delete_user($username){	
 $result = $this->c_mysqli_call($this->_link, "Delete_User", "'$username'");
@@ -39,7 +43,6 @@ public function check_password ($username, $password){
 $result = $this->c_mysqli_call($this->_link, "Check_Password", "'$username' , '$password'");
 	return $result;
 }
-
 
 public function test_create ($user, $password){
 print "creaci&oacute;n de usuario... ";

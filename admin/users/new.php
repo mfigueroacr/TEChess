@@ -27,16 +27,16 @@
     	<input type="hidden" name="new_user">
     	<article >
     	Ingrese el nombre  
-    	<input type="text" name="txt_name" value=" " />
+    	<input type="text" name="txt_name" value="" />
     	<br /><br />
     	Ingrese el apellido 
-    	<input type="text" name="txt_lastname" value=" " />
+    	<input type="text" name="txt_lastname" value="" />
     	<br /><br />
     	Ingrese el nombre de usuario 
-    	<input type="text" name="txt_username" value=" " />
+    	<input type="text" name="txt_username" value="" />
     	<br /><br />
     	Ingrese la contraseña 
-    	<input type="text" name="txt_password" value=" " />
+    	<input type="text" name="txt_password" value="" />
     	
     	</article>
 	  	
