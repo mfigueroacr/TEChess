@@ -1,6 +1,6 @@
 <?php
-include ("hashit.php");
-include ("base.php");
+include ("user.php");
+include ("mysqli_call.php");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -12,32 +12,29 @@ include ("base.php");
 
 <body>
 <?php
+function init(mysqli $mysqli)
+{
+print "Loading minimum data into DB... ";
+	$result = c_mysqli_call($mysqli, "Init", "");
+if ($result == true) {
+    print " Loaded\n";
+}
+if ($result == false){ 
+	print " failed\n";
+}
+echo "</br>";	
+}
+
 $user = "player";
 $password = "qwerty";
 
-$mysqli = new mysqli(SERVER, USER, PASSWORD, DB);	
-
-/* check connection */ 
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-	header('Location: errordb.html');
-    exit();
-}
 printf("<h1> Test and Configuration</h1>");
-echo "</br>";
 printf("Host information: %s\n", $mysqli->host_info);
 echo "</br>";
-
-
-
-$obj1 = new user($mysqli);
-
 printf("<h1> Configuration</h1>");
-echo "</br>";
-$obj1->init();
+init($mysqli);
 printf("<h1> Test</h1>");
-echo "</br>";
-
+$obj1 = new user($mysqli);
 $obj1->test_create($user, $password);
 $obj1->test_check($user, $password);
 $obj1->test_delete($user);

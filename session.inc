@@ -3,11 +3,13 @@
     ini_set('session.use_only_cookies', 1);
     session_start();
 
-function check_login($root) {
+function check_login($root="") {
     if (!isset ($_SESSION['user']) || !$_SESSION['user']) {
     /* Si la cookie no esta definida se redirige a la pagina login */
-    header('Location: signin.php');
+    echo "not logged";
+    //header('Location: signin.php');
 	}
+	else echo "logged";
 /*	if (isset ($_SESSION['user'])){
 		if ($root == ""){
 		}
@@ -21,6 +23,13 @@ function check_login($root) {
 		}
 	}
 	*/
+}
+
+function login_header(){
+		 if (!isset ($_SESSION['user']) || !$_SESSION['user'])
+		 echo "<a href='#' onclick='login()'>Ingresar</a></span>";
+     	 else
+		 	echo "<a href='logout.php'>Logout</a></span>";
 }
 
 ?>

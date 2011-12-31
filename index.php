@@ -18,7 +18,10 @@
 	</head>
 	<body>
 		<div>
-			<a href="#" onclick="login()">Ingresar                 </a></span>
+			<?php 
+			include ("session.inc");
+			login_header();			   
+			?>
 			<header>
 				<h1>TeChess Training Suite</h1>
 			</header>
