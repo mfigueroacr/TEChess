@@ -1,4 +1,8 @@
-<?php   include ("../../session.inc");
+<?php   
+include ("../../session.inc");
+include ("../../tools/mysqli_call.php");
+include ("../../tools/user.php");
+include ("../../tools/general.php");
 ?>
 <!DOCTYPE html >
 <html>
@@ -45,8 +49,10 @@
 		<br /><br />
 		
 		<select name="select" align="center">
-			<option>Administrador</option>
-			<option>Jugador</option>
+<?php
+		$obj = new general ($mysqli);
+		$obj->list_profiles();
+?>
 		</select>
 		
 		<br /> <br />
