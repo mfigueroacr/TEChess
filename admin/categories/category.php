@@ -1,11 +1,11 @@
 <?php
 
 	include("../../tools/base.php");
-	include ("../../tools/hashit.php");
 	include ("../../session.inc");
+	check_login();
 	
 	function new_cat($mysqli){
-			$cat = new user($mysqli);
+			$cat = new category($mysqli);
 		//Realizamos la consulta a la base de datos y controlamos que nos devuelva
 	    //algun resultado
 	    if (isset ($_POST['txt_name']) && isset ($_POST['txt_description']) ){

@@ -24,10 +24,10 @@ include ("../../session.inc");
 			</header>
 			<nav>
 				<p>
-					<a href="./new_category.php">Ingresar una Nueva Categoría</a>
+					<a href="new.php">Ingresar una Nueva Categoría</a>
 				</p>
 				<p>
-                  	<a href="./modify_category.php"> Modificar una Categoría</a>
+                  	<a href="modify.php"> Modificar una Categoría</a>
 				</p>
 
 			</nav>
