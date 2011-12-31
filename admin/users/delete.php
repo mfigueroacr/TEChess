@@ -38,7 +38,7 @@ check_login();
     <center>
     <section>
     	<form action="user.php" method="post">
-    	
+    	<input type="hidden" name="delete_user"/>
     	<article >
     	Ingrese el nombre de usuario a eliminar 
     	<input type="text" id="txt_name" value="" />
