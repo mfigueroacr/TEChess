@@ -1,4 +1,8 @@
-<?php   include ("../../session.inc");
+<?php   
+include ("../../session.inc");
+include ("../../tools/mysqli_call.php");
+include ("../../tools/general.php");
+check_login("");
 ?>
 <!DOCTYPE html >
 <html>
@@ -36,7 +40,7 @@
     	<input type="text" name="txt_username" value=" " />
     	<br /><br />
     	Ingrese la contraseña 
-    	<input type="text" name="txt_password" value=" " />
+    	<input type="password" name="txt_password" value=" " />
     	
     	</article>
 	  	
@@ -44,9 +48,11 @@
 		Seleccione el tipo de usuario:		
 		<br /><br />
 		
-		<select name="select" align="center">
-			<option>Administrador</option>
-			<option>Jugador</option>
+		<select name="profile" align="center">
+			<?php
+			$obj = new general($mysqli);
+			$obj->list_profiles();
+			?>
 		</select>
 		
 		<br /> <br />

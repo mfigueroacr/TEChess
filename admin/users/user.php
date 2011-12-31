@@ -1,7 +1,7 @@
 <?php
 
    include("../../tools/base.php");
-   include ("../../tools/hashit.php");
+   include ("../../tools/user.php");
    include ("../../session.inc");
 
 	function new_user($mysqli){
@@ -43,6 +43,5 @@
 	}
 	
 if (isset ($_POST['new_user'])) new_user($mysqli);
-	
 	
 ?>

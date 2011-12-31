@@ -1,5 +1,6 @@
 <?php
 include ("../session.inc");
+check_login();
 //check_login("administrador");
 ?>
 <!DOCTYPE html>

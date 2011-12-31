@@ -1,5 +1,8 @@
 <?php
-include("user.php");
+include ("../../session.inc");
+include ("../../tools/mysqli_call.php");
+include ("../../tools/general.php");
+check_login("");
 ?>
 <!DOCTYPE html >
 <html>
