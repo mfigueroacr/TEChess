@@ -39,28 +39,10 @@ check_login();
     <section>
     	<form action="user.php" method="post">
     	<input type="hidden" name="delete_user"/>
-    	<article >
     	Ingrese el nombre de usuario a eliminar 
-    	<input type="text" id="txt_name" value="" />
+    	<input type="text" name="txt_name" value="" />
     	<br /><br />
-    	<input type="submit" id="btn_search" value="Buscar" />
-    	
-    	    	
-    	<br /><br />
-    	Nombre:
-    	<label id="lbl_name" style=" font-weight: bold"> leo</label>
-    	<br /><br />
-    	Apellido:
-    	<label id="lbl_lastname" style=" font-weight: bold"> murillo</label>
-    	<br /><br />
-    	Nombre de Usuario: 
-    	<label id="lbl_username" style=" font-weight: bold"> leoneljmr</label>
-    	<br /><br />
-    	
-    	</article>
-
 		<input type="submit" name="btn_delete" value="Eliminar" />
-	
 		</form>
 	</section>
 	 

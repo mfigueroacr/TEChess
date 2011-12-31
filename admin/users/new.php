@@ -40,7 +40,7 @@ include ("../../tools/general.php");
     	<input type="text" name="txt_username" value=" " />
     	<br /><br />
     	Ingrese la contraseña 
-    	<input type="text" name="txt_password" value=" " />
+    	<input type="password" name="txt_password" value=" " />
     	
     	</article>
 	  	

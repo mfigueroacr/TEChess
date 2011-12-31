@@ -11,8 +11,10 @@ $result = c_mysqli_call($this->_link, "Create_User", "'$name', '$last_name' ,'$u
 return $result;
 }
 
-public function delete_user($username){	
+public function delete_user($username){
+		
 $result = c_mysqli_call($this->_link, "Delete_User", "'$username'");
+echo $result;
 return $result;
 }
 

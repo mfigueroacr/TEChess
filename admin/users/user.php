@@ -46,6 +46,25 @@ check_login();
 		 }
 	}
 	
+	function delete_user($mysqli){
+		$user = new user($mysqli);
+		if (isset ($_POST['txt_name'])){
+		$username = $_POST['txt_name'];
+		$result = false;
+		$result =  $user->delete_user($username);
+		echo $username;
+		  if($result == true) {
+		  	header('Location: ../index.php');
+		  }
+		  else {
+		  	header('Location: delete.php');
+		  }
+	  } 
+	  else{
+		  	header('Location: delete.php');
+  	  }
+	}	
+	
 if (isset ($_POST['new_user'])) new_user($mysqli);
 //if (isset ($_POST['new_user'])) leoprint();
 if (isset ($_POST['delete_user'])) delete_user($mysqli);

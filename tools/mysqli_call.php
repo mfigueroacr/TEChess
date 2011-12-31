@@ -60,7 +60,8 @@ include ("base.php");
         }
         else
         {
-            return false;//throw new Exception("The call failed: " . $dbLink->error);
+            //return false;
+            throw new Exception("The call failed: " . $dbLink->error);
         }
     }
 }
