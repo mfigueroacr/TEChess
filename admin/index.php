@@ -27,10 +27,10 @@ include ("../session.inc");
           			<a href="./users/index.php">Gestionar Usuarios</a>
 				</p>
 				<p>
-					<a href="./categories/category.php">Gestionar Categorías</a>
+					<a href="./categories/index_category.php">Gestionar Categorías</a>
 				</p>
 				<p>
-                  	<a href="./exercises/exercise.php">Gestionar Ejercicios</a>
+                  	<a href="./exercises/index_exercise.php">Gestionar Ejercicios</a>
 				</p>
 
 			</nav>
