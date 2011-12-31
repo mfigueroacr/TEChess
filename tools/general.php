@@ -7,7 +7,6 @@ class general{
 		$this->_link = $link;
 	}
 public function list_profiles(){
-	$html = "";
 $result = c_mysqli_call($this->_link, 'List_Profiles', "");
 		if($result) {
 		    foreach($result as $_row) {

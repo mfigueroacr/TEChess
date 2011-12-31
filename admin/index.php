@@ -25,13 +25,10 @@ check_login();
 			</header>
 			<nav>
 				<p>
-          			<a href="./users/index.php">Gestionar Usuarios</a>
+          			<a href="users/">Gestionar Usuarios</a>
 				</p>
 				<p>
-					<a href="./categories/index_category.php">Gestionar Categorías</a>
-				</p>
-				<p>
-                  	<a href="./exercises/index_exercise.php">Gestionar Ejercicios</a>
+					<a href="categories/">Gestionar Categorías</a>
 				</p>
 
 			</nav>
