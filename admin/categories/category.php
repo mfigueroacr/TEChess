@@ -1,7 +1,15 @@
 <?php
+/*
+ * /Categories/Category.php
+ * La clase dentro de la carpeta de categorías que se
+ * encarga de manejar todas las rutinas.
+ */
 
 	include("../../tools/base.php");
 	include ("../../session.inc");
+	include ("../../tools/category.php");
+	include("../../tools/mysqli_call.php");
+	
 	check_login();
 	
 	function new_cat($mysqli){
@@ -16,7 +24,7 @@
 			$result =  $cat->create_level($name, $description);
 			
 			  if($result == true) {
-			  	header('Location: ./index_category.php');
+			  	header('Location: ./index.php');
 			  }
 			  else {
 			  	header('Location: index.php');

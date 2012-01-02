@@ -10,7 +10,7 @@ public function list_profiles(){
 $result = c_mysqli_call($this->_link, 'List_Profiles', "");
 		if($result) {
 		    foreach($result as $_row) {
-    	    echo "<option>" . $_row['name'] . "</option>\n";
+    	    echo "<option name = leo>" . $_row['name'] . "</option>";
 			}
 		}
 return $result;

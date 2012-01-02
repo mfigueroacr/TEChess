@@ -31,16 +31,16 @@ include ("../../tools/general.php");
     	<input type="hidden" name="new_user">
     	<article >
     	Ingrese el nombre  
-    	<input type="text" name="txt_name" value=" " />
+    	<input type="text" name="txt_name" value="" />
     	<br /><br />
     	Ingrese el apellido 
-    	<input type="text" name="txt_lastname" value=" " />
+    	<input type="text" name="txt_lastname" value="" />
     	<br /><br />
     	Ingrese el nombre de usuario 
-    	<input type="text" name="txt_username" value=" " />
+    	<input type="text" name="txt_username" value="" />
     	<br /><br />
     	Ingrese la contraseña 
-    	<input type="password" name="txt_password" value=" " />
+    	<input type="password" name="txt_password" value="" />
     	
     	</article>
 	  	
@@ -48,18 +48,26 @@ include ("../../tools/general.php");
 		Seleccione el tipo de usuario:		
 		<br /><br />
 		
+		<?php
+		
+		echo "lyla";
+		
+		?>
+		
 		<select name="select" align="center">
-<?php
-		$obj = new general ($mysqli);
-		$obj->list_profiles();
-?>
+			<option>administrador</option>
 		</select>
 		
 		<br /> <br />
 		
 		</fieldset>
 		<input type="submit" name="btn_accept" value="Aceptar" />
-	
+<!--	<?php
+		$obj = new general ($mysqli);
+		$obj->list_profiles();
+		echo "Lyla";
+		echo "<option>" . "lyala" . "</option>";
+?> -->
 	</form>
 	</section>
 	 

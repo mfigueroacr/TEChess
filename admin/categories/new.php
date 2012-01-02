@@ -1,4 +1,14 @@
-<?php   include ("../../session.inc");
+<?php   
+/*
+ * /Categories/new.php
+ * Formulario donde se permite agregar una nueva
+ * categoría al sistema. 
+ */
+
+	include ("../../session.inc");
+	include ("../../tools/category.php");
+	include ("../../tools/mysqli_call.php");
+	include ("../../tools/general.php");
 ?>
 <!DOCTYPE html >
 <html>
