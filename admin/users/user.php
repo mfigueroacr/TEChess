@@ -1,9 +1,7 @@
 <?php
-
-   include("../../tools/mysqli_call.php");
-   include ("../../tools/user.php");
    include ("../../session.inc");
-check_login();
+   include ("../../tools/user.php");
+check_login($mysqli, "Administrador");
 
 	function new_user($mysqli){
 		$user = new user($mysqli);

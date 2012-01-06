@@ -1,6 +1,6 @@
 <?php
 include ("../../session.inc");
-check_login();
+	check_login($mysqli, "Administrador");
 ?>
 <!DOCTYPE html>
 <html lang="en">

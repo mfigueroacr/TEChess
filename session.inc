@@ -1,28 +1,27 @@
 <?php
+    include ("tools/mysqli_call.php");
+    include ("tools/general.php");
     ini_set('session.use_cookies', 1);
     ini_set('session.use_only_cookies', 1);
     session_start();
 
-function check_login($root="") {
+function check_login($mysqli, $root="") {
     if (!isset ($_SESSION['user']) || !$_SESSION['user']) {
     /* Si la cookie no esta definida se redirige a la pagina login */
     echo "not logged";
     //header('Location: signin.php');
 	}
-	else echo "logged";
-/*	if (isset ($_SESSION['user'])){
+	else echo "logged\n";
+	if (isset ($_SESSION['user'])){
 		if ($root == ""){
 		}
 		else{
 			$user = $_SESSION['user'];
-		    $sqlquery = "CALL check_permission('$user', '$root');";
-		    $result = mysql_query ($sqlquery);
-		    if (mysql_result($result,0)== false){
-		    	header('Location: /');
+			echo $user ;
+			$obj = new general($mysqli);
+			$obj->check_permission($user, $root);			
 		   	}
-		}
 	}
-	*/
 }
 
 function login_header(){

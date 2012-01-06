@@ -1,8 +1,8 @@
 <?php
 include ("session.inc");
-include ("tools/mysqli_call.php");
-include ("tools/general.php");
-check_login();
+//include ("tools/mysqli_call.php");
+//include ("tools/general.php");
+check_login($mysqli);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

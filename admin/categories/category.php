@@ -5,12 +5,10 @@
  * encarga de manejar todas las rutinas.
  */
 
-	include("../../tools/base.php");
 	include ("../../session.inc");
 	include ("../../tools/category.php");
-	include("../../tools/mysqli_call.php");
 	
-	check_login();
+	check_login($mysqli, "Administrador");
 	
 	function new_cat($mysqli){
 			$cat = new category($mysqli);

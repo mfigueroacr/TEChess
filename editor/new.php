@@ -1,4 +1,4 @@
 <?php
-	echo "Ejercicio nuevo"; 
-    phpinfo();
+	include ("../session.inc");
+	check_login($mysqli, "Administrador");
 ?>

@@ -1,8 +1,7 @@
 <?php   
 include ("../../session.inc");
-include ("../../tools/mysqli_call.php");
 include ("../../tools/user.php");
-include ("../../tools/general.php");
+	check_login($mysqli, "Administrador");
 ?>
 <!DOCTYPE html >
 <html>
@@ -46,28 +45,18 @@ include ("../../tools/general.php");
 	  	
 		<br /><br />		
 		Seleccione el tipo de usuario:		
-		<br /><br />
-		
-		<?php
-		
-		echo "lyla";
-		
-		?>
-		
+		<br /><br />		
 		<select name="select" align="center">
-			<option>administrador</option>
+		<?php
+			$obj = new general ($mysqli);
+			$obj->list_profiles();
+		?>			
 		</select>
 		
 		<br /> <br />
 		
 		</fieldset>
-		<input type="submit" name="btn_accept" value="Aceptar" />
-<!--	<?php
-		$obj = new general ($mysqli);
-		$obj->list_profiles();
-		echo "Lyla";
-		echo "<option>" . "lyala" . "</option>";
-?> -->
+		<input type="submit" name="btn_accept" value="Aceptar" /> 
 	</form>
 	</section>
 	 

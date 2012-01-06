@@ -1,4 +1,4 @@
 <?php
-	echo "modificar una ejercicio";
-    phpinfo();
+	include ("../session.inc");
+	check_login($mysqli, "Administrador");
 ?>

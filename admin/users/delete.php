@@ -1,8 +1,6 @@
 <?php   
 include ("../../session.inc");
-include ("../../tools/mysqli_call.php");
-include ("../../tools/general.php");
-check_login();
+	check_login($mysqli, "Administrador");
 ?>
 <!DOCTYPE html >
 <html>

@@ -1,4 +1,4 @@
 <?php
-	echo "Eliminar Ejercicio"; 
-    phpinfo();
+include ("../session.inc");
+	check_login($mysqli, "Administrador");
 ?>

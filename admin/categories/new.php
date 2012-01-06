@@ -7,8 +7,6 @@
 
 	include ("../../session.inc");
 	include ("../../tools/category.php");
-	include ("../../tools/mysqli_call.php");
-	include ("../../tools/general.php");
 ?>
 <!DOCTYPE html >
 <html>
