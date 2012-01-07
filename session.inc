@@ -8,10 +8,8 @@
 function check_login($mysqli, $root="") {
     if (!isset ($_SESSION['user']) || !$_SESSION['user']) {
     /* Si la cookie no esta definida se redirige a la pagina login */
-    echo "not logged";
-    //header('Location: signin.php');
+    header('Location: ./');
 	}
-	else echo "logged\n";
 	if (isset ($_SESSION['user'])){
 		if ($root == ""){
 		}
@@ -25,10 +23,13 @@ function check_login($mysqli, $root="") {
 }
 
 function login_header(){
+	$user;
 		 if (!isset ($_SESSION['user']) || !$_SESSION['user'])
 		 echo "<a href='#' onclick='login()'>Ingresar</a></span>";
-     	 else
-		 	echo "<a href='logout.php'>Logout</a></span>";
+     	 else{
+     	 	$user = $_SESSION['user'];
+		 	echo "<a href='logout.php'>Logout       logged as '$user' </a></span>";
+		 }
 }
 
 ?>

@@ -54,14 +54,19 @@ echo $html;
 return $result;
 }
 
+public function header(){
+	$html = "<nav>";
+	
+	
+	
+	$html .="</nav>";
+}
+
 public function stat_redirect(){
-$html = "<nav>";
 if ($this->check_role()){
 		header('Location: ./admin.php');
 }
 		header('Location: ./user.php');
-
-return $result;
 }
 
 }
