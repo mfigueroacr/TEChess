@@ -39,27 +39,35 @@ public function check_role(){
 }
 
 public function menu(){
-$html = "<nav>";
+$html = 
+	'<div id="menu">
+    <ul class="menu">';
 $result = $this->check_role();
 if ($result){
-	$html .= "<p><a href='admin/'>Administraci&oacute;n</a></p>
-		    	<p><a href='editor/'>Editor</a></p>";    	    	
+	$html .= '<li><a href="admin/" class="parent"><span>Administraci&oacute;n</span></a></li>
+        <li><a href="editor/" class="parent"><span>Editor</span></a></li>';    	    	
 }
 		
-$html .= "<p><a href='stats/'>Ejercicios</a></p>
-   		  <p><a href='stats/'>Estad&iacute;sticas</a></p>
-			</nav>";
+$html .= ' <li><a href="training/"><span>Entrenamiento</span></a></li>
+        <li class="last"><a href="stats/"><span>Estad&iacute;sticas</span></a></li>
+    	</ul>
+		</div>';
 echo $html;
 
 return $result;
 }
-
 public function header(){
-	$html = "<nav>";
+	$html = 
+	'<div id="menu">
+    <ul class="menu">
+        <li><a href="#" class="parent"><span>Inicio</span></a></li>
+        <li><a href="signin.php" class="parent"><span>Entrenamiento</span></a></li>
+        <li><a href="#"><span>Ayuda</span></a></li>
+        <li class="last"><a href="#"><span>Contacto</span></a></li>
+    </ul>
+</div>';
 	
-	
-	
-	$html .="</nav>";
+	return $html;
 }
 
 public function stat_redirect(){
@@ -68,6 +76,8 @@ if ($this->check_role()){
 }
 		header('Location: ./user.php');
 }
+
+
 
 }
 ?>

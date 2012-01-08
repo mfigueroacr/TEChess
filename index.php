@@ -1,3 +1,6 @@
+<?php
+include ('session.inc');
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -12,60 +15,30 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link href="CSS/site.css" rel="stylesheet" type="text/css" />
-		
-		<script type="text/javascript" src="Javascript/site.js"></script>
-	</head>
-	<body>
-		<div>
-			<?php 
-			include ("session.inc");
-			login_header();			   
-			?>
-			<header>
-				<h1>TeChess Training Suite</h1>
-			</header>
-			<nav>
-				<p>
-					<a href="/">Home</a>
-				</p>
-				<p>
-					<a href="/contact">Contact</a>
-				</p>
-			</nav>
-			<div></div>
-			<footer>
-				<p>
-					&copy; Copyright  by 
-				</p>
-			</footer>
-		</div>
-		
-		<div id="login">
-     <div>
-     	<a href="#" onclick="login()"/>cerrar</a>
-	<h1>TeChess Training Suite</h1>
-<p>comentario temporal: El user es admin y el password es 1234</p>
-        <form  action="login.php" method="POST">
-        <fieldset > <legend> Ingreso </legend>
-<label>Nombre de Usuario:</label><input type="text" id="user" name="user" />
-<br />
-<br />
 
-<label>Contraseña:</label><input type="password"  id="pass" name="pass"/>
-<br />
-</fieldset>
-
-<br />
-
-<input type="submit" name="button" id="button" value="Enviar" />
-
-</td>
-
-    </form>
-     </div>
+	<!-- CSS -->
+	 <link type="text/css" href="CSS/site.css" rel="stylesheet" />
+	  <link type="text/css" href="CSS/menu.css" rel="stylesheet" />
+    
+    <!-- Javascript -->
+      <script type="text/javascript" src="Javascript/jquery.js"></script>
+      <script type="text/javascript" src="Javascript/menu.js"></script>
+      <script type="text/javascript" src="Javascript/site.js"></script>
+</head>
+<body>
+<div id="ingreso">
+		<a  href="signin.php">Ingreso</a></span>
 	</div>
+<?php
+$obj = new general($mysqli);
+echo $obj->header();
+?>
 
-		
-	</body>
+<div id="contenido">
+</div>
+
+<div id="copyright">Copyright &copy; 2012 <a href="about/">Techess</a>
+	<a href="http://apycom.com/"></a>
+</div>
+</body>
 </html>

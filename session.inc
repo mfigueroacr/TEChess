@@ -21,15 +21,4 @@ function check_login($mysqli, $root="") {
 		   	}
 	}
 }
-
-function login_header(){
-	$user;
-		 if (!isset ($_SESSION['user']) || !$_SESSION['user'])
-		 echo "<a href='#' onclick='login()'>Ingresar</a></span>";
-     	 else{
-     	 	$user = $_SESSION['user'];
-		 	echo "<a href='logout.php'>Logout       logged as '$user' </a></span>";
-		 }
-}
-
 ?>
