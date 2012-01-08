@@ -11,18 +11,19 @@ body {
 }
 div#menu {
     left:40px;
-    width:600px;
+    width:800px;
 }
 
 div#contenido {
-	padding-top:5px;
+	padding-top:10px;
 	padding-left:40px;
 	height:550px;	
 	color:#FFFFFF;
 }
 
 div#ingreso {
-	padding-left:900px;
+	padding-left:850px;
+	color: #FFFFFF;
 }
 
 div#ingreso a {	color: #FFFFFF}

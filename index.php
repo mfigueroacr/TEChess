@@ -26,15 +26,18 @@ include ('session.inc');
       <script type="text/javascript" src="Javascript/site.js"></script>
 </head>
 <body>
-<div id="ingreso">
-		<a  href="signin.php">Ingreso</a></span>
-	</div>
 <?php
 $obj = new general($mysqli);
-echo $obj->header();
+echo $obj->login_header();
+$obj->menu();
 ?>
 
 <div id="contenido">
+	<center>
+		<h1>Bienvenido a TEChess</h1><br />
+		<p>Este Sistema fue desarrollado en el a&ntilde;o 2012 como parte del
+		curso de proyecto de la carrera de Ingenier&iacute;a en Computaci&oacute;n</p>
+	</center>
 </div>
 
 <?php

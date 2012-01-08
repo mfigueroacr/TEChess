@@ -30,7 +30,7 @@ check_login($mysqli, "");
 <body>
 <?php
  		$obj = new general($mysqli);
- 		echo $obj->close_header();
+ 		echo $obj->login_header();
  		$obj->menu();
 		
 ?>

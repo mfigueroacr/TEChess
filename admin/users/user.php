@@ -18,7 +18,7 @@ check_login($mysqli, "Administrador");
 		$result =  $user->create_user($name, $lastname, $username, $password, $seleccion);
 		
 		  if($result == true) {
-		  	echo "creado";//header('Location: ../index.php');
+		  	header('Location: ../index.php');
 		  }
 		  else {
 		  	echo "no creado";//header('Location: index.php');

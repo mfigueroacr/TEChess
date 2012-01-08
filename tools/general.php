@@ -25,13 +25,15 @@ return $result;
 
 public function check_role(){
 	$admin = false;
-	$username = $_SESSION['user'];
-	$result = c_mysqli_call($this->_link, 'Get_Profile', "'$username'");
-	if ($result){
-		foreach($result as $_row) {
-    	    if ($_row['name'] == "Administrador"){
-				$admin = true;    	    	
-    	    }
+	if (isset ($_SESSION['user'])){
+		$username = $_SESSION['user'];
+		$result = c_mysqli_call($this->_link, 'Get_Profile', "'$username'");
+		if ($result){
+			foreach($result as $_row) {
+	    	    if ($_row['name'] == "Administrador"){
+					$admin = true;    	    	
+	    	    }
+			}
 		}
 	}
 	return $admin;
@@ -40,7 +42,8 @@ public function check_role(){
 public function menu(){
 $html = 
 	'<div id="menu">
-    <ul class="menu">';
+    <ul class="menu">
+    <li><a href="index.php" class="parent"><span>Inicio</span></a></li>';
 $result = $this->check_role();
 if ($result){
 	$html .= '<li><a href="admin/" class="parent"><span>Administraci&oacute;n</span></a>
@@ -79,10 +82,13 @@ if ($result){
                </ul></div>
         </li>';    	    	
 }
-		
+if(isset($_SESSION['user'])){
 $html .= ' <li><a href="training/"><span>Entrenamiento</span></a></li>
-        <li class="last"><a href="stats/"><span>Estad&iacute;sticas</span></a></li>
-    	</ul>
+        <li class="last"><a href="stats/"><span>Estad&iacute;sticas</span></a></li>';
+        }
+$html .='<li><a href="help.php"><span>Ayuda</span></a></li>
+        <li class="last"><a href="contact.php"><span>Contacto</span></a></li>
+        </ul>
 		</div>';
 echo $html;
 
@@ -113,11 +119,16 @@ public function footer(){
 	return $html;
 }
 
-public function close_header(){
-	$html = 
-	'	<div id="ingreso">
-		<a class="" href="logout.php">Logout </a></span>
-	</div>';
+public function login_header(){
+	$html = '<div id="ingreso">';
+	if (isset($_SESSION['user'])){
+		$user = $_SESSION['user'];
+		$html .=  " [" . $user . "]   " . '<a class="" href="logout.php">Logout </a></span> ';
+	}
+else {
+	$html .= '<a class="" href="signin.php">Ingresar</a></span>';
+}
+	$html .= '</div>';
 	return $html;
 }
 

@@ -1,7 +1,5 @@
-<?php   
-include ("../../session.inc");
-include ("../../tools/category.php");
-	check_login($mysqli, "Administrador");
+<?php
+include ('session.inc');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,26 +17,29 @@ include ("../../tools/category.php");
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 	<!-- CSS -->
-	 <link type="text/css" href="../../CSS/site.css" rel="stylesheet" />
-	  <link type="text/css" href="../../CSS/menu.css" rel="stylesheet" />
+	 <link type="text/css" href="CSS/site.css" rel="stylesheet" />
+	  <link type="text/css" href="CSS/menu.css" rel="stylesheet" />
     
     <!-- Javascript -->
-      <script type="text/javascript" src="../../Javascript/jquery.js"></script>
-      <script type="text/javascript" src="../../Javascript/menu.js"></script>
-      <script type="text/javascript" src="../../Javascript/site.js"></script>
+      <script type="text/javascript" src="Javascript/jquery.js"></script>
+      <script type="text/javascript" src="Javascript/menu.js"></script>
+      <script type="text/javascript" src="Javascript/site.js"></script>
 </head>
 <body>
 <?php
- 		$obj = new general($mysqli);
- 		echo $obj->login_header();
- 		$obj->menu();
-		
+$obj = new general($mysqli);
+echo $obj->login_header();
+$obj->menu();
 ?>
-	<div id="contenido">
-	</div>
-	<?php
-		$obj = new general($mysqli);
-		echo $obj->footer();
-	?>
+
+<div id="contenido">
+	<h1>Ayuda</h1>
+</div>
+
+<?php
+$obj = new general($mysqli);
+echo $obj->footer();
+?>
+
 </body>
 </html>
