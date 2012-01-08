@@ -26,6 +26,11 @@ include ('session.inc');
       <script type="text/javascript" src="Javascript/site.js"></script>
 </head>
 <body>
+	<a>.</a>
+	<?php
+		$obj = new general($mysqli);
+		echo $obj->header();
+	?>
 	<div id="contenido">
 		<center>
 		<h1>TeChess Training Suite</h1>
@@ -42,6 +47,10 @@ include ('session.inc');
 		</form>
 		</center>
 	</div>
-</div>
+<?php
+$obj = new general($mysqli);
+echo $obj->footer();
+?>
+
 </body>
 </html>

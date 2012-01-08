@@ -1,6 +1,6 @@
 <?php
 include ('session.inc');
-check_login($mysqli);
+check_login($mysqli, "");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,20 +28,19 @@ check_login($mysqli);
 
 </head>
 <body>
-	<div id="ingreso">
-		<a class="" href="logout.php">Logout </a></span>
-	</div>
 <?php
  		$obj = new general($mysqli);
+ 		echo $obj->close_header();
  		$obj->menu();
-	?>
+		
+?>
 <div id="contenido">
 	<h1>TeChess logueado satisfactoriamente!!!</h1>
 </div>
-
-<div id="copyright">Copyright &copy; 2012 <a href="about/">Techess</a>
-	<a href="http://apycom.com/"></a>
-</div>
+<?php
+$obj = new general($mysqli);
+echo $obj->footer();
+?>
 </body>
 
 </html>

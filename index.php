@@ -37,8 +37,10 @@ echo $obj->header();
 <div id="contenido">
 </div>
 
-<div id="copyright">Copyright &copy; 2012 <a href="about/">Techess</a>
-	<a href="http://apycom.com/"></a>
-</div>
+<?php
+$obj = new general($mysqli);
+echo $obj->footer();
+?>
+
 </body>
 </html>

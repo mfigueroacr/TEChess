@@ -15,7 +15,6 @@ function check_login($mysqli, $root="") {
 		}
 		else{
 			$user = $_SESSION['user'];
-			echo $user ;
 			$obj = new general($mysqli);
 			$obj->check_permission($user, $root);			
 		   	}

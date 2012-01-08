@@ -22,20 +22,24 @@
 				    /*Declaramos una variable de sesión donde
                                  guardaremos el nombre del usuario
                                  para control*/
-  				  header("location: main.php");  /* Nos vamos a la sección "privada"
- 
-                                de nuestra página*/
+  				  //header("location: main.php");  /* Nos vamos a la sección "privada"
+ 				
+                    //            de nuestra página*/
+                    echo "logged";
     	    }
 			else{
-				 header("location: index.php");
+//				 header("location: index.php");
+				echo "fallo checked";
 			}
 			}
 		}
 	else {
-		header("location: index.php");
+	//	header("location: index.php");
+	echo "fallo result";
      }
   	}
     else {
-        header("location: index.php");
+    	echo "fallo principal";
+        //header("location: index.php");
     }  
 ?>

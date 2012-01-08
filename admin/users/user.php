@@ -16,15 +16,16 @@ check_login($mysqli, "Administrador");
 		$seleccion = $_POST['select'];
 		$result = false;
 		$result =  $user->create_user($name, $lastname, $username, $password, $seleccion);
+		
 		  if($result == true) {
-		  	header('Location: ../index.php');
+		  	echo "creado";//header('Location: ../index.php');
 		  }
 		  else {
-		  	header('Location: index.php');
+		  	echo "no creado";//header('Location: index.php');
 		  }
 	  } 
 	  else{
-		  	header('Location: index.php');
+		  	echo "faltaron datos";//header('Location: index.php');
   	  }
 	}
 	
@@ -62,7 +63,7 @@ check_login($mysqli, "Administrador");
 		  	header('Location: delete.php');
   	  }
 	}	
-	
+	print_r ($_POST);
 if (isset ($_POST['new_user'])) new_user($mysqli);
 //if (isset ($_POST['new_user'])) leoprint();
 if (isset ($_POST['delete_user'])) delete_user($mysqli);
