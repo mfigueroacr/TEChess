@@ -18,6 +18,17 @@ echo $result;
 return $result;
 }
 
+
+public function search_user($username){
+$result = c_mysqli_call($this->_link, 'Search_User', "$username");
+		/*if($result) {
+		    foreach($result as $_row) {
+    	    echo "<option>" . $_row['name'] . "</option>";
+			}
+		}*/
+return $result;
+}
+
 public function check_password ($username, $password){
 $result = c_mysqli_call($this->_link, "Check_Password", "'$username' , '$password'");
 	return $result;
