@@ -39,44 +39,43 @@ public function check_role(){
 	return $admin;
 }
 
-public function menu(){
+public function menu($indirection=""){
 $html = 
 	'<div id="menu">
     <ul class="menu">
-    <li><a href="index.php" class="parent"><span>Inicio</span></a></li>';
+    <li><a href="'.$indirection.'index.php" class="parent"><span>Inicio</span></a></li>';
 $result = $this->check_role();
 if ($result){
-	$html .= '<li><a href="admin/" class="parent"><span>Administraci&oacute;n</span></a>
+	$html .= '<li><a href="'.$indirection.'admin/" class="parent"><span>Administraci&oacute;n</span></a>
 	           <div><ul>
                <li><a href="#" class="parent"><span>Usuario</span></a>
                     <div><ul>
-                        <li><a href="admin/users/new.php"><span>Nuevo</span></a></li>
-                        <li><a href="admin/users/modify.php"><span>Editar</span></a></li>
-                        <li><a href="admin/users/admin/users/delete.php"><span>Eliminar</span></a></li>
+                        <li><a href="'.$indirection.'admin/users/new.php"><span>Nuevo</span></a></li>
+                        <li><a href="'.$indirection.'admin/users/modify.php"><span>Editar</span></a></li>
+                        <li><a href="'.$indirection.'admin/users/delete.php"><span>Eliminar</span></a></li>
                     </ul></div>
                 </li>
                 <li><a href="#" class="parent"><span>Categoria</span></a>
                     <div><ul>
-                        <li><a href="admin/categories/new.php"><span>Nueva</span></a></li>
-                        <li><a href="admin/categories/modify.php"><span>Editar</span></a></li>
+                        <li><a href="'. $indirection. 'admin/categories/new.php"><span>Nueva</span></a></li>
+                        <li><a href="'.$indirection.'admin/categories/modify.php"><span>Editar</span></a></li>
                     </ul></div>
                 </li>   
                </ul></div>
         </li>	
-        <li><a href="editor/" class="parent"><span>Editor</span></a>
+        <li><a href="#" class="parent"><span>Editor</span></a>
 	           <div><ul>
                <li><a href="#" class="parent"><span>Ejercicio</span></a>
                     <div><ul>
-                        <li><a href="#"><span>Nuevo</span></a></li>
-                        <li><a href="#"><span>Editar</span></a></li>
-                        <li><a href="#"><span>Eliminar</span></a></li>
+                        <li><a href="'.$indirection.'editor/new.php"><span>Nuevo</span></a></li>
+                        <li><a href="'.$indirection.'editor/modify.php"><span>Editar</span></a></li>
+                        <li><a href="'.$indirection.'editor/delete.php"><span>Eliminar</span></a></li>
                     </ul></div>
                 </li>
                 <li><a href="#" class="parent"><span>Soluci&oacute;n</span></a>
                     <div><ul>
-                        <li><a href="#"><span>Nueva</span></a></li>
-                        <li><a href="#"><span>Editar</span></a></li>
-                        <li><a href="#"><span>Eliminar</span></a></li>
+                        <li><a href="'.$indirection.'editor/new_solution.php"><span>Nueva</span></a></li>
+                        <li><a href="'.$indirection.'editor/delete_solution.php"><span>Eliminar</span></a></li>
                     </ul></div>
                 </li>   
                </ul></div>
@@ -84,10 +83,10 @@ if ($result){
 }
 if(isset($_SESSION['user'])){
 $html .= ' <li><a href="training/"><span>Entrenamiento</span></a></li>
-        <li class="last"><a href="stats/"><span>Estad&iacute;sticas</span></a></li>';
+        <li class="last"><a href="'.$indirection.'stats/"><span>Estad&iacute;sticas</span></a></li>';
         }
-$html .='<li><a href="help.php"><span>Ayuda</span></a></li>
-        <li class="last"><a href="contact.php"><span>Contacto</span></a></li>
+$html .='<li><a href="'.$indirection.'help.php"><span>Ayuda</span></a></li>
+        <li class="last"><a href="'.$indirection.'contact.php"><span>Contacto</span></a></li>
         </ul>
 		</div>';
 echo $html;
