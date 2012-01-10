@@ -10,7 +10,7 @@ include ("../../tools/category.php");
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>index</title>
+		<title>Nuevo Usuario</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Kelvin" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
@@ -45,10 +45,10 @@ include ("../../tools/category.php");
     	<form action="category.php" method="post">
     	<input type="hidden" name="new_cat">
     	<article >
-    	Ingrese el nombre de la categoría
+    	Ingrese el nombre de la categor&iacute;a
     	<input type="text" name="txt_name" value="" />
     	<br /><br />
-    	Ingrese una breve descripción
+    	Ingrese una breve descripci&oacute;n
     	<input type="text" name="txt_description" value="" />
     	
     	</article>
