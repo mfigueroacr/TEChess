@@ -18,13 +18,13 @@ include ("../session.inc");
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 	<!-- CSS -->
-	 <link type="text/css" href="../../CSS/site.css" rel="stylesheet" />
-	  <link type="text/css" href="../../CSS/menu.css" rel="stylesheet" />
+	 <link type="text/css" href="../CSS/site.css" rel="stylesheet" />
+	  <link type="text/css" href="../CSS/menu.css" rel="stylesheet" />
     
     <!-- Javascript -->
-      <script type="text/javascript" src="../../Javascript/jquery.js"></script>
-      <script type="text/javascript" src="../../Javascript/menu.js"></script>
-      <script type="text/javascript" src="../../Javascript/site.js"></script>
+      <script type="text/javascript" src="../Javascript/jquery.js"></script>
+      <script type="text/javascript" src="../Javascript/menu.js"></script>
+      <script type="text/javascript" src="../Javascript/site.js"></script>
 	</head>
 	<body>
 <?php
