@@ -20,12 +20,12 @@ return $result;
 
 
 public function search_user($username){
-$result = c_mysqli_call($this->_link, 'Search_User', "$username");
-		/*if($result) {
+$result = c_mysqli_call($this->_link, "Users_Search", "'$username'");
+		if($result) {
 		    foreach($result as $_row) {
-    	    echo "<option>" . $_row['name'] . "</option>";
+    	    echo $_row['name'];
 			}
-		}*/
+		}
 return $result;
 }
 

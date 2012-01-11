@@ -48,7 +48,7 @@ include ("../../tools/user.php");
     	Ingrese el nombre de usuario a modificar 
     	<input type="text" id="txt_SearchUsername" value="" />
     	<br /><br />
-    	<input type="hidden" name="modify_user"/>
+    	<input type="hidden" name="search_user"/>
     	<input type="submit" id="btn_search" value="Buscar" />
     	
 		</form>
