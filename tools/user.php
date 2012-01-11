@@ -21,7 +21,7 @@ public function delete_user($username){
 $result = c_mysqli_call($this->_link, "Delete_User", "'$username'");
 $completed = false;
 foreach($result as $_row) {   	
-    	  //  $completed = $_row['created'];
+    	    $completed = $_row['deleted'];
 			}
 
 return $completed;

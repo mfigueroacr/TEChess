@@ -36,18 +36,18 @@ check_login($mysqli, "Administrador");
 		$result = false;
 		$result =  $user->delete_user($username);
 		echo $username;
-		  if($result == true) {
-		  	header('Location: ./index.php');
+	  if($result == true) {
+			header('Location:./delete.php?result=ok');
 		  }
 		  else {
-		  	header('Location: delete.php');
+			header('Location:./delete.php?result=exitence_user');
 		  }
 	  } 
 	  else{
-		  	header('Location: delete.php');
-	  }
+			header('Location:./delete.php?result=miss_data');
+  	  }
 	}
-	
+		
 	function search_user($mysqli){
 		$user = new user($mysqli);
 		if (isset ($_POST['txt_SearchUsername'])){
@@ -55,7 +55,7 @@ check_login($mysqli, "Administrador");
 			$result = false;
 			$result = $user->search_user($username);
 			foreach($result as $_row) {
-				header('Location:./modify2.php?nombre='.$_row['name'].
+				header('Location:./modify.php?nombre='.$_row['name'].
 				"&apellido=".$_row['lastname']."&usuario=". $_row['username']);
 			}
 		}
@@ -73,16 +73,16 @@ check_login($mysqli, "Administrador");
 				$result =  $user->modify_user($name, $lastname, $username);
 				
 				if($result == true) {
-					//header('Location:./new.php?result=ok');
-					echo "good";
+					header('Location:./modify.php?result=ok');
+					//echo "good";
 		  		}
 		  		else {
-		  			echo "bad";
-					//header('Location:./new.php?result=exitence_user');
+		  			//echo "bad";
+					header('Location:./modify.php?result=exitence_user');
 		  		}
 	  } 
 	  else{
-			header('Location:./new.php?result=miss_data');
+			header('Location:./modify.php?result=miss_data');
   	  }
 	} 
 		
@@ -90,7 +90,6 @@ check_login($mysqli, "Administrador");
 		
 //	print_r ($_POST);
 if (isset ($_POST['new_user'])) new_user($mysqli);
-//if (isset ($_POST['new_user'])) leoprint();
 if (isset ($_POST['delete_user'])) delete_user($mysqli);
 if (isset ($_POST['search_user'])) search_user($mysqli);
 if (isset ($_POST['modify_user'])) modify_user($mysqli);	

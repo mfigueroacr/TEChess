@@ -30,39 +30,28 @@ include ("../../tools/user.php");
 <body>
 <?php
  		$obj = new general($mysqli);
- 		echo $obj->login_header();
- 		$obj->menu();
+ 		echo $obj->login_header('../../');
+ 		$obj->menu('../../');
 		
 ?>
 	<div id="contenido">
 	<header >
         <hgroup >
-            <h1 align="center">TeChess modificar un usuario</h1> 
+            <h1 align="center">TeChess ver un usuario</h1> 
             <br />
         </hgroup>
     </header>
     <center>
     <section>
     	<form action="user.php" method="post">
-    	<article >
-    		
-<br /><br />
-    	Nombre:
-    	<input type="text" name="txt_nameModify" value="<?php $name= $_GET['nombre']; echo $name; ?>" />
+    	Ingrese el nombre de usuario a consultar 
+    	<input type="text" name="txt_SearchUsername" value="" />
     	<br /><br />
-    	Apellido:
-    	<input type="text" name="txt_lastnameModify" value="<?php $name= $_GET['apellido']; echo $name; ?>" />
-    	<br /><br />
-    	Nombre de Usuario: 
-    	<input type="text" name="txt_usernameModify" value="<?php $name= $_GET['usuario']; echo $name; ?>" />
-    	<br /><br />
-    	</article>
-    	<input type="hidden" name="modify_user"/>
-		<input type="submit" id="btn_modify" value="Modificar" />
-
-
+    	<input type="hidden" name="search_user"/>
+    	<input type="submit" id="btn_search" value="Buscar" />
+    	
 		</form>
-</section>
+	</section>
 	</center>    
 	</div>
 	<?php

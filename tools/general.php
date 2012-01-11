@@ -23,7 +23,7 @@ public function check_permission($user, $root){
 return $result;
 }
 
-public function check_role(){
+public function admin_role(){
 	$admin = false;
 	if (isset ($_SESSION['user'])){
 		$username = $_SESSION['user'];
@@ -44,13 +44,14 @@ $html =
 	'<div id="menu">
     <ul class="menu">
     <li><a href="'.$indirection.'index.php" class="parent"><span>Inicio</span></a></li>';
-$result = $this->check_role();
+$result = $this->admin_role();
 if ($result){
 	$html .= '<li><a href="#" class="parent"><span>Administraci&oacute;n</span></a>
 	           <div><ul>
                <li><a href="#" class="parent"><span>Usuario</span></a>
                     <div><ul>
                         <li><a href="'.$indirection.'admin/users/new.php"><span>Nuevo</span></a></li>
+                        <li><a href="'.$indirection.'admin/users/view.php"><span>Ver</span></a></li>
                         <li><a href="'.$indirection.'admin/users/modify.php"><span>Editar</span></a></li>
                         <li><a href="'.$indirection.'admin/users/delete.php"><span>Eliminar</span></a></li>
                     </ul></div>
@@ -132,7 +133,7 @@ else {
 }
 
 public function stat_redirect(){
-	$admin = $this->check_role();
+	$admin = $this->admin_role();
 if ($admin){
 		header('Location: ./admin.php');
 }

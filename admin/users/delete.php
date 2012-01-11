@@ -57,6 +57,20 @@ include ("../../tools/user.php");
 	</section>
 	 
 	</center>    
+		<?php 
+		if (isset ($_GET['result'])){
+			 if($_GET['result'] == 'ok'){
+				echo "<center><h3>Se eliminó correctamente el usuario</h3></center>";
+			 }
+			 if($_GET['result'] == 'miss_data') {
+				 echo "<center><h3>Datos incompletos</h3></center>";
+			 }
+			 if($_GET['result'] == 'exitence_user') {
+				 echo "<center><h3>El usuario ya se encuentra registado, no se puede usar ese nombre de usuario</h3></center>";
+			 }
+		}
+		?>
+	
 		</div>
 	<?php
 		$obj = new general($mysqli);
