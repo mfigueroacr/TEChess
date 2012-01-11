@@ -32,7 +32,31 @@
 			  	header('Location: index.php');
 	  	  }
 		}
+	
+	function modify_cat($mysqli){
+		$cat = new category($mysqli);
+		//Realizamos la consulta a la base de datos y controlamos que nos devuelva
+	    //algun resultado
+	    if (isset ($_POST['txt_CategoryModify']) ){
+		    //Creamos variables locales con el contenido de las devueltas por el form
+		    $name = $_POST['txt_CategoryModify'];
+			$category = $_POST['select'];
+			$result = false;
+			$result =  $cat->modify_level($name, $category);
+			
+			  if($result == true) {
+			  	header('Location: ./index.php');
+			  }
+			  else {
+			  	header('Location: index.php');
+			  }
+		  } 
+		  else{
+			  	header('Location: index.php');
+	  	  }
+		}
+	
 
 if (isset ($_POST['new_cat'])) new_cat($mysqli);
-
+if (isset ($_POST['cat_modify'])) modify_cat($mysqli);
 ?>

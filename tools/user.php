@@ -23,7 +23,7 @@ public function search_user($username){
 $result = c_mysqli_call($this->_link, "Users_Search", "'$username'");
 		if($result) {
 		    foreach($result as $_row) {   	
-    	    echo $_row['name'];
+    	    echo $_row['name'] . " " . $_row['lastname']." ".$_row['username'];
 			}
 		}
 return $result;

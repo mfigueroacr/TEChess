@@ -19,5 +19,22 @@ public function create_level($name, $description){
 $result = c_mysqli_call($this->_link, "Create_Level", "'$name','$description'");
 return $result;
 }
+
+public function list_categories(){
+$result = c_mysqli_call($this->_link, 'List_Categories', "");
+		if($result) {
+		    foreach($result as $_row) {
+    	    echo "<option>" . $_row['name'] . "</option>";
+			}
+		}
+return $result;
+}
+
+public function modify_level($name, $category){
+	// $html = "";
+$result = c_mysqli_call($this->_link, "Update_Category", "'$name', '$category'");
+return $result;
+}
+
 }
 ?>

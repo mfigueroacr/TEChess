@@ -35,6 +35,36 @@ include ("../../tools/category.php");
 		
 ?>
 	<div id="contenido">
+		<header >
+        	<hgroup >
+        		<br /><br />
+            	<h1 align="center">TeChess modificar el nombre de una categor&iacute;a</h1>
+            	<br /><br /> 
+        	</hgroup>
+    	</header>
+		<center>
+		<section>
+		<form action="category.php" method="post">
+		Seleccione la categoría a modificar:		
+		<br /><br />		
+			<select name="select" align="center">
+				<?php
+				
+					$obj = new category ($mysqli);
+					$obj->list_categories();
+				?>			
+			</select>
+		<br /> <br />
+		Ingrese el nuevo nombre de la categoría:
+		<br /> <br />
+		<input type="text" name="txt_CategoryModify" value="" />
+    	<br /><br />
+    	<input type="hidden" name="cat_modify"/>
+    	<input type="submit" name="btn_modify" value="Modificar" />
+    	
+		</form>
+		</section>
+		</center>
 	</div>
 	<?php
 		$obj = new general($mysqli);
