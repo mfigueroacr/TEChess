@@ -31,7 +31,7 @@ include ("../../tools/user.php");
 <?php
  		$obj = new general($mysqli);
  		echo $obj->login_header();
- 		$obj->menu();
+ 		$obj->menu('../../');
 		
 ?>
 	<div id="contenido">	
