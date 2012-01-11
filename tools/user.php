@@ -8,14 +8,23 @@ class user{
 	}
 public function create_user( $name, $last_name, $username, $password, $profile){
 $result = c_mysqli_call($this->_link, "Create_User", "'$name', '$last_name' ,'$username' , '$password' ,'$profile'");
-return $result;
+$completed = false;
+foreach($result as $_row) {   	
+    	    $completed = $_row['created'];
+			}
+
+return $completed;
 }
 
 public function delete_user($username){
 		
 $result = c_mysqli_call($this->_link, "Delete_User", "'$username'");
-echo $result;
-return $result;
+$completed = false;
+foreach($result as $_row) {   	
+    	    $completed = $_row['created'];
+			}
+
+return $completed;
 }
 
 

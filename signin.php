@@ -24,6 +24,7 @@ include ('session.inc');
       <script type="text/javascript" src="Javascript/jquery.js"></script>
       <script type="text/javascript" src="Javascript/menu.js"></script>
       <script type="text/javascript" src="Javascript/site.js"></script>
+      <script type="text/javascript" src="Javascript/vanadium.js"></script>
 </head>
 <body>
 	<a>.</a>
@@ -36,16 +37,25 @@ include ('session.inc');
 		<h1>TeChess Training Suite</h1>
 		<p>comentario temporal: El user es admin y el password es 1234</p>
 		<form id="login" action="login.php" method="POST">
-			<label>Nombre de Usuario:</label><input type="text" id="user" name="user" />
+			<label>Nombre de Usuario:</label><input class=":required" type="text" id="user" name="user" />
 			<br />
 			<br />
-			<label>Contraseña:</label><input type="password"  id="pass" name="pass"/>
+			<label>Contraseña:</label><input class=":required" type="password"  id="pass" name="pass"/>
 			<br />
 			<br />
-			<input type="submit" name="button" id="button" value="Enviar" />
-			<input type="submit" name="Submit" value="Cancelar" onclick="location.href='login.php'"/></td>
+			<input  type="submit" name="button" id="button" value="Enviar" />
+			<input  type="submit" name="Submit" value="Cancelar" onclick="location.href='login.php'"/></td>
 		</form>
 		</center>
+	<?php			
+			if (isset ($_GET['result'])){
+			
+			 if($_GET['result'] == 'failed') {
+				 echo "<center><h3>Error en usuario o contrase&ntilde;a</h3></center>";
+			 }
+		}
+		?>
+
 	</div>
 <?php
 $obj = new general($mysqli);

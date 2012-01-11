@@ -118,11 +118,11 @@ public function footer(){
 	return $html;
 }
 
-public function login_header(){
+public function login_header($indirection=""){
 	$html = '<div id="ingreso">';
 	if (isset($_SESSION['user'])){
 		$user = $_SESSION['user'];
-		$html .=  " [" . $user . "]   " . '<a class="" href="logout.php">Logout </a></span> ';
+		$html .=  " [" . $user . "]   " . '<a class="" href="'.$indirection.'logout.php">Logout </a></span> ';
 	}
 else {
 	$html .= '<a class="" href="signin.php">Ingresar</a></span>';
