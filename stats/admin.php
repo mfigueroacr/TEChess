@@ -29,7 +29,7 @@ include ("../session.inc");
 <body>
 <?php
  		$obj = new general($mysqli);
- 		echo $obj->login_header();
+ 		echo $obj->login_header('../');
  		$obj->menu("../");
 		
 ?>

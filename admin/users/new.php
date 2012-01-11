@@ -31,7 +31,7 @@ include ("../../tools/user.php");
 <body>
 <?php
  		$obj = new general($mysqli);
- 		echo $obj->login_header();
+ 		echo $obj->login_header('../../');
  		$obj->menu("../../");
 		
 ?>
@@ -47,16 +47,19 @@ include ("../../tools/user.php");
 	    		<input type="hidden" name="new_user">
 	    			<article >
 				    	Ingrese el nombre  
-				    	<input type="text" name="txt_name" value="" />
+				    	<input class=":required" type="text" name="txt_name" value="" />
 				    	<br /><br />
 				    	Ingrese el apellido 
-				    	<input type="text" name="txt_lastname" value="" />
+				    	<input class=":required" type="text" name="txt_lastname" value="" />
 				    	<br /><br />
 				    	Ingrese el nombre de usuario 
-				    	<input type="text" name="txt_username" value="" />
+				    	<input class=":required" type="text" name="txt_username" value="" />
 				    	<br /><br />
 				    	Ingrese la contraseña 
-				    	<input type="password" name="txt_password" value="" />			    	
+				    	<input id="pass" class=":required" type="password" name="password" value="" />			    	
+				    	<br /><br />
+				    	Repita la contraseña 
+				    	<input class=":same_as;pass" type="password" name="txt_password_f" value="" />			    	
 	    			</article>
 				<br /><br />		
 				Seleccione el tipo de usuario:		
@@ -73,6 +76,20 @@ include ("../../tools/user.php");
 			</form>
 			</section>	 
 		</center> 
+		
+		<?php 
+		if (isset ($_GET['result'])){
+			 if($_GET['result'] == 'ok'){
+				echo "<center><h3>Se ingresó correctamente el dato en la base de datos</h3></center>";
+			 }
+			 if($_GET['result'] == 'miss_data') {
+				 echo "<center><h3>Datos incompletos</h3></center>";
+			 }
+			 if($_GET['result'] == 'exitence_user') {
+				 echo "<center><h3>El usuario ya se encuentra registado, no se puede usar ese nombre de usuario</h3></center>";
+			 }
+		}
+		?>
 	</div>
 	<?php
 		$obj = new general($mysqli);

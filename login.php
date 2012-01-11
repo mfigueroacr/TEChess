@@ -17,7 +17,7 @@
   $result = $user->check_password($username,$password);
   if($result) {
 		    foreach($result as $_row) {
-    	    if ($_row['checked']){
+    	    if ($_row['checked'] == true){
     	    	$_SESSION['user'] = $username;
 				    /*Declaramos una variable de sesión donde
                                  guardaremos el nombre del usuario
@@ -27,16 +27,16 @@
                     //            de nuestra página*/
     	    }
 			else{
-				 header("location: index.php");
+				 header("location: signin.php?result=failed");
 
 			}
 			}
 		}
 	else {
-		header("location: index.php");
+		header("location: signin.php?result=failed");
      }
   	}
     else {
-        header("location: index.php");
+        header("location: signin.php?result=failed");
     }  
 ?>
