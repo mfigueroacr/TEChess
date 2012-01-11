@@ -48,16 +48,16 @@ include ("../../tools/user.php");
     		
 <br /><br />
     	Nombre:
-    	<input type="text" id="txt_nameModify" value="" />
+    	<input type="text" name="txt_nameModify" value="<?php $name= $_GET['nombre']; echo $name; ?>" />
     	<br /><br />
     	Apellido:
-    	<input type="text" id="txt_lastnameModify" value="" />
+    	<input type="text" name="txt_lastnameModify" value="<?php $name= $_GET['apellido']; echo $name; ?>" />
     	<br /><br />
     	Nombre de Usuario: 
-    	<input type="text" id="txt_usernameModify" value="" />
+    	<input type="text" name="txt_usernameModify" value="<?php $name= $_GET['usuario']; echo $name; ?>" />
     	<br /><br />
     	</article>
-    	<input type="hidden" name="modify_user2"/>
+    	<input type="hidden" name="modify_user"/>
 		<input type="submit" id="btn_modify" value="Modificar" />
 
 

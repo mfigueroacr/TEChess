@@ -21,20 +21,29 @@ public function delete_user($username){
 $result = c_mysqli_call($this->_link, "Delete_User", "'$username'");
 $completed = false;
 foreach($result as $_row) {   	
-    	    $completed = $_row['created'];
+    	  //  $completed = $_row['created'];
 			}
 
 return $completed;
 }
 
+public function modify_user( $name, $last_name, $username){
+$result = c_mysqli_call($this->_link, "Update_User", "'$name', '$last_name' ,'$username'");
+$completed = false;
+foreach($result as $_row) {   	
+   // 	    $completed = $_row['created'];
+			}
+
+return $completed;
+}
 
 public function search_user($username){
 $result = c_mysqli_call($this->_link, "Users_Search", "'$username'");
-		if($result) {
-		    foreach($result as $_row) {   	
-    	    echo $_row['name'] . " " . $_row['lastname']." ".$_row['username'];
+		/*if($result) {
+		    foreach($result as $_row) {
+    	    	echo $_row['name'] . $_row['lastname'] .$_row['username'];
 			}
-		}
+		}*/
 return $result;
 }
 
