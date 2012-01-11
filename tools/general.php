@@ -82,7 +82,7 @@ if ($result){
         </li>';    	    	
 }
 if(isset($_SESSION['user'])){
-$html .= ' <li><a href="training/"><span>Entrenamiento</span></a></li>
+$html .= ' <li><a href="'.$indirection.'training/"><span>Entrenamiento</span></a></li>
         <li class="last"><a href="'.$indirection.'stats/"><span>Estad&iacute;sticas</span></a></li>';
         }
 $html .='<li><a href="'.$indirection.'help.php"><span>Ayuda</span></a></li>
