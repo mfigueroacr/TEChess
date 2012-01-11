@@ -61,7 +61,7 @@ check_login($mysqli, "Administrador");
 		
 	}
 		
-	print_r ($_POST);
+//	print_r ($_POST);
 if (isset ($_POST['new_user'])) new_user($mysqli);
 //if (isset ($_POST['new_user'])) leoprint();
 if (isset ($_POST['delete_user'])) delete_user($mysqli);

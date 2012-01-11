@@ -26,6 +26,7 @@ include ("../../tools/user.php");
       <script type="text/javascript" src="../../Javascript/jquery.js"></script>
       <script type="text/javascript" src="../../Javascript/menu.js"></script>
       <script type="text/javascript" src="../../Javascript/site.js"></script>
+      <script type="text/javascript" src="../../Javascript/vanadium.js"></script>
 </head>
 <body>
 <?php

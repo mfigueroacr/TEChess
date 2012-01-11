@@ -44,9 +44,8 @@ include ("../../tools/user.php");
     <center>
     <section>
     	<form action="user.php" method="post">
-    	<article >
     	Ingrese el nombre de usuario a modificar 
-    	<input type="text" id="txt_SearchUsername" value="" />
+    	<input type="text" name="txt_SearchUsername" value="" />
     	<br /><br />
     	<input type="hidden" name="search_user"/>
     	<input type="submit" id="btn_search" value="Buscar" />
