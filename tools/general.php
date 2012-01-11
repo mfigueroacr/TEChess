@@ -46,7 +46,7 @@ $html =
     <li><a href="'.$indirection.'index.php" class="parent"><span>Inicio</span></a></li>';
 $result = $this->check_role();
 if ($result){
-	$html .= '<li><a href="'.$indirection.'admin/" class="parent"><span>Administraci&oacute;n</span></a>
+	$html .= '<li><a href="#" class="parent"><span>Administraci&oacute;n</span></a>
 	           <div><ul>
                <li><a href="#" class="parent"><span>Usuario</span></a>
                     <div><ul>

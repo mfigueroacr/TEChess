@@ -29,22 +29,6 @@ check_login($mysqli, "Administrador");
   	  }
 	}
 	
-	function leoprint(){
-		 if (isset ($_POST['txt_name']) && isset ($_POST['txt_lastname']) && isset($_POST['txt_username']) && isset($_POST['txt_password']) ){
-			$name = $_POST['txt_name'];			
-			$lastname = $_POST['txt_lastname'];
-		    $username = $_POST['txt_username'];
-		    $password = $_POST['txt_password'];
-			$seleccion = $_POST['select'];
-			echo "leoprint";
-			echo $name;
-			echo $lastname;
-			echo $username;
-			echo $password;
-			echo $seleccion;
-		 }
-	}
-	
 	function delete_user($mysqli){
 		$user = new user($mysqli);
 		if (isset ($_POST['txt_name'])){
@@ -61,11 +45,26 @@ check_login($mysqli, "Administrador");
 	  } 
 	  else{
 		  	header('Location: delete.php');
-  	  }
-	}	
+	  }
+	}
+	
+	function search_user($mysqli){
+		$user = new user($mysqli);
+		if (isset ($_POST['txt_SearchUsername'])){
+			$username = $_POST['txt_SearchUsername'];
+			$result = false;
+			$result = $user->search_user($username);
+		}
+	}
+	
+	function modify_user($mysqli){
+		
+	}
+		
 	print_r ($_POST);
 if (isset ($_POST['new_user'])) new_user($mysqli);
 //if (isset ($_POST['new_user'])) leoprint();
 if (isset ($_POST['delete_user'])) delete_user($mysqli);
+if (isset ($_POST['delete_user'])) search_user($mysqli);
 	
 ?>

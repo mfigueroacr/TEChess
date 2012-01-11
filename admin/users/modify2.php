@@ -31,7 +31,7 @@ include ("../../tools/user.php");
 <?php
  		$obj = new general($mysqli);
  		echo $obj->login_header();
- 		$obj->menu('../../');
+ 		$obj->menu();
 		
 ?>
 	<div id="contenido">
@@ -45,14 +45,24 @@ include ("../../tools/user.php");
     <section>
     	<form action="user.php" method="post">
     	<article >
-    	Ingrese el nombre de usuario a modificar 
-    	<input type="text" id="txt_SearchUsername" value="" />
+    		
+<br /><br />
+    	Nombre:
+    	<input type="text" id="txt_nameModify" value="" />
     	<br /><br />
-    	<input type="hidden" name="modify_user"/>
-    	<input type="submit" id="btn_search" value="Buscar" />
-    	
+    	Apellido:
+    	<input type="text" id="txt_lastnameModify" value="" />
+    	<br /><br />
+    	Nombre de Usuario: 
+    	<input type="text" id="txt_usernameModify" value="" />
+    	<br /><br />
+    	</article>
+    	<input type="hidden" name="modify_user2"/>
+		<input type="submit" id="btn_modify" value="Modificar" />
+
+
 		</form>
-	</section>
+</section>
 	</center>    
 	</div>
 	<?php
