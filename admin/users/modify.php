@@ -51,10 +51,10 @@ include ("../../tools/user.php");
     	<input type="text" name="txt_nameModify" value="<?php $name= $_GET['nombre']; echo $name; ?>" />
     	<br /><br />
     	Apellido:
-    	<input type="text" name="txt_lastnameModify" value="<?php $name= $_GET['apellido']; echo $name; ?>" />
+    	<input type="text" name="txt_lastnameModify" value="<?php $uno= $_GET['apellido']; echo $uno; ?>" />
     	<br /><br />
     	Nombre de Usuario: 
-    	<input type="text" name="txt_usernameModify" value="<?php $name= $_GET['usuario']; echo $name; ?>" />
+    	<input type="text" name="txt_usernameModify" value="<?php $dos= $_GET['usuario']; echo $dos; ?>" />
     	<br /><br />
     	</article>
     	<input type="hidden" name="modify_user"/>
@@ -67,7 +67,7 @@ include ("../../tools/user.php");
 	</div>
 	<?php
 		$obj = new general($mysqli);
-		echo $obj->footer();
+		echo $obj->footer("../../");
 	?>
 </body>
 </html>

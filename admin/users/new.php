@@ -93,7 +93,7 @@ include ("../../tools/user.php");
 	</div>
 	<?php
 		$obj = new general($mysqli);
-		echo $obj->footer();
+		echo $obj->footer("../../");
 	?>
 </body>
 </html>

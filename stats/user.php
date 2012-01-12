@@ -1,6 +1,6 @@
 <?php   
 include ("../session.inc");
-	check_login($mysqli,"Administrador");
+	check_login($mysqli);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@ include ("../session.inc");
 	</div>
 	<?php
 		$obj = new general($mysqli);
-		echo $obj->footer();
+		echo $obj->footer("../");
 	?>
     
 </body>

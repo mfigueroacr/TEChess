@@ -38,7 +38,7 @@ include ("../session.inc");
 	</div>
 	<?php
 		$obj = new general($mysqli);
-		echo $obj->footer();
+		echo $obj->footer("../");
 	?>
     
 </body>

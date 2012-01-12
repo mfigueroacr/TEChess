@@ -45,14 +45,14 @@
 			$result =  $cat->modify_level($name, $category);
 			
 			  if($result == true) {
-			  	header('Location: ./index.php');
+			  	header('Location: ./modify.php?result="ok"');
 			  }
 			  else {
-			  	header('Location: index.php');
+			  	header('Location: ./modify.php?result="failed"');
 			  }
 		  } 
 		  else{
-			  	header('Location: index.php');
+			  	header('Location: ./modify.php?result="miss_data"');
 	  	  }
 		}
 	

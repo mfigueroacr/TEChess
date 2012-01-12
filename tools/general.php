@@ -108,10 +108,10 @@ public function header(){
 	return $html;
 }
 
-public function footer(){
+public function footer($indirection=""){
 	$html = 
 	'<div id="copyright">
-		<center>Copyright &copy; 2012 <a href="about.php">Techess</a>
+		<center>Copyright &copy; 2012 <a href="'.$indirection.'about.php">Techess</a>
 		</center>
 		<a href="http://apycom.com/"></a>
 	</div>';

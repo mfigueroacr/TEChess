@@ -30,7 +30,7 @@ include ("../../tools/category.php");
 <body>
 <?php
  		$obj = new general($mysqli);
- 		echo $obj->login_header();
+ 		echo $obj->login_header("../../");
  		$obj->menu("../../");
 		
 ?>
@@ -68,7 +68,7 @@ include ("../../tools/category.php");
 	</div>
 	<?php
 		$obj = new general($mysqli);
-		echo $obj->footer();
+		echo $obj->footer("../../");
 	?>
 </body>
 </html>

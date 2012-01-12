@@ -7,7 +7,7 @@ check_login($mysqli, "Administrador");
 		$user = new user($mysqli);
 	//Realizamos la consulta a la base de datos y controlamos que nos devuelva
     //algun resultado
-    if (isset ($_POST['txt_name']) && isset ($_POST['txt_lastname']) && isset($_POST['txt_username']) && isset($_POST['txt_password']) ){
+    if (isset ($_POST['txt_name']) && isset ($_POST['txt_lastname']) && isset($_POST['txt_username']) && isset($_POST['password']) ){
 	    //Creamos variables locales con el contenido de las devueltas por el form
 	    $name = $_POST['txt_name'];
 		$lastname = $_POST['txt_lastname'];
@@ -73,16 +73,14 @@ check_login($mysqli, "Administrador");
 				$result =  $user->modify_user($name, $lastname, $username);
 				
 				if($result == true) {
-					header('Location:./modify.php?result=ok');
-					//echo "good";
+					header('Location:./view.php?result=ok');
 		  		}
 		  		else {
-		  			//echo "bad";
-					header('Location:./modify.php?result=exitence_user');
+					header('Location:./view.php?result=exitence_user');
 		  		}
 	  } 
 	  else{
-			header('Location:./modify.php?result=miss_data');
+			header('Location:./view.php?result=miss_data');
   	  }
 	} 
 		
