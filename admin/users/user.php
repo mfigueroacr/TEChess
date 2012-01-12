@@ -13,9 +13,10 @@ check_login($mysqli, "Administrador");
 		$lastname = $_POST['txt_lastname'];
 	    $username = $_POST['txt_username'];
 	    $password = $_POST['password'];
+		$email = $_POST['txt_email'];
 		$seleccion = $_POST['select'];
 		$result = false;
-		$result =  $user->create_user($name, $lastname, $username, $password, $seleccion);
+		$result =  $user->create_user($name, $lastname, $username, $password, $email, $seleccion);
 		
 		  if($result == true) {
 			header('Location:./new.php?result=ok');

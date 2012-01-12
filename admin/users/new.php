@@ -56,6 +56,9 @@ include ("../../tools/user.php");
 				    	Ingrese el nombre de usuario 
 				    	<input class=":required" type="text" name="txt_username" value="" />
 				    	<br /><br />
+				    	Ingrese el correo electr&oacute;nico: 
+				    	<input class=":required" type="text" name="txt_email" value="" />
+				    	<br /><br />
 				    	Ingrese la contraseña 
 				    	<input id="pass" class=":required" type="password" name="password" value="" />			    	
 				    	<br /><br />

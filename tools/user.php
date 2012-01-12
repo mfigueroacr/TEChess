@@ -6,8 +6,8 @@ class user{
 		#$this->$link = $link ;
 		$this->_link = $link;
 	}
-public function create_user( $name, $last_name, $username, $password, $profile){
-$result = c_mysqli_call($this->_link, "Create_User", "'$name', '$last_name' ,'$username' , '$password' ,'$profile'");
+public function create_user( $name, $last_name, $username, $password, $email, $profile){
+$result = c_mysqli_call($this->_link, "Create_User", "'$name', '$last_name' ,'$username' , '$password', '$email' ,'$profile'");
 $completed = false;
 foreach($result as $_row) {   	
     	    $completed = $_row['created'];
@@ -70,7 +70,7 @@ $result = c_mysqli_call($this->_link, "Update_Password", "'$username' , '$passwo
 
 public function test_create ($user, $password){
 print "Creating user... ";
-$creacion = $this->create_user ($user,'lastname', $user, $password,"jugador");
+$creacion = $this->create_user ($user,'lastname', $user, $password, "email","jugador");
 if ($creacion == true) {
     print " created\n";
 }
