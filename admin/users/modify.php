@@ -28,6 +28,7 @@ include ("../../tools/user.php");
       <script type="text/javascript" src="../../Javascript/site.js"></script>
 </head>
 <body>
+	
 <?php
  		$obj = new general($mysqli);
  		echo $obj->login_header("../../");
@@ -47,11 +48,24 @@ include ("../../tools/user.php");
     	<article >
     		
 <br /><br />
+
+		<?php
+		
+			$user = new user($mysqli);
+			$username = $_GET['usuario'];
+			$result = $user->search_user($username);
+			foreach($result as $_row) {
+				$nombre = $_row['name'];
+				$apellido = $_row['lastname'];
+			}	
+		
+		?>
+		
     	Nombre:
-    	<input type="text" name="txt_nameModify" value="<?php $name= $_GET['nombre']; echo $name; ?>" />
+    	<input type="text" name="txt_nameModify" value="<?php echo $nombre; ?>" />
     	<br /><br />
     	Apellido:
-    	<input type="text" name="txt_lastnameModify" value="<?php $uno= $_GET['apellido']; echo $uno; ?>" />
+    	<input type="text" name="txt_lastnameModify" value="<?php echo $apellido; ?>" />
     	<br /><br />
     	Nombre de Usuario: 
     	<input type="text" name="txt_usernameModify" value="<?php $dos= $_GET['usuario']; echo $dos; ?>" />

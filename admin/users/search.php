@@ -30,46 +30,37 @@ include ("../../tools/user.php");
 <body>
 <?php
  		$obj = new general($mysqli);
- 		echo $obj->login_header("../../");
- 		$obj->menu("../../");
+ 		echo $obj->login_header('../../');
+ 		$obj->menu('../../');
 		
 ?>
 	<div id="contenido">
 	<header >
         <hgroup >
-            <h1 align="center">TeChess ver lista de usuarios</h1> 
+            <h1 align="center">TeChess ver un usuario</h1> 
             <br />
         </hgroup>
     </header>
     <center>
     <section>
-
+    	<form action="user.php" method="post">
+    	Ingrese el nombre de usuario a consultar 
+    	<input type="text" name="txt_SearchUsername" value="" />
+    	<br /><br />
+    	<input type="hidden" name="search_user"/>
+    	<input type="submit" id="btn_search" value="Buscar" />
     	
-    	<table border="1">
-			<tr>
-			<th>Nombre       </th>
-			<th>Apellido     </th>
-			<th>Nombre de Usuario    </th>
-			<th>Tipo de Usuario    </th>
-			<th>Fecha y hora de registro</th>
-			
-			<?php 
-    		$user = new user($mysqli);
-			$result = $user-> view_users();
-			if ($result){
-			foreach ($result as $_key) {
-				echo "</tr> <tr>";
-				echo "<td>" . $_key['name']. "<td>" . $_key['lastname'] . 
-					"<td>" .$_key['username'] . "<td>" . $_key['profile'] .
-					"<td>" .$_key['date']; 				
-				echo "</tr>";
-				}
-			}
-    		?>
-		</table>
-			
+		</form>
 	</section>
-	</center>    
+	</center> 
+	
+	<?php 
+		if (isset ($_GET['data'])){
+			 if($_GET['data'] == 'nothing'){
+				echo "<center><h3>No existen datos con este usuario.</h3></center>";
+			 }
+		}
+	?>   
 	</div>
 	<?php
 		$obj = new general($mysqli);

@@ -37,6 +37,17 @@ foreach($result as $_row) {
 return $completed;
 }
 
+public function view_users(){
+$result = c_mysqli_call($this->_link, "Get_Users", "");
+		/*if($result) {
+		    foreach($result as $_row) {
+    	    	echo $_row['name'] . $_row['lastname'] .$_row['username'];
+			}
+		}*/
+return $result;
+}
+
+
 public function search_user($username){
 $result = c_mysqli_call($this->_link, "Users_Search", "'$username'");
 		/*if($result) {

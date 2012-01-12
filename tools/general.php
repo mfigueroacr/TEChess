@@ -51,8 +51,8 @@ if ($result){
                <li><a href="#" class="parent"><span>Usuario</span></a>
                     <div><ul>
                         <li><a href="'.$indirection.'admin/users/new.php"><span>Nuevo</span></a></li>
+                        <li><a href="'.$indirection.'admin/users/search.php"><span>Editar</span></a></li>
                         <li><a href="'.$indirection.'admin/users/view.php"><span>Ver</span></a></li>
-                        <li><a href="'.$indirection.'admin/users/modify.php"><span>Editar</span></a></li>
                         <li><a href="'.$indirection.'admin/users/delete.php"><span>Eliminar</span></a></li>
                     </ul></div>
                 </li>

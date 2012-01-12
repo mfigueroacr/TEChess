@@ -54,12 +54,25 @@ check_login($mysqli, "Administrador");
 			$username = $_POST['txt_SearchUsername'];
 			$result = false;
 			$result = $user->search_user($username);
-			foreach($result as $_row) {
-				header('Location:./modify.php?nombre='.$_row['name'].
-				"&apellido=".$_row['lastname']."&usuario=". $_row['username']);
+		}
+		return $result;
+	}
+	
+	function check_user($mysqli){
+		$user = new user($mysqli);
+		if (isset ($_POST['txt_SearchUsername'])){
+			$username = $_POST['txt_SearchUsername'];
+			$result = false;
+			$result = $user->search_user($username);
+			if ($result){
+				foreach($result as $_row) {
+					header('Location:./modify.php?usuario='. $_row['username']);
+				}
+			}
+			else {
+				header('Location:./search.php?data=nothing');
 			}
 		}
-		
 	}
 	
 	function modify_user($mysqli){
@@ -82,6 +95,13 @@ check_login($mysqli, "Administrador");
 	  else{
 			header('Location:./view.php?result=miss_data');
   	  }
+	}
+
+	function view_users(){
+		$user = new user($mysqli);
+		$result = $user->view_users();
+		
+		return $result;
 	} 
 		
 	
@@ -89,6 +109,6 @@ check_login($mysqli, "Administrador");
 //	print_r ($_POST);
 if (isset ($_POST['new_user'])) new_user($mysqli);
 if (isset ($_POST['delete_user'])) delete_user($mysqli);
-if (isset ($_POST['search_user'])) search_user($mysqli);
+if (isset ($_POST['search_user'])) check_user($mysqli);
 if (isset ($_POST['modify_user'])) modify_user($mysqli);	
 ?>

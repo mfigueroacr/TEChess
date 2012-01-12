@@ -39,6 +39,7 @@ include ("../../tools/user.php");
 		<header >
         	<hgroup >
             	<h1 align="center">TeChess ingresar un nuevo usuario</h1> 
+            	<br /><br />	
         	</hgroup>
     	</header>
     	<center>
