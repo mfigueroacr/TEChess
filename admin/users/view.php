@@ -43,8 +43,6 @@ include ("../../tools/user.php");
     </header>
     <center>
     <section>
-
-    	
     	<table border="1">
 			<tr>
 			<th>Nombre       </th>
@@ -52,22 +50,20 @@ include ("../../tools/user.php");
 			<th>Nombre de Usuario    </th>
 			<th>Tipo de Usuario    </th>
 			<th>Fecha y hora de registro</th>
-			
 			<?php 
-    		$user = new user($mysqli);
-			$result = $user-> view_users();
-			if ($result){
-			foreach ($result as $_key) {
-				echo "</tr> <tr>";
-				echo "<td>" . $_key['name']. "<td>" . $_key['lastname'] . 
-					"<td>" .$_key['username'] . "<td>" . $_key['profile'] .
-					"<td>" .$_key['date']; 				
-				echo "</tr>";
+	    		$user = new user($mysqli);
+				$result = $user-> view_users();
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['lastname'] . 
+							"<td>" .$_key['username'] . "<td>" . $_key['profile'] .
+							"<td>" .$_key['date']; 				
+						echo "</tr>";
+					}
 				}
-			}
     		?>
 		</table>
-			
 	</section>
 	</center>    
 	</div>

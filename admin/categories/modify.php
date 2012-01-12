@@ -49,7 +49,6 @@ include ("../../tools/category.php");
 		<br /><br />		
 			<select name="select" align="center">
 				<?php
-				
 					$obj = new category ($mysqli);
 					$obj->list_categories();
 				?>			
