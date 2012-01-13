@@ -48,6 +48,7 @@ include ("../../tools/user.php");
 			<th>Nombre       </th>
 			<th>Apellido     </th>
 			<th>Nombre de Usuario    </th>
+			<th>Correo electrónico</th>
 			<th>Tipo de Usuario    </th>
 			<th>Fecha y hora de registro</th>
 			<?php 
@@ -57,8 +58,8 @@ include ("../../tools/user.php");
 					foreach ($result as $_key) {
 						echo "</tr> <tr>";
 						echo "<td>" . $_key['name']. "<td>" . $_key['lastname'] . 
-							"<td>" .$_key['username'] . "<td>" . $_key['profile'] .
-							"<td>" .$_key['date']; 				
+							"<td>" .$_key['username'] . "<td>" . $_key['email'] . 
+							"<td>" . $_key['profile'] .	"<td>" .$_key['date']; 				
 						echo "</tr>";
 					}
 				}

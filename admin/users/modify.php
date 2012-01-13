@@ -57,18 +57,44 @@ include ("../../tools/user.php");
 			foreach($result as $_row) {
 				$nombre = $_row['name'];
 				$apellido = $_row['lastname'];
+				$email = $_row['email'];
+				$profile = $_row['profile'];
 			}	
 		
 		?>
 		
+    	Nombre de Usuario: 
+    	<?php $dos= $_GET['usuario']; echo $dos; ?>
+    	<br /><br />
     	Nombre:
-    	<input type="text" name="txt_nameModify" value="<?php echo $nombre; ?>" />
+    	<input type="text" class=":required" name="txt_nameModify" value="<?php echo $nombre; ?>" />
     	<br /><br />
     	Apellido:
-    	<input type="text" name="txt_lastnameModify" value="<?php echo $apellido; ?>" />
+    	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $apellido; ?>" />
     	<br /><br />
-    	Nombre de Usuario: 
-    	<input type="text" name="txt_usernameModify" value="<?php $dos= $_GET['usuario']; echo $dos; ?>" />
+    	Correo electr&oacute;nico:
+    	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $email; ?>" />
+    	<br /><br />
+    	Perfil:
+    	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $profile; ?>" />
+    	<select name="select" align="center">
+			<?php
+				$obj = new general ($mysqli);
+				$obj->list_profiles();
+			?>			
+		</select>
+    	
+    	<select selected="<?php print($row[month]); ?>">
+    		<option value="Janurary">January</option>
+    		<option value="February">February</option>
+    		<option value="March">March</option>
+    		<option value="April">April</option>
+    			</select>
+    	
+    	<option value="January"<?=$row['month'] == 'January' ? ' selected="selected"' : '';?>>
+    		January</option>
+    	
+    	
     	<br /><br />
     	</article>
     	<input type="hidden" name="modify_user"/>
