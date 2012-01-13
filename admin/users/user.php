@@ -1,5 +1,5 @@
 <?php
-   include ("../../session.inc");
+ 	  include ("../../session.inc");
    include ("../../tools/user.php");
 check_login($mysqli, "Administrador");
 
@@ -93,7 +93,7 @@ check_login($mysqli, "Administrador");
 		  		else {
 					header('Location:./view.php?result=exitence_user');
 		  		}
-	  } 
+	  }
 	  else{
 			header('Location:./view.php?result=miss_data');
   	  }
@@ -104,7 +104,7 @@ check_login($mysqli, "Administrador");
 		$result = $user->view_users();
 		
 		return $result;
-	} 
+	}
 		
 	
 		
@@ -112,5 +112,6 @@ check_login($mysqli, "Administrador");
 if (isset ($_POST['new_user'])) new_user($mysqli);
 if (isset ($_POST['delete_user'])) delete_user($mysqli);
 if (isset ($_POST['search_user'])) check_user($mysqli);
-if (isset ($_POST['modify_user'])) modify_user($mysqli);	
+if (isset ($_POST['modify_user'])) modify_user($mysqli);
+
 ?>
