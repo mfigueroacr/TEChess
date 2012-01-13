@@ -64,7 +64,8 @@ include ("../../tools/user.php");
 		?>
 		
     	Nombre de Usuario: 
-    	<?php $dos= $_GET['usuario']; echo $dos; ?>
+    	<?php echo $username; ?>
+    	<input type="hidden" name="usuario" value="<?php echo $username; ?>"/>
     	<br /><br />
     	Nombre:
     	<input type="text" class=":required" name="txt_nameModify" value="<?php echo $nombre; ?>" />
@@ -73,28 +74,15 @@ include ("../../tools/user.php");
     	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $apellido; ?>" />
     	<br /><br />
     	Correo electr&oacute;nico:
-    	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $email; ?>" />
+    	<input type="text" class=":required" name="txt_emailModify" value="<?php echo $email; ?>" />
     	<br /><br />
     	Perfil:
-    	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $profile; ?>" />
     	<select name="select" align="center">
 			<?php
 				$obj = new general ($mysqli);
-				$obj->list_profiles();
+				$obj->list_profiles2change($username);
 			?>			
 		</select>
-    	
-    	<select selected="<?php print($row[month]); ?>">
-    		<option value="Janurary">January</option>
-    		<option value="February">February</option>
-    		<option value="March">March</option>
-    		<option value="April">April</option>
-    			</select>
-    	
-    	<option value="January"<?=$row['month'] == 'January' ? ' selected="selected"' : '';?>>
-    		January</option>
-    	
-    	
     	<br /><br />
     	</article>
     	<input type="hidden" name="modify_user"/>

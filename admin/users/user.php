@@ -78,13 +78,14 @@ check_login($mysqli, "Administrador");
 	
 	function modify_user($mysqli){
 		$user = new user($mysqli);
-		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify']) &&
-			isset ($_POST['txt_usernameModify'])){
+		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify'])){
 				$name = $_POST['txt_nameModify'];
 				$lastname = $_POST['txt_lastnameModify'];
-	    		$username = $_POST['txt_usernameModify'];
+	    		$username = $_POST['usuario'];
+				$email = $_POST['txt_emailModify'];
+				$profile = $_POST['select'];
 				$result = false;
-				$result =  $user->modify_user($name, $lastname, $username);
+				$result =  $user->modify_user($name, $lastname, $username, $email, $profile);
 				
 				if($result == true) {
 					header('Location:./view.php?result=ok');

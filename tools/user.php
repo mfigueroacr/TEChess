@@ -27,8 +27,8 @@ foreach($result as $_row) {
 return $completed;
 }
 
-public function modify_user( $name, $last_name, $username){
-$result = c_mysqli_call($this->_link, "Update_User", "'$name', '$last_name' ,'$username'");
+public function modify_user( $name, $last_name, $username, $email, $profile){
+$result = c_mysqli_call($this->_link, "Update_User", "'$name', '$last_name' ,'$username', '$email', '$profile' ");
 $completed = false;
 foreach($result as $_row) {   	
    // 	    $completed = $_row['created'];

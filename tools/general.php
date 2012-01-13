@@ -15,6 +15,17 @@ $result = c_mysqli_call($this->_link, 'List_Profiles', "");
 return $result;
 }
 
+
+public function list_profiles2change($username){
+$result = c_mysqli_call($this->_link, 'Profiles_toChange', "'$username'");
+		if($result) {
+		    foreach($result as $_row) {
+    	    echo "<option>" . $_row['name'] . "</option>";
+			}
+		}
+return $result;
+}
+
 public function check_permission($user, $root){
 	$result = c_mysqli_call($this->_link, 'Check_Permission', "'$user', '$root'");
 	if ($result == false){
