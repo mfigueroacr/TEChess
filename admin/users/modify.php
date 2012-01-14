@@ -35,7 +35,7 @@ include ("../../tools/user.php");
  		$obj->menu("../../");
 		
 ?>
-	<div id="contenido">
+	<div id="contenido" >
 	<header >
         <hgroup >
             <h1 align="center">TeChess modificar un usuario</h1> 
@@ -74,7 +74,7 @@ include ("../../tools/user.php");
     	<input type="text" class=":required" name="txt_lastnameModify" value="<?php echo $apellido; ?>" />
     	<br /><br />
     	Correo electr&oacute;nico:
-    	<input type="text" class=":required" name="txt_emailModify" value="<?php echo $email; ?>" />
+    	<input type="text" class=":email" name="txt_emailModify" value="<?php echo $email; ?>" />
     	<br /><br />
     	Perfil:
     	<select name="select" align="center">

@@ -5,7 +5,7 @@ class general{
 	public function __construct (mysqli $link) {
 		$this->_link = $link;
 	}
-public function list_profiles(){
+	public function list_profiles(){
 $result = c_mysqli_call($this->_link, 'List_Profiles', "");
 		if($result) {
 		    foreach($result as $_row) {
@@ -16,7 +16,7 @@ return $result;
 }
 
 
-public function list_profiles2change($username){
+	public function list_profiles2change($username){
 $result = c_mysqli_call($this->_link, 'Profiles_toChange', "'$username'");
 		if($result) {
 		    foreach($result as $_row) {
@@ -26,7 +26,7 @@ $result = c_mysqli_call($this->_link, 'Profiles_toChange', "'$username'");
 return $result;
 }
 
-public function check_permission($user, $root){
+	public function check_permission($user, $root){
 	$result = c_mysqli_call($this->_link, 'Check_Permission', "'$user', '$root'");
 	if ($result == false){
 		header('Location: ../');
@@ -34,7 +34,7 @@ public function check_permission($user, $root){
 return $result;
 }
 
-public function admin_role(){
+	public function admin_role(){
 	$admin = false;
 	if (isset ($_SESSION['user'])){
 		$username = $_SESSION['user'];
@@ -50,7 +50,7 @@ public function admin_role(){
 	return $admin;
 }
 
-public function menu($indirection=""){
+	public function menu($indirection=""){
 $html = 
 	'<div id="menu">
     <ul class="menu">
@@ -105,7 +105,8 @@ echo $html;
 
 return $result;
 }
-public function header(){
+	
+	public function header(){
 	$html = 
 	'<div id="menu">
     <ul class="menu">
@@ -119,7 +120,7 @@ public function header(){
 	return $html;
 }
 
-public function footer($indirection=""){
+	public function footer($indirection=""){
 	$html = 
 	'<div id="copyright">
 		<center>Copyright &copy; 2012 <a href="'.$indirection.'about.php">Techess</a>
@@ -129,21 +130,8 @@ public function footer($indirection=""){
 	
 	return $html;
 }
-
-public function login_header($indirection=""){
-	$html = '<div id="ingreso">';
-	if (isset($_SESSION['user'])){
-		$user = $_SESSION['user'];
-		$html .=  " [" . $user . "]   " . '<a class="" href="'.$indirection.'logout.php">Logout </a></span> ';
-	}
-else {
-	$html .= '<a class="" href="signin.php">Ingresar</a></span>';
-}
-	$html .= '</div>';
-	return $html;
-}
-
-public function stat_redirect(){
+	
+	public function stat_redirect(){
 	$admin = $this->admin_role();
 if ($admin){
 		header('Location: ./admin.php');
@@ -153,7 +141,42 @@ else{
 	}
 }
 
-
+	public function out($indirection=""){
+$html = 
+	'<div id="menu" style="padding-left:830px;">
+    <ul class="menu">';
+	
+	$html .= '<li><a href="#" class="parent"><span>Config</span></a>
+	           <div><ul>
+               <li><a href="change_password.php" ><span>Change Pass</span></a></li>
+                <li><a href="#" ><span>Log out</span></a></li>
+               </ul></div>        
+        </li>
+        </ul>
+		</div>';
+echo $html;
+}
+/* 
+ *Hay que acomodar bien esto 
+ */
+public function login_header($indirection=""){
+	$html = '<div id="ingreso" style="padding-left:830px;" > 
+			<ul class="menu"><li>' ;
+if (isset($_SESSION['user'])){
+		$user = $_SESSION['user'];
+		
+		$html .=  "[" . $user . "]" . '<a href="#" class="parent"><span>Config</span></a>
+	            <div><ul>
+	            	<li><a href="'.$indirection.'change_password.php" ><span>Change Pass</span></a></li>
+					<li><a class="" href="'.$indirection.'logout.php"><span>Logout</span></a></li>
+				</ul></div> ';
+	}
+else {
+	$html .= '<a class="parent" href="signin.php"><span>Ingresar</span></a>';
+}
+	$html .= '</li></ul> </div>';
+	return $html;
+}
 
 }
 ?>

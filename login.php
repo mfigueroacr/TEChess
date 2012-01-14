@@ -9,7 +9,7 @@
   //Realizamos la consulta a la base de datos y controlamos que nos devuelva
   //algun resultado
   if (isset ($_POST['user']) && isset ($_POST['pass']) && ($mysqli instanceof mysqli)){
-  $user = new user($mysqli);
+  $user = new user($mysqli); 
   //Creamos variables locales con el contenido de las devueltas por el form
     $username = $_POST['user'];
     $password = $_POST['pass'];

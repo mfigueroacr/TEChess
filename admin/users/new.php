@@ -33,7 +33,6 @@ include ("../../tools/user.php");
  		$obj = new general($mysqli);
  		echo $obj->login_header('../../');
  		$obj->menu("../../");
-		
 ?>
 	<div id="contenido">
 		<header >
@@ -57,7 +56,7 @@ include ("../../tools/user.php");
 				    	<input class=":required" type="text" name="txt_username" value="" />
 				    	<br /><br />
 				    	Ingrese el correo electr&oacute;nico: 
-				    	<input class=":required" type="text" name="txt_email" value="" />
+				    	<input class=":email" type="text" name="txt_email" value="" />
 				    	<br /><br />
 				    	Ingrese la contraseña 
 				    	<input id="pass" class=":required" type="password" name="password" value="" />			    	
