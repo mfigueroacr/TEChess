@@ -49,6 +49,7 @@
     <section>
     	<form action="changepass.php" method="post">
     	<article >
+    		 <br />
     		Ingrese la contraseña nueva 
 			<input id="pass" class=":required" type="password" name="password" value="" />			    	
 			<br /><br />
@@ -59,6 +60,16 @@
 		</fieldset>
 			<input type="submit" name="btn_accept" value="Aceptar" /> 
 		</form>
+		<?php 
+			if (isset ($_GET['result'])){
+				if($_GET['result'] == 'true') {
+				 echo "<center><h3>La contrase&ntilde;a se cambio de manera exitosa.</h3></center>";
+				}
+				if($_GET['result'] == 'error') {
+				 echo "<center><h3>Error no se pudo cambiar la contrase&ntilde;a</h3></center>";
+				}
+			}
+		?>
 	</section>
 	</center>    
 	</div>

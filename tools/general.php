@@ -141,31 +141,16 @@ else{
 	}
 }
 
-	public function out($indirection=""){
-$html = 
-	'<div id="menu" style="padding-left:830px;">
-    <ul class="menu">';
-	
-	$html .= '<li><a href="#" class="parent"><span>Config</span></a>
-	           <div><ul>
-               <li><a href="change_password.php" ><span>Change Pass</span></a></li>
-                <li><a href="#" ><span>Log out</span></a></li>
-               </ul></div>        
-        </li>
-        </ul>
-		</div>';
-echo $html;
-}
 /* 
  *Hay que acomodar bien esto 
  */
 public function login_header($indirection=""){
-	$html = '<div id="ingreso" style="padding-left:830px;" > 
+	$html = '<div id="menu" style="padding-left:830px; padding-top:10px;" > 
 			<ul class="menu"><li>' ;
 if (isset($_SESSION['user'])){
 		$user = $_SESSION['user'];
 		
-		$html .=  "[" . $user . "]" . '<a href="#" class="parent"><span>Config</span></a>
+		$html .=  '<a href="#" class="parent">[ '.$user.' ]</a>
 	            <div><ul>
 	            	<li><a href="'.$indirection.'change_password.php" ><span>Change Pass</span></a></li>
 					<li><a class="" href="'.$indirection.'logout.php"><span>Logout</span></a></li>

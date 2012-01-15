@@ -1,23 +1,21 @@
 <?php
 
 include ("./session.inc");
-   include ("./tools/user.php");
+include ("./tools/user.php");
 check_login($mysqli);
 
-if (isset ($_POST('password'))){
-	$newpass = $_POST('password');
+if (isset ($_POST['txtpassword'])){
+
+	$newpass = $_POST['password'];
 	$username = $_SESSION['user'];
 	$user = new user($mysqli);
 	$return = false;
 	$return = $user->update_password($username, $newpass);
 	if ($return){
-		// se cambio bien
+		header("location: change_password.php?result=true");
 	}
 	else{
-		//sonamos con el cambio
+		header("location: change_password.php?resulterror");
 	}
-}
-else {
-	//no puede dejar todo esto en blanco
 }
 ?>

@@ -26,6 +26,14 @@ div#ingreso {
 	color: #FFFFFF;
 }
 
+div#log {
+	padding-left:850px;
+	color: #FFFFFF;
+	left:40px;
+    width:800px;
+}
+
+div#log a {	color: #FFFFFF}
 div#ingreso a {	color: #FFFFFF}
 
 div#copyright { 
