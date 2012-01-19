@@ -1019,18 +1019,18 @@ Vanadium.setupValidatorTypes = function() {
     ['equal', function(v, p) {
       return v == p;
     }, function (_v, p) {
-      return '<br/>El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + p + '</span>.'
+      return '<br/><font color="#59E817" >El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + p + '</span>.'
     }],
     //
     ['equal_ignore_case', function(v, p) {
       return v.toLowerCase() == p.toLowerCase();
     }, function (_v, p) {
-      return '<br/>El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + p + '</span>.'
+      return '<br/><font color="#59E817" >El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + p + '</span>.'
     }],
     //
     ['required', function(v) {
       return !Vanadium.validators_types['empty'].test(v);
-    }, '<br/>El campo es requerido.'],
+    }, '<br/> <font color="#59E817" >El campo es requerido. </font>'],
     //
     ['accept', function(v, _p, e) {
       return e.element.checked;
@@ -1068,13 +1068,13 @@ Vanadium.setupValidatorTypes = function() {
     ['date', function(v) {
       var test = new Date(v);
       return Vanadium.validators_types['empty'].test(v) || !isNaN(test);
-    }, '<br/>Ingrese una fecha valida.'],
+    }, '<br/><font color="#59E817" >Ingrese una fecha valida.'],
     //
     ['email', function (v) {
       return (Vanadium.validators_types['empty'].test(v)
               ||
               /\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$/.test(v))
-    }, '<br/>Ingrese una direcci&oacute;n de correo v&aacute;lida. Por ejemplo alguien@dominio.com.'],
+    }, '<br/><font color="#59E817" >Ingrese una direcci&oacute;n de correo v&aacute;lida. Por ejemplo alguien@dominio.com.'],
     //
     ['url', function (v) {
       return Vanadium.validators_types['empty'].test(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v)

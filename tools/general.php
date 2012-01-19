@@ -57,7 +57,9 @@ $html =
     <li><a href="'.$indirection.'index.php" class="parent"><span>Inicio</span></a></li>';
 $result = $this->admin_role();
 if ($result){
-	$html .= '<li><a href="#" class="parent"><span>Administraci&oacute;n</span></a>
+	$html .= ' <li><a href="'.$indirection.'lessons/" class="parent"><span>Lecciones</span></a>
+			   </li>
+			   <li><a href="#" class="parent"><span>Administraci&oacute;n</span></a>
 	           <div><ul>
                <li><a href="#" class="parent"><span>Usuario</span></a>
                     <div><ul>
@@ -110,9 +112,9 @@ return $result;
 	$html = 
 	'<div id="menu">
     <ul class="menu">
-        <li><a href="index.php" class="parent"><span>Inicio</span></a></li>
-        <li><a href="signin.php" class="parent"><span>Entrenamiento</span></a></li>
-        <li><a href="help.php"><span>Ayuda</span></a></li>
+        <li><a href="index.php" class="parent"><span>Inicio</span></a></li>' .
+        // <li><a href="signin.php" class="parent"><span>Entrenamiento</span></a></li>
+        '<li><a href="help.php"><span>Ayuda</span></a></li>
         <li class="last"><a href="contact.php"><span>Contacto</span></a></li>
     </ul>
 </div>';
@@ -152,8 +154,8 @@ if (isset($_SESSION['user'])){
 		
 		$html .=  '<a href="#" class="parent">[ '.$user.' ]</a>
 	            <div><ul>
-	            	<li><a href="'.$indirection.'change_password.php" ><span>Change Pass</span></a></li>
-					<li><a class="" href="'.$indirection.'logout.php"><span>Logout</span></a></li>
+	            	<li><a href="'.$indirection.'change_password.php" ><span>Contraseña</span></a></li>
+					<li><a class="" href="'.$indirection.'logout.php"><span>Salir</span></a></li>
 				</ul></div> ';
 	}
 else {

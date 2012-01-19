@@ -1,8 +1,11 @@
-<?php   
+<?php
 include ("../session.inc");
-include ("./grid.php");
-	check_login($mysqli,"Administrador");
+	check_login($mysqli, "Administrador");
+	$obj = new general($mysqli);
+	//$obj->stat_redirect();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -35,20 +38,10 @@ include ("./grid.php");
 		
 ?>
 	<div id="contenido">
-		<h1>Secci&oacute;n de Estad&iacute;sticas para administrador</h1>
+		<h1>Secci&oacute;n de Lecciones</h1>
 	</div>
 
-	<?php
-		
-		//$obj = new grid();
-		//echo $obj->graph(); 
-		header('Content-Type: image/png');
-$im = graph();
-imagepng($im);
-imagedestroy($im);
-		
 	
-	?>
 	
 	<?php
 		$obj = new general($mysqli);
