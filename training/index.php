@@ -1,6 +1,5 @@
 <?php   
 include ("../session.inc");
-include ("../tools/category.php");
 	check_login($mysqli);
 ?>
 <!DOCTYPE html>
@@ -31,10 +30,21 @@ include ("../tools/category.php");
 <?php
  		$obj = new general($mysqli);
  		echo $obj->login_header('../');
- 		$obj->menu("../");
-		
+ 		$obj->menu("../"); 				
 ?>
 	<div id="contenido">
+		<?php 
+		 	if (get_user()){
+		 		echo 
+		 		'<applet code="Training.class"
+					name="Some name goes here"
+					archive="TEChess.jar"
+					width="1210" height="510">
+					Su explorador no soporta java.
+					<param name="Player" value="'.get_user().'">
+				</applet>';
+ 			}
+		?>
 	</div>
 	<?php
 		$obj = new general($mysqli);
