@@ -11,16 +11,18 @@ if ($_SESSION['re'] == "tt"){
 	$result = $stats->top_team();
 	if ($result){
 		$chart [ 'chart_data' ][ 0 ][ 0 ] = "";
-		$chart [ 'chart_data' ][ 1 ][ 0 ] = "";
+		
 		$row = 1; 
-		$index = 0;
+		$index = 1;
 		foreach($result as $_row) {
     	    
+			//http://www.maani.us/charts4/index.php?menu=Tutorial&submenu=Chart_Data
+			$col = $_row['time'];
 			//populate the PHP array with the play title
    			$chart [ 'chart_data' ][ 0 ][ $index ] = $_row['name'];
 
    			//populate the PHP array with the revenue data
-   			$chart [ 'chart_data' ][ $row ][ $index ] = 5; //$_row['time'];
+   			$chart [ 'chart_data' ][$row ][ $index ] = $_row['time'];
    			$index++;
 			$row++;
 			}
@@ -29,11 +31,14 @@ if ($_SESSION['re'] == "tt"){
 	}
 	/*
 	foreach($result as $_row) {
+		echo $_row['name'] . " ";
+		
 		echo $_row['time'];
-		echo $_row['name'];
+		echo "<br />";
 	}
 	
 	*/
+	
 }
 
 else if ($_SESSION['re'] == "bt"){

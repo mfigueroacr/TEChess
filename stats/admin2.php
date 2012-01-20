@@ -43,7 +43,7 @@
 
 	//include charts.php to access the InsertChart function
 	include "./graph/charts.php";
-	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "grid.php", 750, 250 );
+	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "grid.php", 900, 250 );
 	
 ?>
 	
