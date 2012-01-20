@@ -42,15 +42,17 @@
 	<section>
     	<table border="1">
 			<tr>
-			<th>Nombre Ejercicio  </th>
-			<th>Tiempo     </th>
+			
 	
 <?php
 if ($_SESSION['re'] == "tt"){
 	    		$stats = new stats($mysqli);
 				$result = $stats-> top_team();
+				echo "<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>";
 				if ($result){
 					foreach ($result as $_key) {
+						
 						echo "</tr> <tr>";
 						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
 						echo "</tr>";
@@ -60,6 +62,8 @@ if ($_SESSION['re'] == "tt"){
 if ($_SESSION['re'] == "bt"){
 	    		$stats = new stats($mysqli);
 				$result = $stats-> bottom_team();
+				echo "<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>";
 				if ($result){
 					foreach ($result as $_key) {
 						echo "</tr> <tr>";
@@ -73,6 +77,8 @@ if ($_SESSION['re'] == "bt"){
 	    		$stats = new stats($mysqli);
 	    		$username = $_GET['username'];
 				$result = $stats-> top_user($username);
+				echo "<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>";
 				if ($result){
 					foreach ($result as $_key) {
 						echo "</tr> <tr>";
@@ -85,10 +91,25 @@ if ($_SESSION['re'] == "bt"){
 	    		$stats = new stats($mysqli);
 	    		$username = $_GET['username'];
 				$result = $stats-> bottom_user($username);
+				echo "<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>";
 				if ($result){
 					foreach ($result as $_key) {
 						echo "</tr> <tr>";
 						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}	
+if ($_SESSION['re'] == "lu"){
+	    		$stats = new stats($mysqli);
+	    		$username = $_GET['username'];
+				$result = $stats-> login_user($username);
+				echo "<th>Fecha  </th>";
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['date']; 				
 						echo "</tr>";
 					}
 				}
