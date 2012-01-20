@@ -1,6 +1,6 @@
 <?php   
 include ("../session.inc");
-include ("./grid.php");
+//include ("./grid.php");
 	check_login($mysqli,"Administrador");
 ?>
 <!DOCTYPE html>

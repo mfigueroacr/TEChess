@@ -1,6 +1,5 @@
 <?php   
-include ("../session.inc");
-include ("./grid.php");
+	include ("../session.inc");
 	check_login($mysqli,"Administrador");
 ?>
 <!DOCTYPE html>
@@ -36,22 +35,19 @@ include ("./grid.php");
 ?>
 	<div id="contenido">
 		<h1>Resultado</h1>
-
+		<br />
 
 <center>
 	
 <?php
+
 	//include charts.php to access the InsertChart function
 	include "./graph/charts.php";
-	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "stat.php", 400, 250 );
+	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "grid.php", 400, 250 );
 ?>
 	
 </center>
-
-
 	</div>
-
-
 	
 	<?php
 		$obj = new general($mysqli);
@@ -60,4 +56,3 @@ include ("./grid.php");
     
 </body>
 </html>
-?>

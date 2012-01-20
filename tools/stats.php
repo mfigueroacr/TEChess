@@ -1,5 +1,5 @@
 <?php
-class user{
+class stats{
 	public $_link ;
 	
 	public function __construct (mysqli $link) {

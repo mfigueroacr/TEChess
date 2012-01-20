@@ -2,7 +2,7 @@
  	include ("../session.inc");
    	include ("../tools/stats.php");
 	check_login($mysqli, "Administrador");
-	include "graph/charts.php";
+	//include "graph/charts.php";
 
 if (isset ($_POST['select'])){
 	$seleccion = $_POST['select'];
@@ -14,6 +14,8 @@ if (isset ($_POST['select'])){
 	else if ($seleccion == "10 Mejores ejercicios"){ top_me($mysqli);}
 	else if ($seleccion == "10 Peores ejercicios"){ bottom_me($mysqli);}
 }
+
+
 /* Falta montar el arreglo y probarlo. OJO que el gráfico agarra las cosas de 
  * sample.php que es dnd está la funcion que escribe el gráfico. Hay que ver cómo se jala
  * eso
@@ -24,6 +26,7 @@ function top_team($mysqli){
 		$result = $stats->top_team();
 				
 		if($result == true) {
+			$_SESSION['re'] = "tu";
 			header('Location:./admin2.php');
 		}
 		else {
@@ -34,11 +37,13 @@ function top_team($mysqli){
 function top_user($mysqli){
 		$stats = new stats($mysqli);
 		if (isset ($_POST['txt_username'])){
+				$username = $_POST['txt_username'];
 				$result = false;
 				$result = $stats->top_user($username);
 				
 				if($result == true) {
-					header('Location:./admin2.php');
+					$_SESSION['re'] = "tu";
+					header('Location:./admin2.php?username=' . $username . "&re=tu");
 		  		}
 		  		else {
 					header('Location:./admin.php?result=error');
@@ -48,23 +53,24 @@ function top_user($mysqli){
 			header('Location:./admin.php?result=miss_data');
   	  }
 	}
+
+
+
 	
 function top_me($mysqli){
 		$stats = new stats($mysqli);
-		if (isset ($_POST['txt_username'])){
-				$result = false;
-				$result = $stats->top_user($username);
-				
-				if($result == true) {
-					header('Location:./user2.php');
-		  		}
-		  		else {
-					header('Location:./user.php?result=error');
-		  		}
-	  }
-	  else{
-			header('Location:./user.php?result=miss_data');
-  	  }
+		
+		$username = $_SESSION['user'];
+		$result = false;
+		$result = $stats->top_user($username);
+			
+		if($result == true) {
+			$_SESSION['re'] = "tm";
+			header('Location:./user2.php');
+		}
+		else {
+			header('Location:./user.php?result=error');
+		}
 	}
 
 function bottom_team($mysqli){
@@ -73,6 +79,7 @@ function bottom_team($mysqli){
 		$result =  $stats->bottom_team();
 				
 		if($result == true) {
+			$_SESSION['re'] = "bt";
 			header('Location:./admin2.php');
 		}
 		else {
@@ -83,46 +90,47 @@ function bottom_team($mysqli){
 function bottom_user($mysqli){
 		$stats = new stats($mysqli);
 		if (isset ($_POST['txt_username'])){
-				$result = false;
-				$result = $stats->bottom_user($username);
-				
-				if($result == true) {
-					header('Location:./admin2.php');
-		  		}
-		  		else {
-					header('Location:./admin.php?result=error');
-		  		}
+			$username = $_POST['txt_username'];
+			$result = false;
+			$result = $stats->bottom_user($username);
+			
+			if($result == true) {
+				$_SESSION['re'] = "bu";
+				header('Location:./admin2.php');
+		  	}
+		  	else {
+				header('Location:./admin.php?result=error');
+		  	}
 	  }
 	  else{
 			header('Location:./admin.php?result=miss_data');
   	  }
-	}
+}
 
 function bottom_me($mysqli){
 		$stats = new stats($mysqli);
-		if (isset ($_POST['txt_username'])){
-				$result = false;
-				$result = $stats->bottom_user($username);
+		$username = $_SESSION['user'];
+		$result = false;
+		$result = $stats->bottom_user($username);
 				
-				if($result == true) {
-					header('Location:./user2.php');
-		  		}
-		  		else {
-					header('Location:./user.php?result=error');
-		  		}
-	  }
-	  else{
-			header('Location:./user.php?result=miss_data');
-  	  }
-	}
+		if($result == true) {
+			$_SESSION['re'] = "bm";
+			header('Location:./user2.php');
+		}
+		else {
+			header('Location:./user.php?result=error');
+		}
+}
 
 function login_user($mysqli){
 		$stats = new stats($mysqli);
 		if (isset ($_POST['txt_username'])){
+			$username = $_POST['txt_username'];
 			$result = false;
 			$result = $stats->login_user($username);
 				
 			if($result == true) {
+				$_SESSION['re'] = "lu";
 				header('Location:./admin2.php');
 		  	}
 		  	else {
