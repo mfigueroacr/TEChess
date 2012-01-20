@@ -38,8 +38,8 @@ include ("../session.inc");
 		 		echo 
 		 		'<applet code="Training.class"
 					name="Some name goes here"
-					archive="TEChess.jar"
-					width="1210" height="510">
+					archive="../tools/TEChess.jar"
+					width="870" height="510">
 					Su explorador no soporta java.
 					<param name="Player" value="'.get_user().'">
 				</applet>';

@@ -38,7 +38,13 @@ include ("../session.inc");
 		
 ?>
 	<div id="contenido">
-		<h1>Secci&oacute;n de Lecciones</h1>
+		<applet code="Window.class"
+	
+			name="Some name goes here"
+			archive="../tools/TEChess.jar"
+			width="700" height="510">
+			Your browser is not Java enabled.
+		</applet>
 	</div>
 
 	

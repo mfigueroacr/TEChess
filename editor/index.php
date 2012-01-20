@@ -35,6 +35,17 @@ include ("../tools/category.php");
 		
 ?>
 	<div id="contenido">
+			<?php 
+		 	if (get_user()){
+		 		echo 
+		 		'<applet code="Editor.class"
+					name="Some name goes here"
+					archive="../tools/TEChess.jar"
+					width="1210" height="510">
+					Su explorador no soporta java.
+				</applet>';
+ 			}
+		?>
 	</div>
 	<?php
 		$obj = new general($mysqli);

@@ -35,13 +35,13 @@ include ("../tools/category.php");
 		
 ?>
 	<div id="contenido">
-						<?php 
+			<?php 
 		 	if (get_user()){
 		 		echo 
 		 		'<applet code="Editor.class"
 					name="Some name goes here"
-					archive="TEChess.jar"
-					width="1210" height="510">
+					archive="../tools/TEChess.jar"
+					width="870" height="510">
 					Su explorador no soporta java.
 				</applet>';
  			}
