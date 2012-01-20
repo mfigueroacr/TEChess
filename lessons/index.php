@@ -1,8 +1,11 @@
-<?php   
+<?php
 include ("../session.inc");
-include ("../tools/category.php");
-	check_login($mysqli,"Administrador");
+	check_login($mysqli, "Administrador");
+	$obj = new general($mysqli);
+	//$obj->stat_redirect();
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -10,7 +13,7 @@ include ("../tools/category.php");
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>Index Entrenamiento</title>
+		<title>Estadisticas</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Kelvin" />
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
@@ -35,7 +38,11 @@ include ("../tools/category.php");
 		
 ?>
 	<div id="contenido">
+		<h1>Secci&oacute;n de Lecciones</h1>
 	</div>
+
+	
+	
 	<?php
 		$obj = new general($mysqli);
 		echo $obj->footer("../");

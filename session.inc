@@ -20,4 +20,10 @@ function check_login($mysqli, $root="") {
 		   	}
 	}
 }
+
+function get_user(){
+	if (isset ($_SESSION['user']))
+		return ($_SESSION['user']);
+	else return false;
+}
 ?>
