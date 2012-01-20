@@ -26,7 +26,7 @@ function top_team($mysqli){
 		$result = $stats->top_team();
 				
 		if($result == true) {
-			$_SESSION['re'] = "tu";
+			$_SESSION['re'] = "tt";
 			header('Location:./admin2.php');
 		}
 		else {
