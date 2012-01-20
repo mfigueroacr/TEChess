@@ -8,7 +8,7 @@
 function check_login($mysqli, $root="") {
     if (!isset ($_SESSION['user']) || !$_SESSION['user']) {
     /* Si la cookie no esta definida se redirige a la pagina login */
-    header('Location: ./');
+    header('Location: ../');
 	}
 	if (isset ($_SESSION['user'])){
 		if ($root == ""){
