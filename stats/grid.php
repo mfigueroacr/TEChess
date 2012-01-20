@@ -12,12 +12,12 @@ if ($_SESSION['re'] == "tt"){
 	if ($result){
 		$chart [ 'chart_data' ][ 0 ][ 0 ] = "";
 		
-		$row = 1; 
-		$index = 1;
+		$row = 0; 
+		$index = 0;
 		foreach($result as $_row) {
     	    
 			//http://www.maani.us/charts4/index.php?menu=Tutorial&submenu=Chart_Data
-			$col = $_row['time'];
+			//$col = $_row['time'];
 			//populate the PHP array with the play title
    			$chart [ 'chart_data' ][ 0 ][ $index ] = $_row['name'];
 

@@ -1,6 +1,7 @@
 <?php   
 	include ("../session.inc");
 	check_login($mysqli,"Administrador");
+	include ("../tools/stats.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,15 +39,68 @@
 		<br />
 
 <center>
+	<section>
+    	<table border="1">
+			<tr>
+			<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>
 	
 <?php
-
+if ($_SESSION['re'] == "tt"){
+	    		$stats = new stats($mysqli);
+				$result = $stats-> top_team();
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}
+if ($_SESSION['re'] == "bt"){
+	    		$stats = new stats($mysqli);
+				$result = $stats-> bottom_team();
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}
+    
+	if ($_SESSION['re'] == "tu"){
+	    		$stats = new stats($mysqli);
+	    		$username = $_GET['username'];
+				$result = $stats-> top_user($username);
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}	
+	if ($_SESSION['re'] == "bu"){
+	    		$stats = new stats($mysqli);
+	    		$username = $_GET['username'];
+				$result = $stats-> bottom_user($username);
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}	
+/*
 	//include charts.php to access the InsertChart function
 	include "./graph/charts.php";
 	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "grid.php", 900, 250 );
-	
+	*/
 ?>
-	
+	</table>
+	</section>
 </center>
 	</div>
 	

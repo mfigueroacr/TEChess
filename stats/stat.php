@@ -43,7 +43,7 @@ function top_user($mysqli){
 				
 				if($result == true) {
 					$_SESSION['re'] = "tu";
-					header('Location:./admin2.php?username=' . $username . "&re=tu");
+					header('Location:./admin2.php?username=' . $username);
 		  		}
 		  		else {
 					header('Location:./admin.php?result=error');
@@ -96,7 +96,7 @@ function bottom_user($mysqli){
 			
 			if($result == true) {
 				$_SESSION['re'] = "bu";
-				header('Location:./admin2.php');
+				header('Location:./admin2.php?username=' . $username);
 		  	}
 		  	else {
 				header('Location:./admin.php?result=error');
