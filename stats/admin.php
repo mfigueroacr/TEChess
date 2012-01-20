@@ -36,19 +36,24 @@ include ("./grid.php");
 ?>
 	<div id="contenido">
 		<h1>Secci&oacute;n de Estad&iacute;sticas para administrador</h1>
+
+<center>
+	
+	<?php
+
+	//include charts.php to access the InsertChart function
+	include "./graph/charts.php";
+
+	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "./graph/sample.php", 400, 250 );
+
+?>
+	
+</center>
+
+
 	</div>
 
-	<?php
-		
-		//$obj = new grid();
-		//echo $obj->graph(); 
-		header('Content-Type: image/png');
-$im = graph();
-imagepng($im);
-imagedestroy($im);
-		
-	
-	?>
+
 	
 	<?php
 		$obj = new general($mysqli);

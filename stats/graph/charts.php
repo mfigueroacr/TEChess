@@ -14,7 +14,8 @@ function InsertChart( $flash_file, $library_path, $php_source, $width=400, $heig
 	
 	$php_source=urlencode($php_source);
 	$library_path=urlencode($library_path);
-	$protocol = (strtolower($_SERVER['HTTPS']) != 'on')? 'http': 'https';
+	//$protocol = (strtolower($_SERVER['HTTPS']) != 'on')? 'http': 'https';
+	$protocol = 'http';
 
 	$html="<OBJECT classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='".$protocol."://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0' ";
 	$html.="width='".$width."' height='".$height."' id='charts' />";

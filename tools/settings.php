@@ -2,5 +2,5 @@
 define("SERVER", "localhost");
 define("DB", "techess");
 define("USER", "root");
-define("PASSWORD", "abc123");
+define("PASSWORD", "");
 ?>
