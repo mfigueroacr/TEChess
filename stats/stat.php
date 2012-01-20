@@ -2,128 +2,156 @@
  	include ("../session.inc");
    	include ("../tools/stats.php");
 	check_login($mysqli, "Administrador");
+	include "graph/charts.php";
 
-if (isset ($_POST['top_team'])) top_team($mysqli);
-if (isset ($_POST['top_user'])) top_user($mysqli);
-if (isset ($_POST['bottom_team'])) bottom_team($mysqli);
-if (isset ($_POST['bottom_user'])) bottom_user($mysqli);
-if (isset ($_POST['login_user'])) login_user($mysqli);
-
-
+if (isset ($_POST['select'])){
+	$seleccion = $_POST['select'];
+	if ($seleccion == "10 Mejores ejercicios por usuario"){ top_user($mysqli);}
+	else if ($seleccion == "10 Peores ejercicios por usuario"){ bottom_user($mysqli);}
+	else if ($seleccion == "10 Peores ejercicios por equipo"){ bottom_team($mysqli);}
+	else if ($seleccion == "10 Mejores ejercicios por equipo"){ top_team($mysqli);}
+	else if ($seleccion == "Fechas de acceso por usuario"){ login_user($mysqli);}
+	else if ($seleccion == "10 Mejores ejercicios"){ top_me($mysqli);}
+	else if ($seleccion == "10 Peores ejercicios"){ bottom_me($mysqli);}
+}
+/* Falta montar el arreglo y probarlo. OJO que el gráfico agarra las cosas de 
+ * sample.php que es dnd está la funcion que escribe el gráfico. Hay que ver cómo se jala
+ * eso
+ */
 function top_team($mysqli){
-		$user = new stats($mysqli);
-		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify'])){
-				$name = $_POST['txt_nameModify'];
-				$lastname = $_POST['txt_lastnameModify'];
-	    		$username = $_POST['usuario'];
-				$email = $_POST['txt_emailModify'];
-				$profile = $_POST['select'];
-				$result = false;
-				$result =  $user->modify_user($name, $lastname, $username, $email, $profile);
+		$stats = new stats($mysqli);
+		$result = false;
+		$result = $stats->top_team();
 				
-				if($result == true) {
-					header('Location:./view.php?result=ok');
-		  		}
-		  		else {
-					header('Location:./view.php?result=exitence_user');
-		  		}
-	  }
-	  else{
-			header('Location:./view.php?result=miss_data');
-  	  }
+		if($result == true) {
+			header('Location:./admin2.php');
+		}
+		else {
+			header('Location:./admin.php?result=error');
+		}
 	}
 
 function top_user($mysqli){
-		$user = new stats($mysqli);
-		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify'])){
-				$name = $_POST['txt_nameModify'];
-				$lastname = $_POST['txt_lastnameModify'];
-	    		$username = $_POST['usuario'];
-				$email = $_POST['txt_emailModify'];
-				$profile = $_POST['select'];
+		$stats = new stats($mysqli);
+		if (isset ($_POST['txt_username'])){
 				$result = false;
-				$result =  $user->modify_user($name, $lastname, $username, $email, $profile);
+				$result = $stats->top_user($username);
 				
 				if($result == true) {
-					header('Location:./view.php?result=ok');
+					header('Location:./admin2.php');
 		  		}
 		  		else {
-					header('Location:./view.php?result=exitence_user');
+					header('Location:./admin.php?result=error');
 		  		}
 	  }
 	  else{
-			header('Location:./view.php?result=miss_data');
+			header('Location:./admin.php?result=miss_data');
   	  }
 	}
-
+	
+function top_me($mysqli){
+		$stats = new stats($mysqli);
+		if (isset ($_POST['txt_username'])){
+				$result = false;
+				$result = $stats->top_user($username);
+				
+				if($result == true) {
+					header('Location:./user2.php');
+		  		}
+		  		else {
+					header('Location:./user.php?result=error');
+		  		}
+	  }
+	  else{
+			header('Location:./user.php?result=miss_data');
+  	  }
+	}
 
 function bottom_team($mysqli){
-		$user = new stats($mysqli);
-		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify'])){
-				$name = $_POST['txt_nameModify'];
-				$lastname = $_POST['txt_lastnameModify'];
-	    		$username = $_POST['usuario'];
-				$email = $_POST['txt_emailModify'];
-				$profile = $_POST['select'];
+		$stats = new stats($mysqli);
+		$result = false;
+		$result =  $stats->bottom_team();
+				
+		if($result == true) {
+			header('Location:./admin2.php');
+		}
+		else {
+			header('Location:./view.php?result=error');
+		}
+	}
+
+function bottom_user($mysqli){
+		$stats = new stats($mysqli);
+		if (isset ($_POST['txt_username'])){
 				$result = false;
-				$result =  $user->modify_user($name, $lastname, $username, $email, $profile);
+				$result = $stats->bottom_user($username);
 				
 				if($result == true) {
-					header('Location:./view.php?result=ok');
+					header('Location:./admin2.php');
 		  		}
 		  		else {
-					header('Location:./view.php?result=exitence_user');
+					header('Location:./admin.php?result=error');
 		  		}
 	  }
 	  else{
-			header('Location:./view.php?result=miss_data');
+			header('Location:./admin.php?result=miss_data');
   	  }
 	}
 
-
-function bottom_user($mysqli){
-		$user = new stats($mysqli);
-		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify'])){
-				$name = $_POST['txt_nameModify'];
-				$lastname = $_POST['txt_lastnameModify'];
-	    		$username = $_POST['usuario'];
-				$email = $_POST['txt_emailModify'];
-				$profile = $_POST['select'];
+function bottom_me($mysqli){
+		$stats = new stats($mysqli);
+		if (isset ($_POST['txt_username'])){
 				$result = false;
-				$result =  $user->modify_user($name, $lastname, $username, $email, $profile);
+				$result = $stats->bottom_user($username);
 				
 				if($result == true) {
-					header('Location:./view.php?result=ok');
+					header('Location:./user2.php');
 		  		}
 		  		else {
-					header('Location:./view.php?result=exitence_user');
+					header('Location:./user.php?result=error');
 		  		}
 	  }
 	  else{
-			header('Location:./view.php?result=miss_data');
+			header('Location:./user.php?result=miss_data');
   	  }
 	}
 
 function login_user($mysqli){
-		$user = new stats($mysqli);
-		if (isset ($_POST['txt_nameModify']) && isset($_POST['txt_lastnameModify'])){
-				$name = $_POST['txt_nameModify'];
-				$lastname = $_POST['txt_lastnameModify'];
-	    		$username = $_POST['usuario'];
-				$email = $_POST['txt_emailModify'];
-				$profile = $_POST['select'];
-				$result = false;
-				$result =  $user->modify_user($name, $lastname, $username, $email, $profile);
+		$stats = new stats($mysqli);
+		if (isset ($_POST['txt_username'])){
+			$result = false;
+			$result = $stats->login_user($username);
 				
-				if($result == true) {
-					header('Location:./view.php?result=ok');
-		  		}
-		  		else {
-					header('Location:./view.php?result=exitence_user');
-		  		}
-	  }
-	  else{
-			header('Location:./view.php?result=miss_data');
-  	  }
+			if($result == true) {
+				header('Location:./admin2.php');
+		  	}
+		  	else {
+				header('Location:./admin.php?result=error');
+		  	}
+	  	}
+	  	else{
+			header('Location:./admin.php?result=miss_data');
+  		}
 	}
+
+/*if($result) {
+		    foreach($result as $_row) {
+    	    	echo $_row['name'] . $_row['lastname'] .$_row['username'];
+			}
+		}*/
+
+//change the chart to a bar chart
+//$chart [ 'chart_type' ] = "bar";
+/*
+$chart [ 'chart_data' ] = array ( array ( "6546",         "1985", "1986", "1987", "1988" ),
+                                  array ( "leonel A",     5,     10,     30,     63  ),
+                                  array ( "murillo B",   100,     20,     65,     55  ),
+                                  array ( "retana C",    56,     21,      5,     90  )
+                                );
+
+
+//send the new chart data to the charts.swf flash file
+SendChartData ( $chart );
+
+*/
 ?>

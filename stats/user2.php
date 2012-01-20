@@ -1,7 +1,6 @@
 <?php   
 include ("../session.inc");
-include ("./grid.php");
-	check_login($mysqli,"Administrador");
+check_login($mysqli);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,45 +33,19 @@ include ("./grid.php");
  		$obj->menu("../");
 		
 ?>
-	<div id="contenido">
-		<h1>Secci&oacute;n de Estad&iacute;sticas para administrador</h1>
-		<br />
-		<center>
-		<h2>Elija el tipo de reporte a realizar.</h2>
-		<form action="stat.php" method="post">
-		<BR />
-		<select name="select" align="center">
-			<option>10 Mejores ejercicios por usuario</option>
-			<option>10 Peores ejercicios por usuario</option>
-			<option>10 Mejores ejercicios por equipo</option>
-			<option>10 Peores ejercicios por equipo</option>
-			<option>Fechas de acceso por usuario</option>
-		</select>
-		<br /><br />
-		Ingrese el nombre de usuario
-		<br />
-		<input type="text" name="txt_username" value="" />
-		<br /><br />
-		<input type="submit" name="btn_buscar" value="Buscar" /> 
-		</form>
-		<br />
-		
-		<?php 
-		if (isset ($_GET['result'])){
-			 if($_GET['result'] == 'miss_data') {
-				 echo "<center><h3>Datos incompletos</h3></center>";
-			 }
-			 if($_GET['result'] == 'error') {
-				 echo "<center><h3>Se ha producido un error, por favor intentelo de nuevo</h3></center>";
-			 }
-		}
-		?>
-		
-		</center>
-	</div>
-
-
+<div id="contenido">
+<h1>Resultado</h1>
+<center>
 	
+<?php
+	//include charts.php to access the InsertChart function
+	include "./graph/charts.php";
+	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "stat.php", 400, 250 );
+?>
+	
+</center>
+</div>
+
 	<?php
 		$obj = new general($mysqli);
 		echo $obj->footer("../");
@@ -80,3 +53,4 @@ include ("./grid.php");
     
 </body>
 </html>
+?>
