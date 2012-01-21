@@ -82,16 +82,11 @@ if ($result){
                <li><a href="#" class="parent"><span>Ejercicio</span></a>
                     <div><ul>
                         <li><a href="'.$indirection.'editor/new.php"><span>Nuevo</span></a></li>
-                        <li><a href="'.$indirection.'editor/modify.php"><span>Editar</span></a></li>
+                        
                         <li><a href="'.$indirection.'editor/delete.php"><span>Eliminar</span></a></li>
                     </ul></div>
                 </li>
-                <li><a href="#" class="parent"><span>Soluci&oacute;n</span></a>
-                    <div><ul>
-                        <li><a href="'.$indirection.'editor/new_solution.php"><span>Nueva</span></a></li>
-                        <li><a href="'.$indirection.'editor/delete_solution.php"><span>Eliminar</span></a></li>
-                    </ul></div>
-                </li>   
+                
                </ul></div>
         </li>';    	    	
 }

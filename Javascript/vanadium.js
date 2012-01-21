@@ -1025,7 +1025,7 @@ Vanadium.setupValidatorTypes = function() {
     ['equal_ignore_case', function(v, p) {
       return v.toLowerCase() == p.toLowerCase();
     }, function (_v, p) {
-      return '<br/><font color="#59E817" >El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + p + '</span>.'
+      return '<br/><font color="#59E817">El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + p + '</span>.'
     }],
     //
     ['required', function(v) {
@@ -1074,7 +1074,7 @@ Vanadium.setupValidatorTypes = function() {
       return (Vanadium.validators_types['empty'].test(v)
               ||
               /\w{1,}[@][\w\-]{1,}([.]([\w\-]{1,})){1,3}$/.test(v))
-    }, '<br/><font color="#59E817" >Ingrese una direcci&oacute;n de correo v&aacute;lida. Por ejemplo alguien@dominio.com.'],
+    }, '<br/><font color="#59E817" >Ingrese una direcci&oacute;n de correo v&aacute;lida. Por ejemplo alguien@dominio.com.</font>'],
     //
     ['url', function (v) {
       return Vanadium.validators_types['empty'].test(v) || /^(http|https|ftp):\/\/(([A-Z0-9][A-Z0-9_-]*)(\.[A-Z0-9][A-Z0-9_-]*)+)(:(\d+))?\/?/i.test(v)
@@ -1164,7 +1164,7 @@ Vanadium.setupValidatorTypes = function() {
       function (_v, p) {
         var exemplar = document.getElementById(p);
         if (exemplar)
-          return '<br/>El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + (jQuery(exemplar).attr('name') || exemplar.id) + '</span>.';
+          return '<br/> <font color="#59E817" >El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + (jQuery(exemplar).attr('name') || exemplar.id) + '</span></font>.';
         else
           return 'There is no exemplar item!!!'
       },

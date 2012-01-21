@@ -1,7 +1,7 @@
 <?php   
 include ("../session.inc");
 include ("../tools/category.php");
-	check_login($mysqli);
+	check_login($mysqli,"Administrador");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +35,17 @@ include ("../tools/category.php");
 		
 ?>
 	<div id="contenido">
+			<?php 
+		 	if (get_user()){
+		 		echo 
+		 		'<applet code="Eliminar.class"
+					name="Some name goes here"
+					archive="../tools/TEChess.jar"
+					width="870" height="510">
+					Su explorador no soporta java.
+				</applet>';
+ 			}
+		?>
 	</div>
 	<?php
 		$obj = new general($mysqli);
