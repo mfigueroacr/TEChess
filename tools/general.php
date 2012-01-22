@@ -81,6 +81,7 @@ if ($result){
 	           <div><ul>
                <li><a href="#" class="parent"><span>Ejercicio</span></a>
                     <div><ul>
+<<<<<<< HEAD
                         <li><a href="'.$indirection.'editor/new.php"><span>Nuevo</span></a></li>' .
                         //<li><a href="'.$indirection.'editor/modify.php"><span>Editar</span></a></li>
                         '<li><a href="'.$indirection.'editor/delete.php"><span>Eliminar</span></a></li>
@@ -93,6 +94,15 @@ if ($result){
                     </ul></div>
                 </li>*/   
                '</ul></div>
+=======
+                        <li><a href="'.$indirection.'editor/new.php"><span>Nuevo</span></a></li>
+                        
+                        <li><a href="'.$indirection.'editor/delete.php"><span>Eliminar</span></a></li>
+                    </ul></div>
+                </li>
+                
+               </ul></div>
+>>>>>>> 6e4eafaa01091cb3bae44aec53a4e16a61388179
         </li>';    	    	
 }
 if(isset($_SESSION['user'])){
