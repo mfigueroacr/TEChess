@@ -26,6 +26,7 @@ include ("../../tools/category.php");
       <script type="text/javascript" src="../../Javascript/jquery.js"></script>
       <script type="text/javascript" src="../../Javascript/menu.js"></script>
       <script type="text/javascript" src="../../Javascript/site.js"></script>
+      <script type="text/javascript" src="../../Javascript/vanadium.js"></script>
 </head>
 <body>
 <?php
@@ -37,6 +38,7 @@ include ("../../tools/category.php");
 	<div id="contenido">		<header >
         <hgroup >
             <h1 align="center">TeChess ingresar una nueva categoría</h1> 
+            <br />
         </hgroup>
 
     </header>
@@ -46,17 +48,33 @@ include ("../../tools/category.php");
     	<input type="hidden" name="new_cat">
     	<article >
     	Ingrese el nombre de la categor&iacute;a
-    	<input type="text" name="txt_name" value="" />
-    	<br /><br />
+    	<input type="text" class=":required"  name="txt_name" value="" />
+    <!--	<br /><br />
     	Ingrese una breve descripci&oacute;n
-    	<input type="text" name="txt_description" value="" />
-    	
+    	<input type="text" class=":required"  name="txt_description" value="" />
+    -->
     	</article>
-    	<br /> <br />
+    	<br /> 
 		<input type="submit" name="btn_accept" value="Aceptar" />
 	
 	</form>
 	</section>
+	
+	<?php
+	
+		if (isset ($_GET['result'])){
+			 if($_GET['result'] == '"ok"'){
+				echo "<center><h3>La categoría se creo correctamente</h3></center>";
+			 }
+			 if($_GET['result'] == '"miss_data"') {
+				 echo "<center><h3>Datos incompletos</h3></center>";
+			 }
+			 if($_GET['result'] == '"failed"') {
+				 echo "<center><h3>Ocurrió un problema, ingrese los cambios de nuevo</h3></center>";
+			 }
+		}
+	
+	?>
 	 
 </center>
 	</div>

@@ -39,7 +39,7 @@ include ("../../tools/user.php");
 	<header >
         <hgroup >
             <h1 align="center">TeChess modificar un usuario</h1> 
-            <br />
+            
         </hgroup>
     </header>
     <center>
@@ -47,7 +47,7 @@ include ("../../tools/user.php");
     	<form action="user.php" method="post">
     	<article >
     		
-<br /><br />
+<br />
 
 		<?php
 		

@@ -26,6 +26,7 @@ include ("../../tools/category.php");
       <script type="text/javascript" src="../../Javascript/jquery.js"></script>
       <script type="text/javascript" src="../../Javascript/menu.js"></script>
       <script type="text/javascript" src="../../Javascript/site.js"></script>
+      <script type="text/javascript" src="../../Javascript/vanadium.js"></script>
 </head>
 <body>
 <?php
@@ -56,12 +57,26 @@ include ("../../tools/category.php");
 		<br /> <br />
 		Ingrese el nuevo nombre de la categoría:
 		<br /> <br />
-		<input type="text" name="txt_CategoryModify" value="" />
+		<input type="text" class=":required" name="txt_CategoryModify" value="" />
     	<br /><br />
     	<input type="hidden" name="cat_modify"/>
     	<input type="submit" name="btn_modify" value="Modificar" />
-    	
 		</form>
+		<?php
+			if (isset ($_GET['result'])){
+				$resultado =$_GET['result'];
+				if ($resultado == 'ok'){
+					echo "<center><h3>La categoría se modificó correctamente</h3></center>";
+				}
+				else if ($resultado == 'failed'){
+					echo "<center><h3>Se ha producido un error, vuelvalo a intentar pronto</h3></center>";
+				} 
+				else if ($resultado == 'miss_data'){
+					echo "<center><h3>Falta agregar información</h3></center>";
+				}
+			} 
+		?>
+		
 		</section>
 		</center>
 	</div>

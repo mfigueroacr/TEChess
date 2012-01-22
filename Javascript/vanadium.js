@@ -1164,7 +1164,7 @@ Vanadium.setupValidatorTypes = function() {
       function (_v, p) {
         var exemplar = document.getElementById(p);
         if (exemplar)
-          return '<br/>El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + (jQuery(exemplar).attr('name') || exemplar.id) + '</span>.';
+          return '<br/><font color="#59E817" >El valor debe ser igual a <span class="' + Vanadium.config.message_value_class + '">' + (jQuery(exemplar).attr('name') || exemplar.id) + '</span></font>.';
         else
           return 'There is no exemplar item!!!'
       },

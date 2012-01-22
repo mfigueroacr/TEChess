@@ -14,22 +14,22 @@
 			$cat = new category($mysqli);
 		//Realizamos la consulta a la base de datos y controlamos que nos devuelva
 	    //algun resultado
-	    if (isset ($_POST['txt_name']) && isset ($_POST['txt_description']) ){
+	    if (isset ($_POST['txt_name']) ){
 		    //Creamos variables locales con el contenido de las devueltas por el form
 		    $name = $_POST['txt_name'];
-			$description = $_POST['txt_description'];
+			$description = "EMPTY";
 			$result = false;
 			$result =  $cat->create_level($name, $description);
 			
 			  if($result == true) {
-			  	header('Location: ./index.php');
+			  	header('Location: ./new.php?result="ok"');
 			  }
 			  else {
-			  	header('Location: index.php');
+			  	header('Location: ./new.php?result="failed"');
 			  }
 		  } 
 		  else{
-			  	header('Location: index.php');
+			  header('Location: ./new.php?result="miss_data"');
 	  	  }
 		}
 	
@@ -45,14 +45,14 @@
 			$result =  $cat->modify_level($name, $category);
 			
 			  if($result == true) {
-			  	header('Location: ./modify.php?result="ok"');
+			  	header('Location: ./modify.php?result=ok');
 			  }
 			  else {
-			  	header('Location: ./modify.php?result="failed"');
+			  	header('Location: ./modify.php?result=failed');
 			  }
 		  } 
 		  else{
-			  	header('Location: ./modify.php?result="miss_data"');
+			  	header('Location: ./modify.php?result=miss_data');
 	  	  }
 		}
 	

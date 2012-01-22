@@ -64,7 +64,7 @@ include ("../../tools/user.php");
 				    	Repita la contraseña 
 				    	<input class=":same_as;pass" type="password" name="txt_password_f" value="" />			    	
 	    			</article>
-				<br /><br />		
+				<br />		
 				Seleccione el tipo de usuario:		
 				<br /><br />		
 				<select name="select" align="center">

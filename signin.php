@@ -35,12 +35,12 @@ include ('session.inc');
 	<div id="contenido">
 		<center>
 		<h1>TeChess Training Suite</h1>
-		<p>comentario temporal: El user es admin y el password es 1234</p>
+		<br />
 		<form id="login" action="login.php" method="POST">
-			<label>Nombre de Usuario:</label><input class=":required" type="text" id="user" name="user" />
+			<label>Nombre de Usuario: </label><input class=":required" type="text" id="user" name="user" />
 			<br />
 			<br />
-			<label>Contraseña:</label><input class=":required" type="password"  id="pass" name="pass"/>
+			<label>Contraseña: </label><input class=":required" type="password"  id="pass" name="pass"/>
 			<br />
 			<br />
 			<input  type="submit" name="button" id="button" value="Enviar" />

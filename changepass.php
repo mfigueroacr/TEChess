@@ -4,7 +4,7 @@ include ("./session.inc");
 include ("./tools/user.php");
 check_login($mysqli);
 
-if (isset ($_POST['txtpassword'])){
+if (isset ($_POST['password'])){
 
 	$newpass = $_POST['password'];
 	$username = $_SESSION['user'];
@@ -15,7 +15,7 @@ if (isset ($_POST['txtpassword'])){
 		header("location: change_password.php?result=true");
 	}
 	else{
-		header("location: change_password.php?resulterror");
+		header("location: change_password.php?result=error");
 	}
 }
 ?>
