@@ -34,6 +34,8 @@
  		$obj->menu("../");
 		
 ?>
+
+
 	<div id="contenido">
 		<h1>Secci&oacute;n de Estad&iacute;sticas para administrador</h1>
 		<br />
@@ -41,17 +43,20 @@
 		<h2>Elija el tipo de reporte a realizar.</h2>
 		<form action="stat.php" method="post">
 		<BR />
-		<select name="select" align="center">
-			<option>10 Mejores tiempos por usuario</option>
-			<option>10 Peores tiempos por usuario</option>
-			<option>10 Mejores tiempos por equipo</option>
-			<option>10 Peores tiempos por equipo</option>
-			<option>Fechas de acceso por usuario</option>
+		<select name="select" align="center" onchange="toggleMe(this.value)" >
+			<option value="top_user">10 Mejores tiempos por usuario</option>
+			<option value="bottom_user">10 Peores tiempos por usuario</option>
+			<option value="top_team">10 Mejores tiempos por equipo</option>
+			<option value="bottom_team">10 Peores tiempos por equipo</option>
+			<option value="login_user">Fechas de acceso por usuario</option>
 		</select>
+			
 		<br /><br />
-		Ingrese el nombre de usuario
+		<div id="user">
+		<label id="lbl_info">Ingrese el nombre de usuario</label>
 		<br />
 		<input type="text" name="txt_username" value="" />
+		</div> 
 		<br /><br />
 		<input type="submit" name="btn_buscar" value="Buscar" /> 
 		</form>

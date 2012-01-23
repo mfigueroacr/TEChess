@@ -38,7 +38,7 @@ $obj->menu();
 	<br />
 	El TeChess es un sistema de entrenamiento de ajedrez desarrollado por <a href="http://cr.linkedin.com/in/mfigueroacr">Manuel Figueroa Montero</a>, <a href="http://cr.linkedin.com/in/kelvincr">Kelvin Jiménez Morales</a> y 
 	<a href="http://cr.linkedin.com/in/leoneljmr">Leonel J. Murillo Retana</a> , todos 
-	estudiantes de Ingeniería en Computación del Instituto Tecnológico de Costa Rica, para la Unidad de Deportes de la Escuela de Cultura y Deportes como parte
+	estudiantes de Ingeniería en Computación del <a href="http://www.tec.cr">Instituto Tecnológico de Costa Rica</a>, para la Unidad de Deportes de la Escuela de Cultura y Deportes como parte
 	del curso de Proyecto de Software supervisado por la profesora Yarima Sandoval.
 	<br />
 		 

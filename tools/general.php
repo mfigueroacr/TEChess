@@ -125,11 +125,10 @@ return $result;
 	public function footer($indirection=""){
 	$html = 
 	'<div id="copyright">
-		<center>Copyright &copy; 2012 <a href="'.$indirection.'about.php">Techess</a>
+		<center>Copyright &copy; 2012 <a href="'.$indirection.'about.php"><img border=0 src="'.$indirection.'images/bandera.png" /></a>
 		</center>
 		<a href="http://apycom.com/"></a>
 	</div>';
-	
 	return $html;
 }
 	

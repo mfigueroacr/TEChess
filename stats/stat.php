@@ -7,11 +7,11 @@
 if (isset ($_POST['select'])){
 	$seleccion = $_POST['select'];
 	
-	if ($seleccion == "10 Mejores tiempos por usuario"){ top_user($mysqli);}
-	if ($seleccion == "10 Peores tiempos por usuario"){ bottom_user($mysqli);}
-	if ($seleccion == "10 Peores tiempos por equipo"){ bottom_team($mysqli);}
-	if ($seleccion == "10 Mejores tiempos por equipo"){ top_team($mysqli);}
-	if ($seleccion == "Fechas de acceso por usuario"){ login_user($mysqli);}
+	if ($seleccion == "top_user"){ top_user($mysqli);}
+	if ($seleccion == "bottom_user"){ bottom_user($mysqli);}
+	if ($seleccion == "bottom_team"){ bottom_team($mysqli);}
+	if ($seleccion == "top_team"){ top_team($mysqli);}
+	if ($seleccion == "login_user"){ login_user($mysqli);}
 	if ($seleccion == "10 Mejores tiempos"){ top_me($mysqli);}
 	if ($seleccion == "10 Peores tiempos"){ bottom_me($mysqli);}
 
