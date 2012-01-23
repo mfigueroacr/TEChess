@@ -75,6 +75,12 @@ if ($result){
                         <li><a href="'.$indirection.'admin/categories/modify.php"><span>Editar</span></a></li>
                     </ul></div>
                 </li>   
+                <li><a href="#" class="parent"><span>Base de datos</span></a>
+                    <div><ul>
+                        <li><a href="'. $indirection. 'admin/database/backup.php"><span>Crear Respaldo</span></a></li>
+                        <li><a href="'.$indirection.'admin/database/load.php"><span>Cargar Respaldo</span></a></li>
+                    </ul></div>
+                </li>
                </ul></div>
         </li>	
         <li><a href="#" class="parent"><span>Editor</span></a>
@@ -97,7 +103,8 @@ if ($result){
 }
 if(isset($_SESSION['user'])){
 $html .= ' <li><a href="'.$indirection.'training/"><span>Entrenamiento</span></a></li>
-        <li class="last"><a href="'.$indirection.'stats/"><span>Estad&iacute;sticas</span></a></li>';
+        <li class="last"><a href="'.$indirection.'stats/"><span>Estad&iacute;sticas</span></a></li>
+        <li class="last"><a href="'.$indirection.'theory/"><span>Teor&iacute;a</span></a></li>';
         }
 $html .='<li><a href="'.$indirection.'help.php"><span>Ayuda</span></a></li>
         <li class="last"><a href="'.$indirection.'contact.php"><span>Contacto</span></a></li>
@@ -133,6 +140,17 @@ return $result;
 }
 	
 	public function stat_redirect(){
+	$admin = $this->admin_role();
+if ($admin){
+		header('Location: ./admin.php');
+}
+else{
+		header('Location: ./user.php');
+	}
+}
+
+
+	public function theory_redirect(){
 	$admin = $this->admin_role();
 if ($admin){
 		header('Location: ./admin.php');
