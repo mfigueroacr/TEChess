@@ -36,10 +36,11 @@ include ("../session.inc");
 		<?php 
 		 	if (get_user()){
 		 		echo 
-		 		'<applet code="Training.class"
+		 		'<applet
+		 		    code="Training.class"
 					name="Some name goes here"
 					archive="../tools/TEChess.jar"
-					width="870" height="510">
+					width="850" height="510">
 					Su explorador no soporta java.
 					<param name="Player" value="'.get_user().'">
 				</applet>';
@@ -48,7 +49,7 @@ include ("../session.inc");
 	</div>
 	<?php
 		$obj = new general($mysqli);
-		echo $obj->footer();
+		echo $obj->footer("../");
 	?>
     
 </body>
