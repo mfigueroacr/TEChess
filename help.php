@@ -31,9 +31,41 @@ $obj = new general($mysqli);
 echo $obj->login_header();
 $obj->menu();
 ?>
-
+<br />
 <div id="contenido">
-	<h1>Ayuda</h1>
+<div id="texto">
+<h1>Ayuda</h1>
+<br />
+<article>
+El presente sistema fue desarrollado y probado bajo los navegadores <a href="http://www.google.es/chrome">Google Chrome </a> y 
+<a href="http://www.mozilla.org/es-MX/firefox/new/">Firefox</a>, por lo cual se recomienta 
+el uso de estos para un mejor desempeño. 
+Además debe tener instalado el software de <a href="http://java.com/es/download/">JAVA</a> para poder utilizar las secciones 
+
+de entrenamiento.
+<br /> <br />
+Para poder tener acceso a usarlo debe estar registrado como usuario. Si usted tiene algún problema para acceder al sistema puede
+escribir a la dirección
+<a href="mailto:techess.itcr@gmail.com">techess.itcr@gmail.com</a>
+<br /> <br />
+<h2>Aviso Legal</h2>
+<br /> 
+Aviso Legal
+
+Techess está protegido bajo la licencia <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+El código del proyecto está respaldado en los repositorios <a href="https://github.com/mfigueroacr/TEChess">github.com</a> y <a href="http://code.google.com/p/techess/">code.google.com</a>.
+<br /> 
+Para las licencias de <a href="http://jquery.org/license/">jquery.org</a>,<a href="http://apycom.com/">apycom.com</a> y <a href="http://www.oracle.com/us/legal/terms/index.html">oracle.com</a>, diríjase a los vínculos respectivos., se reservan los derechos a cada uno de los autores.
+<br />
+© 2012 GitHub Inc. All rights reserved
+<br />
+Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+<br /> 
+Java®  Netbeans®  and MySQL is a registered trademark of Oracle and/or its affiliates.
+
+</article>
+</div>
 </div>
 
 <?php
