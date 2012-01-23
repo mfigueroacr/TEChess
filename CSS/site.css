@@ -19,7 +19,27 @@ div#contenido {
 	padding-left:40px;
 	height:550px;	
 	color:#FFFFFF;
+	font:12px/18px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+	text-align:justify;
 }
+
+div#texto {
+	padding-top:10px;
+	padding-left:60px;
+	padding-right:100px;
+	height:550px;	
+	color:#FFFFFF;
+	font:12px/18px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+	text-align:justify;
+	
+}
+
+div#texto a{
+	font:12px/18px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+	text-align:justify;
+	color:#59E817;
+}
+
 
 div#ingreso {
 	padding-left:850px;
