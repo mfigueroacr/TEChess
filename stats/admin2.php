@@ -35,15 +35,24 @@
 		
 ?>
 	<div id="contenido">
-		<h1>Resultado</h1>
+		<?php
+		if ($_SESSION['re'] == "tt"){
+			echo "<h1>Resultado de los 10 Mejores Tiempos por Equipo</h1>"; }
+		else if ($_SESSION['re'] == "bt"){
+			echo "<h1>Resultado de los 10 Peores Tiempos por Equipo</h1>"; }
+		else if ($_SESSION['re'] == "tu"){
+			echo "<h1>Resultado de los 10 Mejores Tiempos para " . $_GET['username'] . "</h1>"; }
+		else if ($_SESSION['re'] == "bu"){
+			echo "<h1>Resultado de los 10 Peores Tiempos para " . $_GET['username'] . "</h1>"; }
+		else if ($_SESSION['re'] == "lu"){
+			echo "<h1>Fechas en que " . $_GET['username'] . " ha ingresado al sistema" . "</h1>"; }
+		?>
 		<br />
 
 <center>
 	<section>
     	<table border="1">
 			<tr>
-			
-	
 <?php
 if ($_SESSION['re'] == "tt"){
 	    		$stats = new stats($mysqli);
@@ -72,8 +81,7 @@ if ($_SESSION['re'] == "bt"){
 					}
 				}
 }
-    
-	if ($_SESSION['re'] == "tu"){
+if ($_SESSION['re'] == "tu"){
 	    		$stats = new stats($mysqli);
 	    		$username = $_GET['username'];
 				$result = $stats-> top_user($username);
@@ -87,7 +95,7 @@ if ($_SESSION['re'] == "bt"){
 					}
 				}
 }	
-	if ($_SESSION['re'] == "bu"){
+if ($_SESSION['re'] == "bu"){
 	    		$stats = new stats($mysqli);
 	    		$username = $_GET['username'];
 				$result = $stats-> bottom_user($username);
