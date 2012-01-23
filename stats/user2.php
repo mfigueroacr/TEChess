@@ -37,9 +37,9 @@ include ("../tools/stats.php");
 <div id="contenido">
 <?php
 		if ($_SESSION['re'] == "tm"){
-			echo "<h1>Resultado de los 10 Mejores Tiempos para " . $_GET['username'] . "</h1>"; }
+			echo "<h1>Resultado de los 10 Mejores Tiempos para " . $_SESSION['user'] . "</h1>"; }
 		else if ($_SESSION['re'] == "bm"){
-			echo "<h1>Resultado de los 10 Peores Tiempos para " . $_GET['username'] . "</h1>"; }
+			echo "<h1>Resultado de los 10 Peores Tiempos para " . $_SESSION['user'] . "</h1>"; }
 ?>
 <br />
 <center>
@@ -49,8 +49,8 @@ include ("../tools/stats.php");
 <?php
 if ($_SESSION['re'] == "tm"){
 	    		$stats = new stats($mysqli);
-	    		$username = $_GET['username'];
-				$result = $stats-> top10_excercises_user($username);
+	    		$username = $_SESSION['user'];
+				$result = $stats-> top_user($username);
 				echo "<th>Nombre Ejercicio  </th>
 			<th>Tiempo     </th>";
 				if ($result){
@@ -63,8 +63,8 @@ if ($_SESSION['re'] == "tm"){
 }
 if ($_SESSION['re'] == "bm"){
 	    		$stats = new stats($mysqli);
-	    		$username = $_GET['username'];
-				$result = $stats-> bottom10_excercises_user($username);
+	    		$username = $_SESSION['user'];
+				$result = $stats-> bottom_user($username);
 				echo "<th>Nombre Ejercicio  </th>
 			<th>Tiempo     </th>";
 				if ($result){

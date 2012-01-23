@@ -1,20 +1,22 @@
 <?php
  	include ("../session.inc");
    	include ("../tools/stats.php");
-	check_login($mysqli, "Administrador");
+	check_login($mysqli);
 	//include "graph/charts.php";
 
 if (isset ($_POST['select'])){
 	$seleccion = $_POST['select'];
+	
 	if ($seleccion == "10 Mejores tiempos por usuario"){ top_user($mysqli);}
-	else if ($seleccion == "10 Peores tiempos por usuario"){ bottom_user($mysqli);}
-	else if ($seleccion == "10 Peores tiempos por equipo"){ bottom_team($mysqli);}
-	else if ($seleccion == "10 Mejores tiempos por equipo"){ top_team($mysqli);}
-	else if ($seleccion == "Fechas de acceso por usuario"){ login_user($mysqli);}
-	else if ($seleccion == "10 Mejores tiempos"){ top_me($mysqli);}
-	else if ($seleccion == "10 Peores tiempos"){ bottom_me($mysqli);}
+	if ($seleccion == "10 Peores tiempos por usuario"){ bottom_user($mysqli);}
+	if ($seleccion == "10 Peores tiempos por equipo"){ bottom_team($mysqli);}
+	if ($seleccion == "10 Mejores tiempos por equipo"){ top_team($mysqli);}
+	if ($seleccion == "Fechas de acceso por usuario"){ login_user($mysqli);}
+	if ($seleccion == "10 Mejores tiempos"){ top_me($mysqli);}
+	if ($seleccion == "10 Peores tiempos"){ bottom_me($mysqli);}
 
 }
+else { echo "not set";}
 
 /* Falta montar el arreglo y probarlo. OJO que el gráfico agarra las cosas de 
  * sample.php que es dnd está la funcion que escribe el gráfico. Hay que ver cómo se jala
@@ -57,7 +59,7 @@ function top_me($mysqli){
 		
 		$username = $_SESSION['user'];
 		$result = false;
-		$result = $stats->top10_excercises_user($username);
+		$result = $stats->top_user($username);
 			
 		if($result == true) {
 			$_SESSION['re'] = "tm";
@@ -104,16 +106,14 @@ function bottom_me($mysqli){
 		$stats = new stats($mysqli);
 		$username = $_SESSION['user'];
 		$result = false;
-		$result = $stats->bottom10_excercises_user($username);
+		$result = $stats->bottom_user($username);
 				
-		if($result == true) {/*
+		if($result == true) {
 			$_SESSION['re'] = "bm";
-			header('Location:./user2.php');*/
-			echo "leo";
+			header('Location:./user2.php');
 		}
 		else {
-		//	header('Location:./user.php?result=error');
-		echo "leo";
+			header('Location:./user.php?result=error');
 		}
 }
 
