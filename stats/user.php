@@ -1,5 +1,5 @@
 <?php   
-include ("../session.inc");
+	include ("../session.inc");
 	check_login($mysqli);
 ?>
 <!DOCTYPE html>
@@ -42,8 +42,8 @@ include ("../session.inc");
 		<form action="stat.php" method="post">
 		<BR />
 		<select name="select" align="center">
-			<option>10 Mejores ejercicios</option>
-			<option>10 Peores ejercicios</option>
+			<option>10 Mejores tiempos</option>
+			<option>10 Peores tiempos</option>
 		</select>
 		
 		<br /><br />

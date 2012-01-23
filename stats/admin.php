@@ -1,5 +1,5 @@
 <?php   
-include ("../session.inc");
+	include ("../session.inc");
 //include ("./grid.php");
 	check_login($mysqli,"Administrador");
 ?>
@@ -42,10 +42,10 @@ include ("../session.inc");
 		<form action="stat.php" method="post">
 		<BR />
 		<select name="select" align="center">
-			<option>10 Mejores ejercicios por usuario</option>
-			<option>10 Peores ejercicios por usuario</option>
-			<option>10 Mejores ejercicios por equipo</option>
-			<option>10 Peores ejercicios por equipo</option>
+			<option>10 Mejores tiempos por usuario</option>
+			<option>10 Peores tiempos por usuario</option>
+			<option>10 Mejores tiempos por equipo</option>
+			<option>10 Peores tiempos por equipo</option>
 			<option>Fechas de acceso por usuario</option>
 		</select>
 		<br /><br />
@@ -70,9 +70,6 @@ include ("../session.inc");
 		
 		</center>
 	</div>
-
-
-	
 	<?php
 		$obj = new general($mysqli);
 		echo $obj->footer("../");

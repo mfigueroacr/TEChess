@@ -1,20 +1,22 @@
 <?php
  	include ("../session.inc");
    	include ("../tools/stats.php");
-	check_login($mysqli, "Administrador");
+	check_login($mysqli);
 	//include "graph/charts.php";
 
 if (isset ($_POST['select'])){
 	$seleccion = $_POST['select'];
-	if ($seleccion == "10 Mejores ejercicios por usuario"){ top_user($mysqli);}
-	else if ($seleccion == "10 Peores ejercicios por usuario"){ bottom_user($mysqli);}
-	else if ($seleccion == "10 Peores ejercicios por equipo"){ bottom_team($mysqli);}
-	else if ($seleccion == "10 Mejores ejercicios por equipo"){ top_team($mysqli);}
-	else if ($seleccion == "Fechas de acceso por usuario"){ login_user($mysqli);}
-	else if ($seleccion == "10 Mejores ejercicios"){ top_me($mysqli);}
-	else if ($seleccion == "10 Peores ejercicios"){ bottom_me($mysqli);}
-}
+	
+	if ($seleccion == "10 Mejores tiempos por usuario"){ top_user($mysqli);}
+	if ($seleccion == "10 Peores tiempos por usuario"){ bottom_user($mysqli);}
+	if ($seleccion == "10 Peores tiempos por equipo"){ bottom_team($mysqli);}
+	if ($seleccion == "10 Mejores tiempos por equipo"){ top_team($mysqli);}
+	if ($seleccion == "Fechas de acceso por usuario"){ login_user($mysqli);}
+	if ($seleccion == "10 Mejores tiempos"){ top_me($mysqli);}
+	if ($seleccion == "10 Peores tiempos"){ bottom_me($mysqli);}
 
+}
+else { echo "not set";}
 
 /* Falta montar el arreglo y probarlo. OJO que el gráfico agarra las cosas de 
  * sample.php que es dnd está la funcion que escribe el gráfico. Hay que ver cómo se jala
@@ -33,7 +35,6 @@ function top_team($mysqli){
 			header('Location:./admin.php?result=error');
 		}
 	}
-
 function top_user($mysqli){
 		$stats = new stats($mysqli);
 		if (isset ($_POST['txt_username'])){
@@ -52,11 +53,7 @@ function top_user($mysqli){
 	  else{
 			header('Location:./admin.php?result=miss_data');
   	  }
-	}
-
-
-
-	
+	}	
 function top_me($mysqli){
 		$stats = new stats($mysqli);
 		
@@ -86,7 +83,6 @@ function bottom_team($mysqli){
 			header('Location:./view.php?result=error');
 		}
 	}
-
 function bottom_user($mysqli){
 		$stats = new stats($mysqli);
 		if (isset ($_POST['txt_username'])){
@@ -106,7 +102,6 @@ function bottom_user($mysqli){
 			header('Location:./admin.php?result=miss_data');
   	  }
 }
-
 function bottom_me($mysqli){
 		$stats = new stats($mysqli);
 		$username = $_SESSION['user'];

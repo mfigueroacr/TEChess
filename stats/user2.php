@@ -1,6 +1,7 @@
 <?php   
 include ("../session.inc");
 check_login($mysqli);
+include ("../tools/stats.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,15 +35,54 @@ check_login($mysqli);
 		
 ?>
 <div id="contenido">
-<h1>Resultado</h1>
-<center>
-	
 <?php
+		if ($_SESSION['re'] == "tm"){
+			echo "<h1>Resultado de los 10 Mejores Tiempos para " . $_SESSION['user'] . "</h1>"; }
+		else if ($_SESSION['re'] == "bm"){
+			echo "<h1>Resultado de los 10 Peores Tiempos para " . $_SESSION['user'] . "</h1>"; }
+?>
+<br />
+<center>
+	<section>
+    	<table border="1">
+			<tr>
+<?php
+if ($_SESSION['re'] == "tm"){
+	    		$stats = new stats($mysqli);
+	    		$username = $_SESSION['user'];
+				$result = $stats-> top_user($username);
+				echo "<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>";
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}
+if ($_SESSION['re'] == "bm"){
+	    		$stats = new stats($mysqli);
+	    		$username = $_SESSION['user'];
+				$result = $stats-> bottom_user($username);
+				echo "<th>Nombre Ejercicio  </th>
+			<th>Tiempo     </th>";
+				if ($result){
+					foreach ($result as $_key) {
+						echo "</tr> <tr>";
+						echo "<td>" . $_key['name']. "<td>" . $_key['time']; 				
+						echo "</tr>";
+					}
+				}
+}
 	//include charts.php to access the InsertChart function
+	/*
 	include "./graph/charts.php";
 	echo InsertChart ( "./graph/charts.swf", "./graph/charts_library", "stat.php", 400, 250 );
+	 */
 ?>
-	
+	</table>
+	</section>
 </center>
 </div>
 
@@ -53,4 +93,3 @@ check_login($mysqli);
     
 </body>
 </html>
-?>
