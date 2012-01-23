@@ -69,41 +69,41 @@ $result = c_mysqli_call($this->_link, "Update_Password", "'$username' , '$passwo
 }
 
 public function test_create ($user, $password){
-print "Creating user... ";
+print "Creando Usuario... ";
 $creacion = $this->create_user ($user,'lastname', $user, $password, "email","jugador");
 if ($creacion == true) {
-    print " created\n";
+    print " creado\n";
 }
 else{
-	 print " failed\n";
+	 print " fallo\n";
 }
 echo "</br>";
 }
 
 public function test_check($user, $password)
 {
-print "Checking login ... ";
+print "Comprobando autenticaci&oacute;n ... ";
 $chk_pass = false;
 $chk_pass = $this->check_password($user, $password);
 if ($chk_pass == true) {
-    echo "checked";
+    echo "comprobado";
     }
 if ($chk_pass == false) {
-echo "failed";
+echo "fallo";
 }
 echo "</br>";	
 }
 
 public function test_delete($user)
 {
-print "Deleting user... ";
+print "Eliminando usuario... ";
 $eliminacion = false;
 $eliminacion = $this->delete_user($user);
 if ($eliminacion == true) {
-    print " Deleted\n";
+    print " Eliminado\n";
 }
 if ($eliminacion == false){ 
-	print " failed\n";
+	print " fallo\n";
 }
 echo "</br>";	
 }
