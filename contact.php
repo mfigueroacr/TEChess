@@ -36,7 +36,7 @@ $obj->menu();
 	<div id="texto">
 	<h1>Informaci&oacute;n de contacto</h1>
 	<br />
-	El TeChess es una herramienta dirigida al equipo de ajedrez del <a href="http://www.tec.cr">Instituto Tecnológico de Costa Rica</a>. En caso de querer contactar
+	El TeChess es una herramienta dirigida al equipo de ajedrez del <a href="http://www.tec.cr" target="_blank">Instituto Tecnológico de Costa Rica</a>. En caso de querer contactar
 	al administrador del equipo envíe un correo electrónico a la dirección <a href="mailto:techess.itcr@gmail.com">techess.itcr@gmail.com</a>.
 	
 	Si desea conocer información del equipo de desarrollo dirijase a la seccion <a href="./about.php">Acerca de TeChess</a>.

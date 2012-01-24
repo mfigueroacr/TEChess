@@ -37,10 +37,10 @@ $obj->menu();
 <h1>Ayuda</h1>
 <br />
 <article>
-El presente sistema fue desarrollado y probado bajo los navegadores <a href="http://www.google.es/chrome">Google Chrome </a> y 
-<a href="http://www.mozilla.org/es-MX/firefox/new/">Firefox</a>, por lo cual se recomienta 
+El presente sistema fue desarrollado y probado bajo los navegadores <a href="http://www.google.es/chrome" target="_blank">Google Chrome </a> y 
+<a href="http://www.mozilla.org/es-MX/firefox/new/" target="_blank">Firefox</a>, por lo cual se recomienta 
 el uso de estos para un mejor desempeño. 
-Además debe tener instalado el software de <a href="http://java.com/es/download/">JAVA</a> para poder utilizar las secciones 
+Además debe tener instalado el software de <a href="http://java.com/es/download/" target="_blank">JAVA</a> para poder utilizar las secciones 
 
 de entrenamiento.
 <br /> <br />
@@ -52,11 +52,13 @@ escribir a la dirección
 <br /> 
 Aviso Legal
 
-Techess está protegido bajo la licencia <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+Techess está protegido bajo la licencia <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
 <br />
-El código del proyecto está respaldado en los repositorios <a href="https://github.com/mfigueroacr/TEChess">github.com</a> y <a href="http://code.google.com/p/techess/">code.google.com</a>.
+El código del proyecto está respaldado en los repositorios <a href="https://github.com/mfigueroacr/TEChess" target="_blank">github.com</a> y <a href="http://code.google.com/p/techess/" target="_blank">code.google.com</a>.
 <br /> 
-Para las licencias de <a href="http://jquery.org/license/">jquery.org</a>,<a href="http://apycom.com/">apycom.com</a> y <a href="http://www.oracle.com/us/legal/terms/index.html">oracle.com</a>, diríjase a los vínculos respectivos., se reservan los derechos a cada uno de los autores.
+Para las licencias de <a href="http://jquery.org/license/" target="_blank">jquery.org</a>, <a href="http://apycom.com/" target="_blank">apycom.com</a> 
+y <a href="http://www.oracle.com/us/legal/terms/index.html" target="_blank">oracle.com</a>, diríjase a los vínculos respectivos., se reservan los 
+derechos a cada uno de los autores.
 <br />
 © 2012 GitHub Inc. All rights reserved
 <br />
